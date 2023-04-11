@@ -33,6 +33,7 @@ These instructions will get you a copy of the project up and running on your loc
 2. Install the required Python packages:
 
 ```sh
+python -m pip install
 pip install robotframework
 pip install robotframework-seleniumlibrary
 pip install robotframework-requests
