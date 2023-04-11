@@ -20,17 +20,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ```sh
 pip install robotframework
-```
-
-```sh
 pip install robotframework-seleniumlibrary
-```
-
-```sh
 pip install robotframework-requests
-```
-
-```sh
 pip install robotframework-faker
 ```
 
