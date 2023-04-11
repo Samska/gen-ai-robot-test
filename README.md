@@ -56,8 +56,4 @@ The test results will be generated in the results/ directory. Open the report.ht
 
 ### Test Configuration
 
-The test configuration can be found in the config/ directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
-
-### License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+The test configuration can be found in the config / directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
