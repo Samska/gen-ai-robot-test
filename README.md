@@ -45,10 +45,10 @@ pip install robotframework-faker
 To run the tests, use the following command:
 
 ```sh
-robot tests/
+robot --outputdir results tests
 ```
 
-This will run all the tests in the tests/ directory.
+This will run all the tests in the tests/ directory and save the report in the results/.
 
 ### Test Results
 
