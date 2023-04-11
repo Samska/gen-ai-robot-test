@@ -1,5 +1,6 @@
 Separating API and UI tests within the resources folder can help you keep your Robot Framework project organized and maintainable. Here's an example of how you could structure your resources folder to separate API and UI tests:
 
+```bash
 resources/
 ├── api/
 │   ├── keywords/
@@ -28,6 +29,7 @@ resources/
 │   │   └── common_credentials.robot
 │   └── README.md
 └── README.md
+```
 
 In this example, there are three subfolders under resources:
 

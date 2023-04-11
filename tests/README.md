@@ -1,5 +1,6 @@
 Yes, it's a good practice to keep API and UI tests organized separately within the tests folder. Here's an example of how you could structure your tests folder:
 
+```bash
 tests/
 ├── api/
 │   ├── authentication/
@@ -22,6 +23,7 @@ tests/
 │   │   └── README.md
 │   └── README.md
 └── README.md
+```
 
 In this example, there are two subfolders under tests:
 
