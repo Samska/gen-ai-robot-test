@@ -33,7 +33,7 @@ When I request the created user
     ${response}=    GET On Session      serverest    ${USERS_API_ENDPOINT}/${USER_ID}
     Set Test Variable    ${response}
 
-The response status code should be ${status_code}
+Then the response status code should be ${status_code}
     Should Be Equal As Numbers    ${response.status_code}    ${status_code}
     Should Be True    ${response.json()}
 
