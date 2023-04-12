@@ -1,5 +1,5 @@
 *** Settings ***
-Resource      ../../../resources/api/settings/test_settings.robot
+Resource      ../../../config/settings.robot
 Resource      ../../../resources/api/keywords/test_keywords_common.robot
 Resource      ../../../resources/api/keywords/test_keywords_users.robot
 Resource      ../../../resources/api/variables/test_variables_users.robot
@@ -18,7 +18,7 @@ Scenario: Create a new user
     And the response body should not be empty
 
 Scenario: Get a specific user informations
-    When I request a specific user
+    When I request the created user
     Then the response status code should be 200
     And the response body should not be empty
 

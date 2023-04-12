@@ -29,7 +29,7 @@ When I request the list of all registered users
     ${response}=     GET On Session     serverest    ${USERS_API_ENDPOINT}
     Set Test Variable    ${response}
 
-When I request a specific user
+When I request the created user
     ${response}=    GET On Session      serverest    ${USERS_API_ENDPOINT}/${USER_ID}
     Set Test Variable    ${response}
 
