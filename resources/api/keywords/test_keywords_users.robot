@@ -10,9 +10,19 @@ Given I have a valid user data
 When I create the user
     ${payload}=    Create Dictionary    nome=${name}    email=${email}    password=${password}    administrador=false
     ${headers}=    Create Dictionary    Content-Type=application/json
-    ${response}=    POST On Session    serverest    ${USERS_API_ENDPOINT}    json=${payload}    headers=${headers}
+    ${response}=   POST On Session    serverest    ${USERS_API_ENDPOINT}    json=${payload}    headers=${headers}
     ${user_id}=    Set Variable    ${response.json()['_id']}
-    Set Global Variable    ${USER_ID}    ${user_id}
+    Set Global Variable     ${USER_ID}    ${user_id}
+    Set Test Variable       ${response}
+
+When I update the created user
+    ${payload}     Create Dictionary          nome=John Smith                   email=john.smith@example.com                    password=P@ssw0rd123    administrador=false
+    ${headers}=    Create Dictionary          Content-Type=application/json
+    ${response}=   PUT On Session             serverest                        ${USERS_API_ENDPOINT}/${USER_ID}    json=${payload}         headers=${headers}
+    Set Test Variable       ${response}
+
+When I delete the created user
+    ${response}=   DELETE On Session          serverest                        ${USERS_API_ENDPOINT}/${USER_ID}
     Set Test Variable       ${response}
 
 When I request the list of all registered users

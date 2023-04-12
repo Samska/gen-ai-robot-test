@@ -22,17 +22,12 @@ Scenario: Get a specific user informations
     Then the response status code should be 200
     And the response body should not be empty
 
-Update A Specific User Informations
-    ${name}                                                  FakerLibrary.Name
-    ${email}                                                 FakerLibrary.Email
-    ${password}                                              FakerLibrary.Password
-    ${payload}                                               Create Dictionary          nome=${name}                     email=${email}                      password=${password}    administrador=false
-    ${headers}=                                              Create Dictionary          Content-Type=application/json
-    ${response}=                                             PUT On Session             serverest                        ${USERS_API_ENDPOINT}/${USER_ID}    json=${payload}         headers=${headers}
-    Should Be Equal As Numbers                               ${response.status_code}    200
-    Should Be True                                           ${response.json()}
+Scenario: Update the created user
+    When I update the created user
+    Then the response status code should be 200
+    And the response body should not be empty
 
-Delete A Specific User
-    ${response}=                                             DELETE On Session          serverest                        ${USERS_API_ENDPOINT}/${USER_ID}
-    Should Be Equal As Numbers                               ${response.status_code}    200
-    Should Be True                                           ${response.json()}
+Scenario: Delete the created user
+    When I delete the created user
+    Then the response status code should be 200
+    And the response body should not be empty
