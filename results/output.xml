@@ -1,412 +1,473 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230411 16:29:33.652" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230411 21:27:57.129" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests">
 <suite id="s1-s1" name="Api" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\api">
 <suite id="s1-s1-s1" name="Users" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\api\users">
 <suite id="s1-s1-s1-s1" name="Test Api Users" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\api\users\test_api_users.robot">
-<test id="s1-s1-s1-s1-t1" name="GET All Registered Users" line="8">
+<test id="s1-s1-s1-s1-t1" name="Scenario: Get all registered users" line="9">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230411 16:29:34.199" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230411 16:29:34.199" endtime="20230411 16:29:34.199"/>
+<msg timestamp="20230411 21:27:57.681" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 21:27:57.681" endtime="20230411 21:27:57.681"/>
 </kw>
-<status status="PASS" starttime="20230411 16:29:34.199" endtime="20230411 16:29:34.199"/>
+<status status="PASS" starttime="20230411 21:27:57.680" endtime="20230411 21:27:57.681"/>
 </kw>
+<kw name="When I request the list of all registered users" library="test_keywords_users">
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20230411 16:29:35.395" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+<msg timestamp="20230411 21:27:58.292" level="INFO">GET Request : url=https://serverest.dev/usuarios 
  path_url=/usuarios 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230411 16:29:35.396" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+<msg timestamp="20230411 21:27:58.293" level="INFO">GET Response : url=https://serverest.dev/usuarios 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'c4dc26ba-4bfc-4dda-a67f-12e73540800b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'f6e69b9429322be7193f6719f87aa5dd;o=1', 'Date': 'Tue, 11 Apr 2023 19:29:33 GMT', 'Server': 'Google Frontend', 'Content-Length': '96620'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'fb5c82de-1aae-45c6-b0ed-d8c66da372f0', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'c6144efed6b0a56eb2d32ec97aaa3ab5;o=1', 'Date': 'Wed, 12 Apr 2023 00:27:55 GMT', 'Server': 'Google Frontend', 'Content-Length': '87528'} 
  body={
-    "quantidade": 436,
+    "quantidade": 409,
     "usuarios": [
         {
-            "nome": "Genildo Oliveira Neto",
-            "email": "Consuelo_Franco@gmail.com",
-            "password": "hjf6luYCmhGIE2G",
+            "nome": "Fulano da Silva",
+            "email": "bjdl@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "07hk2UPBNqKteNw1"
+            "_id": "0PpromcJDODpPvlN"
         },
         {
-            "nome": "Loide Costa",
-            "email": "Dina.Moraes@gmail.com",
-            "password": "r31M4bkRNRPg6Lg",
+            "nome": "Fulano da Silva",
+            "email": "hrcr@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "0AeBbhCODxL2lxND"
+            "_id": "0Udg679QVidT6GND"
         },
         {
-            "nome": "Rosângela Martins",
-            "email": "Leila.Pereira18@bol.com.br",
-            "password": "1QqDCSUCJtHZXPZ",
-            "administrador": "true",
-            "_id": "0gjo2S1vnZSfGHGi"
-        },
-        {
-            "nome": "Mayara Fernandes",
-            "email": "williamcontreras@example.org",
-            "password": "123456",
-            "administrador": "true",
-            "_id": "0k8qEDzFxjCLgzM6"
-        },
-        {
-            "nome": "Hernani Macedo Neto",
-            "email": "Asturio53@gmail.com",
-            "password": "ycmtPDOxjoWaABh",
-            "administrador": "false",
-            "_id": "1Gar3xCSVIUiJLk9"
-        },
-        {
-            "nome": "Adenisio Moreira",
-            "email": "Rosely_Batista99@bol.com.br",
-            "password": "0NUiHLvkQ8B9rYA",
-            "administrador": "true",
-            "_id": "1Kx49DgmDVZOnWQa"
-        },
-        {
-            "nome": "Dijosilene Reis",
-            "email": "Cludia_Oliveira29@hotmail.com",
-            "password": "L5MhofpgoEFFIVa",
-            "administrador": "true",
-            "_id": "1MUdVoMMpQgb5eal"
-        },
-        {
-            "nome": "Ouida Kemmer IV",
-            "email": "erich@littel-botsford.net",
+            "nome": "Fulano da Silva",
+            "email": "fulano@qa.com",
             "password": "teste",
             "administrador": "true",
-            "_id": "1Oq5gi5XYlmSxl3D"
+            "_id": "0uxuPY0cbmQhpEz1"
         },
         {
-            "nome": "Fr. Efrain Gulgowski",
-            "email": "orval_stoltenberg@kuhlman.name",
+            "nome": "Fulano da Silva",
+            "email": "srxp@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "0vj4pKemU50eCZj9"
+        },
+        {
+            "nome": "Anthony",
+            "email": "malu.teles@gmail.com",
+            "password": "xoilmhf57np",
+            "administrador": "true",
+            "_id": "0zkctypO30o3SJ3M"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "yfqi@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "1BEKKowEWRSQPT7x"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "lwme@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "1FOLkuslm9pQDHST"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "gqro@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "1cs5QukyhF9LmOf8"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "lezo@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "1jPvt4ELHx3AFW5b"
+        },
+        {
+            "password": "0p7l6gk2",
+            "administrador": "true",
+            "nome": "Thiago",
+            "email": "perola.aguiar@bol.com.br",
+            "_id": "1ltEPgqzZksOxNaB"
+        },
+        {
+            "nome": "Gov. Fernando McCullough",
+            "email": "pauletta@luettgen.com",
             "password": "teste",
             "administrador": "true",
-            "_id": "1SseeoauvsaYHqbd"
+            "_id": "1m08oMoLUVBjJlgC"
         },
         {
-            "nome": "Gabriel Cardoso",
-            "email": "kevin45@example.org",
-            "password": "^9GWtLzb(X",
+            "nome": "Fulano da Silva",
+            "email": "czzp@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "1YPi2x0NBZC0qTZ4"
+            "_id": "2BZ7gIQFg6gxNJ8F"
         },
         {
-            "nome": "Marcela Reis",
-            "email": "Rute69@live.com",
-            "password": "XyhWODEoBzMqHYl",
+            "nome": "Fulano da Silva",
+            "email": "lmwp@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "1lpsUJpd263ncipy"
+            "_id": "2MZwHDwAEa6nfYlC"
         },
         {
-            "nome": "Elroy Greenholt",
-            "email": "kennith_johns@kling.name",
-            "password": "teste",
+            "nome": "Fulano da Silva",
+            "email": "wysy@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "29v5OVacuHsOEviW"
+            "_id": "2SE6gnrSA0yOYIMQ"
         },
         {
-            "nome": "Dr. Robison Braga",
-            "email": "Luz89@live.com",
-            "password": "0sNliftJ6lngo1k",
+            "nome": "Maria Laura",
+            "email": "barbara.viana@bol.com.br",
+            "password": "4acgmgekrq4ge",
             "administrador": "true",
-            "_id": "2M7os5bA02Gykfm5"
+            "_id": "2YZBf3h5pfKMkAXB"
+        },
+        {
+            "nome": "Núbia",
+            "email": "rafaela.melo@live.com",
+            "password": "putdousuario",
+            "administrador": "true",
+            "_id": "2bOMr3BCaTwZosVF"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "kswt@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "2vaWEMyWflstfhMz"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "zxej@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "31W0STMLjSpvxkdP"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "lktb@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "3FbUODTOm4xrR1J8"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "wocz@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "3pYMdZrkpHZPsmVm"
+        },
+        {
+            "password": "tmsr11tn7h",
+            "administrador": "true",
+            "nome": "Enzo Gabriel",
+            "email": "alessandro.aguiar@live.com",
+            "_id": "3wQWWCU3tWRVTl3f"
+        },
+        {
+            "nome": "Márcio",
+            "email": "mariaisis.teles@bol.com.br",
+            "password": "o3x0fkv0ep9kh",
+            "administrador": "true",
+            "_id": "499pOAIODpfzGmuD"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "pyeb@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "4B24wtM9lc8psk5G"
+        },
+        {
+            "nome": "Johnie Jenkins",
+            "email": "an@rolfson.name",
+            "password": "uKasKvTvGiU",
+            "administrador": "true",
+            "_id": "4H8OLul7B5cVd1zr"
+        },
+        {
+            "nome": "Benício",
+            "email": "anajulia.camacho@bol.com.br",
+            "password": "1lu0lt6b6t8z48",
+            "administrador": "true",
+            "_id": "4ZGnZfZpfGEGOLBb"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "zsiz@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "4k4Bmxbgkc1gtpUk"
+        },
+        {
+            "nome": "Luiz Felipe",
+            "email": "luan.darocha@hotmail.com",
+            "password": "epo0hpu8i",
+            "administrador": "true",
+            "_id": "4tbargjUQdVHGA4X"
+        },
+        {
+            "nome": "Antonella",
+            "email": "erick.guterres@bol.com.br",
+            "password": "3i99u5gxfu",
+            "administrador": "true",
+            "_id": "57zUg2SJksqtF5yj"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "mbvq@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5WLUmqef4Elr8OUa"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "cbue@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5Xm9WGzgXgWjYIQu"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "sedc@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5oSCyACxxcvSbnmp"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "ttou@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5rxAeMzv6ehYAbAc"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "abba@emailteste.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5wxRUqaX3OmiPHni"
         },
         {
             "nome": "batata",
-            "email": "rich_christiansen@gutkowski.net",
+            "email": "rudolph@powlowski-satterfield.biz",
             "password": "teste",
             "administrador": "true",
-            "_id": "2OKdKWEamfujxSOt"
+            "_id": "6LW9EApWxw7gzR0W"
         },
         {
-            "nome": "Santiago Silva",
-            "email": "Zenaide_Nogueira57@hotmail.com",
-            "password": "DYU5UBesz_xIkU_",
+            "nome": "Fulano da Silva",
+            "email": "wbqf@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "2RhHn8HMLL0UUm9p"
+            "_id": "6e4R97T6vCbmVTAO"
         },
         {
-            "nome": "Sr. Lucineide Silva",
-            "email": "Gislandio31@yahoo.com",
-            "password": "NfQTPAF2K00iLrs",
+            "password": "hffpzvyo1bt",
             "administrador": "true",
-            "_id": "2cvqd4Wx9FUiNRHS"
+            "nome": "Theo",
+            "email": "daniel.lima@yahoo.com",
+            "_id": "7EXt5F7ysO9HLJ36"
         },
         {
-            "nome": "Gracco Reis",
-            "email": "Sirlei_Souza68@gmail.com",
-            "password": "2QcRauQYPQWjWkE",
+            "nome": "João Pedro",
+            "email": "clara.ferraco@live.com",
+            "password": "jef8ce7p",
             "administrador": "true",
-            "_id": "2hj7xLbLIvNNR99E"
+            "_id": "7MHLYqxNS32mWNpV"
         },
         {
-            "nome": "Sr. Ira Pereira",
-            "email": "Kelly_Pereira54@bol.com.br",
-            "password": "1pPAy2J0rGzlpHd",
+            "nome": "Fulano da Silva",
+            "email": "phie@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "2qDzymIRmA2Tl702"
+            "_id": "7MYYMJYwt8peInsM"
         },
         {
-            "nome": "Clara da Costa",
-            "email": "joao-guilherme49@example.com",
-            "password": "7pSnWIUa*6",
+            "nome": "Fulano da Silva",
+            "email": "kptx@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "2rRGFj9zr1WBN2PG"
+            "_id": "7W2JP9Ifybo601oJ"
         },
         {
-            "nome": "Ana Laura da Luz",
-            "email": "sophiada-cruz@example.net",
-            "password": "hN0UA2z__^",
+            "nome": "Fulano da Silva",
+            "email": "daep@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "2sugUH84OpOddnF6"
+            "_id": "7WQXSSnu5V3mzetu"
         },
         {
-            "nome": "Kyle O'Connell",
-            "email": "rena@donnelly.name",
-            "password": "teste",
+            "nome": "Isaac",
+            "email": "analuiza.raia@live.com",
+            "password": "13qn939zzjbk0",
             "administrador": "true",
-            "_id": "2xduyhVE6X7Imi5c"
+            "_id": "7WwHp5dk6IYfdC1G"
         },
         {
-            "nome": "joeten",
-            "email": "joe13@guts.com",
-            "password": "23456r",
+            "nome": "Fulano da Silva",
+            "email": "lusk@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "2yAVnLrQhnv8JD4z"
+            "_id": "7hXgy1XXNgU7k8Tk"
         },
         {
-            "nome": "Riyusei Souza",
-            "email": "Kiyoko.Macedo18@gmail.com",
-            "password": "KpxzWq_wSV1LJKx",
+            "nome": "Fulano da Silva",
+            "email": "zpgv@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "38xg2yd2klPtTGtu"
+            "_id": "7ofOUZ7do9Y9YXFN"
         },
         {
-            "nome": "Lêda Batista",
-            "email": "Eliene73@gmail.com",
-            "password": "bifAunXpYuurgML",
+            "nome": "João Gabriel",
+            "email": "bento.moreira@yahoo.com",
+            "password": "pyjzesg1oe8",
             "administrador": "true",
-            "_id": "3DDAXqWvzAPWgpfn"
+            "_id": "7on0sB7MVNIiNqe1"
         },
         {
-            "nome": "Romualdo Batista",
-            "email": "Nlio.Barros@gmail.com",
-            "password": "U26Fm0ZjGwFcaMX",
+            "nome": "Fulano da Silva",
+            "email": "xwsx@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "3KHDVloCcNjCRUaK"
+            "_id": "7pj9Gg2YwnTfLfrE"
         },
         {
-            "nome": "Negipe Martins",
-            "email": "Valdemilson.Reis@live.com",
-            "password": "DP03Gh_r0VdQCYV",
+            "nome": "Fulano da Silva",
+            "email": "nsnp@emailteste.com",
+            "password": "1234",
             "administrador": "true",
-            "_id": "3LWwW3M1bEO13SNB"
+            "_id": "7sy3GV5koFK6bPps"
         },
         {
-            "nome": "Sylvério Batista Jr.",
-            "email": "Simone25@hotmail.com",
-            "password": "1v5vcS72KLlUodt",
+            "nome": "Rafael",
+            "email": "marcia.geraldes@yahoo.com",
+            "password": "2lkgbiqxb9h2xf",
             "administrador": "true",
-            "_id": "3Vdhhl8FyKfRhwyO"
-        },
-        {
-            "nome": "{{generatedName}}",
-            "email": "Dannie38@example.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "3iCqnfLdML23V4CU"
-        },
-        {
-            "nome": "Lessie.Hammes54",
-            "email": "Raina.Blick4@hotmail.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "3ruGnrXgBsye9FkR"
-        },
-        {
-            "nome": "Bao Hessel",
-            "email": "terry.carter@gibson-witting.biz",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "4P6Ay1kmSGUjqfCg"
-        },
-        {
-            "nome": "Rosangela Batista",
-            "email": "Keylla.Oliveira@bol.com.br",
-            "password": "2qPh56VIqX2qU2x",
-            "administrador": "true",
-            "_id": "4X2jedNeSOdLxsfH"
-        },
-        {
-            "nome": "batata",
-            "email": "sam@larson.biz",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "4arXROCuRMgIDulf"
-        },
-        {
-            "nome": "Korey Lowe",
-            "email": "adella@armstrong.org",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "4bhTezyqtLStbsOC"
-        },
-        {
-            "nome": "Natália Saraiva",
-            "email": "Severina11@live.com",
-            "password": "dkUbuCodpqgNOeD",
-            "administrador": "true",
-            "_id": "4o5IcES7A7zdfhhp"
-        },
-        {
-            "nome": "Sau Steuber",
-            "email": "beverley_ullrich@goyette.net",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "4rysNtmi4J6wJ0T1"
-        },
-        {
-            "nome": "Mitico Barros",
-            "email": "Nardelle_Batista@live.com",
-            "password": "NQVB6DUZXPC5f8h",
-            "administrador": "true",
-            "_id": "5BRWRkt3Kfe1wXLO"
-        },
-        {
-            "nome": "Nicolas Ramos",
-            "email": "eda-luz@example.org",
-            "password": "%3L0&amp;9uv&amp;v",
-            "administrador": "true",
-            "_id": "5CUYRGTwKZUTPJmX"
-        },
-        {
-            "nome": "Adda Silva",
-            "email": "Flvio.Carvalho@bol.com.br",
-            "password": "n3Hm3Ah2EwWuckc",
-            "administrador": "true",
-            "_id": "5DpXdaOUGL8ennvO"
-        },
-        {
-            "nome": "Ilka Nogueira",
-            "email": "Wan_Macedo@gmail.com",
-            "password": "lY9Eii9Tilj2u1T",
-            "administrador": "true",
-            "_id": "5aGHvDdz8dP08tt8"
-        },
-        {
-            "nome": "Onofre Xavier",
-            "email": "Rvia_Melo74@live.com",
-            "password": "zMSwhjKoFc2JjtH",
-            "administrador": "true",
-            "_id": "5aibthWYUxPigh2V"
-        },
-        {
-            "nome": "Abílio Souza",
-            "email": "Digenes_Moraes54@bol.com.br",
-            "password": "pzovlyngFirc6Pr",
-            "administrador": "true",
-            "_id": "5eRG02KgVQ0tB0yB"
-        },
-        {
-            "nome": "Tarly Santos",
-            "email": "Zenglein48@live.com",
-            "password": "7MV8HyXvwpYcdxU",
-            "administrador": "true",
-            "_id": "5j3Rwp8qtsqel60s"
-        },
-        {
-            "nome": "Miss Foster Ortiz",
-            "email": "lorenza_gislason@turcotte.co",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "63iGrpEUShvyUpN9"
-        },
-        {
-            "nome": "{{generatedName}}",
-            "email": "Theodore.Cremin@example.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "68XvL6rqRYgN279p"
-        },
-        {
-            "nome": "Mayara Fernandes",
-            "email": "kellyjohnson@example.com",
-            "password": "123456",
-            "administrador": "true",
-            "_id": "6X9gFFcd02t4dGFs"
-    ... (set the log level to DEBUG or TRACE to see the full content) 
+        ... (set the log level to DEBUG or TRACE to see the full content) 
  </msg>
-<msg timestamp="20230411 16:29:35.398" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230411 16:29:34.200" endtime="20230411 16:29:35.398"/>
+<msg timestamp="20230411 21:27:58.293" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:57.682" endtime="20230411 21:27:58.293"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230411 21:27:58.294" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:58.293" endtime="20230411 21:27:58.294"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:57.682" endtime="20230411 21:27:58.294"/>
+</kw>
+<kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="The response status code should be ${status_code}">
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
-<arg>200</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20230411 16:29:35.401" level="INFO">Argument types are:
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230411 21:27:58.296" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230411 16:29:35.399" endtime="20230411 16:29:35.402"/>
+<status status="PASS" starttime="20230411 21:27:58.295" endtime="20230411 21:27:58.296"/>
 </kw>
-<status status="PASS" starttime="20230411 16:29:34.198" endtime="20230411 16:29:35.403"/>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230411 21:27:58.296" endtime="20230411 21:27:58.298"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.295" endtime="20230411 21:27:58.298"/>
+</kw>
+<kw name="And the response body should not be empty" library="test_keywords_users">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230411 21:27:58.299" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20230411 21:27:58.298" endtime="20230411 21:27:58.299"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.298" endtime="20230411 21:27:58.299"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:57.680" endtime="20230411 21:27:58.300"/>
 </test>
-<test id="s1-s1-s1-s1-t2" name="POST A User" line="12">
+<test id="s1-s1-s1-s1-t2" name="Scenario: Create a new user" line="14">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230411 16:29:35.409" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230411 16:29:35.408" endtime="20230411 16:29:35.410"/>
+<msg timestamp="20230411 21:27:58.302" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 21:27:58.301" endtime="20230411 21:27:58.302"/>
 </kw>
-<status status="PASS" starttime="20230411 16:29:35.408" endtime="20230411 16:29:35.410"/>
+<status status="PASS" starttime="20230411 21:27:58.301" endtime="20230411 21:27:58.302"/>
 </kw>
+<kw name="Given I have a valid user data" library="test_keywords_users">
 <kw name="Name" library="FakerLibrary">
 <var>${name}</var>
 <doc>:example 'John Doe'</doc>
-<msg timestamp="20230411 16:29:35.411" level="INFO">${name} = Trevor Willis</msg>
-<status status="PASS" starttime="20230411 16:29:35.411" endtime="20230411 16:29:35.411"/>
+<msg timestamp="20230411 21:27:58.303" level="INFO">${name} = Monica Mcmahon</msg>
+<status status="PASS" starttime="20230411 21:27:58.303" endtime="20230411 21:27:58.303"/>
 </kw>
 <kw name="Email" library="FakerLibrary">
 <var>${email}</var>
-<msg timestamp="20230411 16:29:35.412" level="INFO">${email} = jocelyn24@example.com</msg>
-<status status="PASS" starttime="20230411 16:29:35.411" endtime="20230411 16:29:35.412"/>
+<msg timestamp="20230411 21:27:58.303" level="INFO">${email} = robertmckee@example.net</msg>
+<status status="PASS" starttime="20230411 21:27:58.303" endtime="20230411 21:27:58.303"/>
 </kw>
 <kw name="Password" library="FakerLibrary">
 <var>${password}</var>
 <doc>Generate a random password of the specified ``length``.</doc>
-<msg timestamp="20230411 16:29:35.413" level="INFO">${password} = *FpQHjR!_0</msg>
-<status status="PASS" starttime="20230411 16:29:35.412" endtime="20230411 16:29:35.413"/>
+<msg timestamp="20230411 21:27:58.304" level="INFO">${password} = 572XkzbY#2</msg>
+<status status="PASS" starttime="20230411 21:27:58.304" endtime="20230411 21:27:58.304"/>
 </kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230411 21:27:58.304" level="INFO">${name} = Monica Mcmahon</msg>
+<status status="PASS" starttime="20230411 21:27:58.304" endtime="20230411 21:27:58.304"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230411 21:27:58.304" level="INFO">${email} = robertmckee@example.net</msg>
+<status status="PASS" starttime="20230411 21:27:58.304" endtime="20230411 21:27:58.304"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230411 21:27:58.305" level="INFO">${password} = 572XkzbY#2</msg>
+<status status="PASS" starttime="20230411 21:27:58.304" endtime="20230411 21:27:58.305"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.302" endtime="20230411 21:27:58.305"/>
+</kw>
+<kw name="When I create the user" library="test_keywords_users">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>nome=${name}</arg>
 <arg>email=${email}</arg>
 <arg>password=${password}</arg>
-<arg>administrador=true</arg>
+<arg>administrador=false</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230411 16:29:35.414" level="INFO">${payload} = {'nome': 'Trevor Willis', 'email': 'jocelyn24@example.com', 'password': '*FpQHjR!_0', 'administrador': 'true'}</msg>
-<status status="PASS" starttime="20230411 16:29:35.413" endtime="20230411 16:29:35.414"/>
+<msg timestamp="20230411 21:27:58.306" level="INFO">${payload} = {'nome': 'Monica Mcmahon', 'email': 'robertmckee@example.net', 'password': '572XkzbY#2', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20230411 21:27:58.305" endtime="20230411 21:27:58.306"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230411 16:29:35.414" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20230411 16:29:35.414" endtime="20230411 16:29:35.414"/>
+<msg timestamp="20230411 21:27:58.306" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230411 21:27:58.306" endtime="20230411 21:27:58.306"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -415,52 +476,296 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20230411 16:29:35.721" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+<msg timestamp="20230411 21:27:58.625" level="INFO">POST Request : url=https://serverest.dev/usuarios 
  path_url=/usuarios 
- headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} 
- body=b'{"nome": "Trevor Willis", "email": "jocelyn24@example.com", "password": "*FpQHjR!_0", "administrador": "true"}' 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '114'} 
+ body=b'{"nome": "Monica Mcmahon", "email": "robertmckee@example.net", "password": "572XkzbY#2", "administrador": "false"}' 
  </msg>
-<msg timestamp="20230411 16:29:35.721" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+<msg timestamp="20230411 21:27:58.625" level="INFO">POST Response : url=https://serverest.dev/usuarios 
  status=201, reason=Created 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'ab22730f-3352-4e31-952e-0fab30b07a77', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '2db8c1c3a3d78d07b10636a01c50b499', 'Date': 'Tue, 11 Apr 2023 19:29:34 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '70b4486f-f266-413b-a2b3-43ccdcf50963', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ca0012f3de30a27140c4201283436436', 'Date': 'Wed, 12 Apr 2023 00:27:56 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
  body={
     "message": "Cadastro realizado com sucesso",
-    "_id": "pJAqWc4HLNkCvhDy"
+    "_id": "uHVLViY2P8SRc38K"
 } 
  </msg>
-<msg timestamp="20230411 16:29:35.721" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230411 16:29:35.415" endtime="20230411 16:29:35.721"/>
+<msg timestamp="20230411 21:27:58.625" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:58.306" endtime="20230411 21:27:58.625"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
+<kw name="Set Variable" library="BuiltIn">
+<var>${user_id}</var>
+<arg>${response.json()['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230411 21:27:58.626" level="INFO">${user_id} = uHVLViY2P8SRc38K</msg>
+<status status="PASS" starttime="20230411 21:27:58.625" endtime="20230411 21:27:58.626"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${USER_ID}</arg>
+<arg>${user_id}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230411 21:27:58.626" level="INFO">${USER_ID} = uHVLViY2P8SRc38K</msg>
+<status status="PASS" starttime="20230411 21:27:58.626" endtime="20230411 21:27:58.626"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230411 21:27:58.626" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:58.626" endtime="20230411 21:27:58.626"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.305" endtime="20230411 21:27:58.627"/>
+</kw>
+<kw name="Then the response status code should be 201" library="test_keywords_users" sourcename="The response status code should be ${status_code}">
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
-<arg>201</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20230411 16:29:35.723" level="INFO">Argument types are:
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230411 21:27:58.628" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230411 16:29:35.722" endtime="20230411 16:29:35.723"/>
+<status status="PASS" starttime="20230411 21:27:58.627" endtime="20230411 21:27:58.628"/>
 </kw>
-<status status="PASS" starttime="20230411 16:29:35.406" endtime="20230411 16:29:35.723"/>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230411 21:27:58.628" endtime="20230411 21:27:58.628"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.627" endtime="20230411 21:27:58.629"/>
+</kw>
+<kw name="And the response body should not be empty" library="test_keywords_users">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230411 21:27:58.630" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20230411 21:27:58.629" endtime="20230411 21:27:58.630"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.629" endtime="20230411 21:27:58.630"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.301" endtime="20230411 21:27:58.630"/>
 </test>
-<status status="PASS" starttime="20230411 16:29:33.681" endtime="20230411 16:29:35.724"/>
+<test id="s1-s1-s1-s1-t3" name="Scenario: Get a specific user informations" line="20">
+<kw name="Before Tests" library="test_keywords_common" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${SERVER_BASE_URL}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230411 21:27:58.632" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 21:27:58.632" endtime="20230411 21:27:58.633"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.632" endtime="20230411 21:27:58.633"/>
+</kw>
+<kw name="When I request a specific user" library="test_keywords_users">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230411 21:27:59.420" level="INFO">GET Request : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ path_url=/usuarios/uHVLViY2P8SRc38K 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230411 21:27:59.420" level="INFO">GET Response : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '47d730c0-6d32-4d03-a96e-d623335a2d53', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '6ae545c3e6b613dd520276928a4a403c', 'Date': 'Wed, 12 Apr 2023 00:27:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '163'} 
+ body={
+    "nome": "Monica Mcmahon",
+    "email": "robertmckee@example.net",
+    "password": "572XkzbY#2",
+    "administrador": "false",
+    "_id": "uHVLViY2P8SRc38K"
+} 
+ </msg>
+<msg timestamp="20230411 21:27:59.420" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:58.634" endtime="20230411 21:27:59.420"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230411 21:27:59.420" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:59.420" endtime="20230411 21:27:59.420"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.633" endtime="20230411 21:27:59.420"/>
+</kw>
+<kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="The response status code should be ${status_code}">
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230411 21:27:59.422" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:59.421" endtime="20230411 21:27:59.422"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230411 21:27:59.422" endtime="20230411 21:27:59.423"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:59.421" endtime="20230411 21:27:59.423"/>
+</kw>
+<kw name="And the response body should not be empty" library="test_keywords_users">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230411 21:27:59.424" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20230411 21:27:59.423" endtime="20230411 21:27:59.424"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:59.423" endtime="20230411 21:27:59.424"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:58.631" endtime="20230411 21:27:59.424"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Update A Specific User Informations" line="25">
+<kw name="Before Tests" library="test_keywords_common" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${SERVER_BASE_URL}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230411 21:27:59.427" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 21:27:59.427" endtime="20230411 21:27:59.427"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:59.426" endtime="20230411 21:27:59.427"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${name}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230411 21:27:59.428" level="INFO">${name} = Holly Clements</msg>
+<status status="PASS" starttime="20230411 21:27:59.428" endtime="20230411 21:27:59.428"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230411 21:27:59.429" level="INFO">${email} = fcook@example.com</msg>
+<status status="PASS" starttime="20230411 21:27:59.428" endtime="20230411 21:27:59.429"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230411 21:27:59.429" level="INFO">${password} = T4oI+4zt^s</msg>
+<status status="PASS" starttime="20230411 21:27:59.429" endtime="20230411 21:27:59.429"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>nome=${name}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>administrador=false</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230411 21:27:59.430" level="INFO">${payload} = {'nome': 'Holly Clements', 'email': 'fcook@example.com', 'password': 'T4oI+4zt^s', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20230411 21:27:59.430" endtime="20230411 21:27:59.430"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230411 21:27:59.431" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230411 21:27:59.430" endtime="20230411 21:27:59.431"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230411 21:28:00.304" level="INFO">PUT Request : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ path_url=/usuarios/uHVLViY2P8SRc38K 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '108'} 
+ body=b'{"nome": "Holly Clements", "email": "fcook@example.com", "password": "T4oI+4zt^s", "administrador": "false"}' 
+ </msg>
+<msg timestamp="20230411 21:28:00.304" level="INFO">PUT Response : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '48121719-0a72-4949-a874-8be23afbba49', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '4b7c617e0c4c17c868faa0c56cde0f63', 'Date': 'Wed, 12 Apr 2023 00:27:58 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} 
+ body={
+    "message": "Registro alterado com sucesso"
+} 
+ </msg>
+<msg timestamp="20230411 21:28:00.304" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:27:59.431" endtime="20230411 21:28:00.304"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230411 21:28:00.305" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230411 21:28:00.305" endtime="20230411 21:28:00.305"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230411 21:28:00.306" endtime="20230411 21:28:00.306"/>
+</kw>
+<status status="PASS" starttime="20230411 21:27:59.426" endtime="20230411 21:28:00.307"/>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Delete A Specific User" line="35">
+<kw name="Before Tests" library="test_keywords_common" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>${SERVER_BASE_URL}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230411 21:28:00.308" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 21:28:00.308" endtime="20230411 21:28:00.308"/>
+</kw>
+<status status="PASS" starttime="20230411 21:28:00.308" endtime="20230411 21:28:00.308"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230411 21:28:00.629" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ path_url=/usuarios/uHVLViY2P8SRc38K 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230411 21:28:00.629" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/uHVLViY2P8SRc38K 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '2f314700-1ca7-4867-9e04-58d5b77b9a96', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'a0d0e8dcbade7906a0157e1bc1aa7bbc', 'Date': 'Wed, 12 Apr 2023 00:27:58 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg timestamp="20230411 21:28:00.629" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230411 21:28:00.309" endtime="20230411 21:28:00.629"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230411 21:28:00.631" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230411 21:28:00.630" endtime="20230411 21:28:00.631"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230411 21:28:00.632" endtime="20230411 21:28:00.633"/>
+</kw>
+<status status="PASS" starttime="20230411 21:28:00.308" endtime="20230411 21:28:00.633"/>
+</test>
+<status status="PASS" starttime="20230411 21:27:57.157" endtime="20230411 21:28:00.635"/>
 </suite>
-<status status="PASS" starttime="20230411 16:29:33.677" endtime="20230411 16:29:35.726"/>
+<status status="PASS" starttime="20230411 21:27:57.154" endtime="20230411 21:28:00.637"/>
 </suite>
-<status status="PASS" starttime="20230411 16:29:33.674" endtime="20230411 16:29:35.728"/>
+<status status="PASS" starttime="20230411 21:27:57.151" endtime="20230411 21:28:00.639"/>
 </suite>
-<status status="PASS" starttime="20230411 16:29:33.653" endtime="20230411 16:29:35.729"/>
+<status status="PASS" starttime="20230411 21:27:57.130" endtime="20230411 21:28:00.641"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1" name="Api">Tests.Api</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="Users">Tests.Api.Users</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s1" name="Test Api Users">Tests.Api.Users.Test Api Users</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Api">Tests.Api</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1-s1" name="Users">Tests.Api.Users</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1-s1-s1" name="Test Api Users">Tests.Api.Users.Test Api Users</stat>
 </suite>
 </statistics>
 <errors>
