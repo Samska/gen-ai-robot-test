@@ -26,7 +26,7 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        robot tests/
+        robot --outputdir test-reports tests/
       env:
         SERVER_BASE_URL: https://serverest.dev
         USERS_API_ENDPOINT: /usuarios
@@ -36,3 +36,12 @@ jobs:
       with:
         name: test-reports
         path: results
+
+    - name: Publish Test Report
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./test-reports/
+
+    - name: Print Test Report Link
+      run: echo "Test report: https://${{ github.repository }}/test-reports/report.html"
