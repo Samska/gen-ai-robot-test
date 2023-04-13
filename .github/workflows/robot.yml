@@ -38,13 +38,15 @@ jobs:
         path: results
 
     - name: Publish Test Report
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./test-reports/
-
-    - name: Print test report link
-      run: echo "Test report: https://${{ github.repository }}/test-reports/report.html"
+        if: always()
+        uses: dorny/test-reporter@v1.1.13
+        with:
+          name: "Robot Framework Test Report"
+          path: "test-reports/output.xml"
+          reporter: "github-pr-check"
+    - name: Print Test Report URL
+      if: always()
+      run: echo "Test report: https://${{ github.repository }}/blob/gh-pages/test-reports/report.html"
 
 
 
