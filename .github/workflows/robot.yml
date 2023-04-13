@@ -49,5 +49,10 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./test-reports/
 
-    - name: View Test Report
-      run: echo "Test report: https://${{ github.actor }}.github.io/${{ github.repository_name }}/report.html"  
+    - name: Display test report URL
+      run: |
+        echo "Test report: https://${{ github.repository }}/test-reports/report.html"
+        echo "::set-output name=url::https://${{ github.repository }}/test-reports/report.html"
+      env:
+        ARTIFACTS_DIR: ${{ github.workspace }}/test-reports
+
