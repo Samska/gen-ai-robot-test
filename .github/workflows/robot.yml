@@ -14,24 +14,24 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
+    - name: Set Up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
 
-    - name: Run Robot Framework tests
+    - name: Run Robot Framework Tests
       run: |
         robot --outputdir test-reports tests/
       env:
         SERVER_BASE_URL: https://serverest.dev
         USERS_API_ENDPOINT: /usuarios
         
-    - name: Archive test results
+    - name: Archive Test Results
       uses: actions/upload-artifact@v2
       with:
         name: test-reports
@@ -43,8 +43,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./test-reports/
 
-    - name: View HTML report
-      uses: peter-evans/open-external-action@v1
-      with:
-        url: https://${{ github.repository }}/test-reports/report.html
+    - name: Echo report URL
       if: always()
+      run: echo "Test report: https://${{ github.repository }}/gh-pages/report.html"
