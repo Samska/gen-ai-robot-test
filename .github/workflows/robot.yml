@@ -42,8 +42,10 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./test-reports/
+        cname: ${{ env.CNAME }}
+        commit_message: Update the test report
 
     - name: Display Test Report URL
       run: |
-        echo "Test report: https://${{ github.actor }}.github.io/${{ github.repository_name }}/report.html"
+        echo "Test report: https://${{ github.actor }}.github.io${{ github.repository_name }}/report.html"
 
