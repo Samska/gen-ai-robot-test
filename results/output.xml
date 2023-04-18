@@ -1,98 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230418 16:21:41.119" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230418 17:28:06.262" rpa="false" schemaversion="3">
 <suite id="s1" name="Visual" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\visual">
 <suite id="s1-s1" name="Test Visual Check" source="C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\visual\test_visual_check.robot">
-<test id="s1-s1-t1" name="Scenario: Login page" line="10">
+<test id="s1-s1-t1" name="Scenario: Visual check login page" line="11">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230418 16:21:42.248" level="INFO">Opening browser ' Chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<status status="PASS" starttime="20230418 16:21:42.248" endtime="20230418 16:21:43.688"/>
+<msg timestamp="20230418 17:28:09.842" level="INFO">Opening browser ' Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230418 17:28:09.842" endtime="20230418 17:28:11.379"/>
 </kw>
-<kw name="Eyes Open">
-<msg timestamp="20230418 16:21:43.693" level="FAIL">No keyword with name 'Eyes Open' found.</msg>
-<status status="FAIL" starttime="20230418 16:21:43.693" endtime="20230418 16:21:43.693"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230418 17:28:11.379" endtime="20230418 17:28:11.497"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:42.248" endtime="20230418 16:21:43.693"/>
+<kw name="Eyes Open" library="EyesLibrary">
+<tag>Check flow</tag>
+<doc>Shared parameters section from `applitools.yaml` could be overwritten during `Eyes Open` call, see `Preconditions`.</doc>
+<status status="PASS" starttime="20230418 17:28:11.497" endtime="20230418 17:28:14.435"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:09.841" endtime="20230418 17:28:14.435"/>
+</kw>
+<kw name="Eyes Check Window" library="EyesLibrary">
+<arg>Login Page</arg>
+<arg>Fully</arg>
+<tag>Allow to pass Check Settings keywords</tag>
+<tag>Check flow</tag>
+<doc>Check current browser window</doc>
+<kw name="Fully" library="EyesLibrary">
+<tag>Check Settings keyword</tag>
+<doc>Returns a CheckSettings object specified fully.</doc>
+<status status="PASS" starttime="20230418 17:28:14.436" endtime="20230418 17:28:14.437"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:14.436" endtime="20230418 17:28:16.913"/>
+</kw>
+<kw name="Given Im on the main application page" library="test_keywords_login">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230418 17:28:16.914" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20230418 17:28:16.914" endtime="20230418 17:28:16.964"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${SERVER_BASE_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230418 17:28:16.966" level="INFO">Current location is 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230418 17:28:16.964" endtime="20230418 17:28:16.967"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:16.913" endtime="20230418 17:28:16.967"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
-<kw name="Eyes Close Async">
-<msg timestamp="20230418 16:21:43.699" level="FAIL">No keyword with name 'Eyes Close Async' found.</msg>
-<status status="FAIL" starttime="20230418 16:21:43.699" endtime="20230418 16:21:43.699"/>
+<kw name="Eyes Close Async" library="EyesLibrary">
+<tag>Check flow</tag>
+<doc>Closes a session and returns the results of the session.
+If a test is running, aborts it. Otherwise, does nothing.</doc>
+<status status="PASS" starttime="20230418 17:28:16.967" endtime="20230418 17:28:17.997"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230418 16:21:43.699" endtime="20230418 16:21:49.855"/>
+<status status="PASS" starttime="20230418 17:28:17.997" endtime="20230418 17:28:24.165"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:43.694" endtime="20230418 16:21:49.855">No keyword with name 'Eyes Close Async' found.</status>
+<status status="PASS" starttime="20230418 17:28:16.967" endtime="20230418 17:28:24.165"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:42.247" endtime="20230418 16:21:49.856">Setup failed:
-No keyword with name 'Eyes Open' found.
-
-Also teardown failed:
-No keyword with name 'Eyes Close Async' found.</status>
+<status status="PASS" starttime="20230418 17:28:09.841" endtime="20230418 17:28:24.166"/>
 </test>
-<test id="s1-s1-t2" name="Scenario: Inventory page" line="14">
+<test id="s1-s1-t2" name="Scenario: Visual check inventory page" line="15">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230418 16:21:49.859" level="INFO">Opening browser ' Chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<status status="PASS" starttime="20230418 16:21:49.858" endtime="20230418 16:21:51.236"/>
+<msg timestamp="20230418 17:28:24.176" level="INFO">Opening browser ' Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230418 17:28:24.174" endtime="20230418 17:28:25.611"/>
 </kw>
-<kw name="Eyes Open">
-<msg timestamp="20230418 16:21:51.241" level="FAIL">No keyword with name 'Eyes Open' found.</msg>
-<status status="FAIL" starttime="20230418 16:21:51.241" endtime="20230418 16:21:51.241"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230418 17:28:25.611" endtime="20230418 17:28:25.729"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:49.858" endtime="20230418 16:21:51.241"/>
+<kw name="Eyes Open" library="EyesLibrary">
+<tag>Check flow</tag>
+<doc>Shared parameters section from `applitools.yaml` could be overwritten during `Eyes Open` call, see `Preconditions`.</doc>
+<status status="PASS" starttime="20230418 17:28:25.729" endtime="20230418 17:28:27.783"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:24.172" endtime="20230418 17:28:27.783"/>
+</kw>
+<kw name="When I log in with credentials" library="test_keywords_login">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230418 17:28:27.784" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<status status="PASS" starttime="20230418 17:28:27.783" endtime="20230418 17:28:27.865"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230418 17:28:27.866" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20230418 17:28:27.865" endtime="20230418 17:28:27.935"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230418 17:28:27.936" level="INFO">Clicking button 'id:login-button'.</msg>
+<status status="PASS" starttime="20230418 17:28:27.935" endtime="20230418 17:28:28.017"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:27.783" endtime="20230418 17:28:28.017"/>
+</kw>
+<kw name="And the Inventory page loads" library="test_keywords_login">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230418 17:28:28.032" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<status status="PASS" starttime="20230418 17:28:28.018" endtime="20230418 17:28:28.032"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:28.018" endtime="20230418 17:28:28.032"/>
+</kw>
+<kw name="Then the page should contain the text &quot;Products&quot;" library="test_keywords_login" sourcename="Then the page should contain the text &quot;${expected_text}&quot;">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230418 17:28:28.044" level="INFO">Current page contains text 'Products'.</msg>
+<status status="PASS" starttime="20230418 17:28:28.033" endtime="20230418 17:28:28.044"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:28.032" endtime="20230418 17:28:28.044"/>
+</kw>
+<kw name="Eyes Check Window" library="EyesLibrary">
+<arg>Inventory Page</arg>
+<arg>Fully</arg>
+<tag>Allow to pass Check Settings keywords</tag>
+<tag>Check flow</tag>
+<doc>Check current browser window</doc>
+<kw name="Fully" library="EyesLibrary">
+<tag>Check Settings keyword</tag>
+<doc>Returns a CheckSettings object specified fully.</doc>
+<status status="PASS" starttime="20230418 17:28:28.045" endtime="20230418 17:28:28.045"/>
+</kw>
+<status status="PASS" starttime="20230418 17:28:28.045" endtime="20230418 17:28:30.554"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
-<kw name="Eyes Close Async">
-<msg timestamp="20230418 16:21:51.247" level="FAIL">No keyword with name 'Eyes Close Async' found.</msg>
-<status status="FAIL" starttime="20230418 16:21:51.247" endtime="20230418 16:21:51.247"/>
+<kw name="Eyes Close Async" library="EyesLibrary">
+<tag>Check flow</tag>
+<doc>Closes a session and returns the results of the session.
+If a test is running, aborts it. Otherwise, does nothing.</doc>
+<status status="PASS" starttime="20230418 17:28:30.555" endtime="20230418 17:28:31.580"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230418 16:21:51.247" endtime="20230418 16:21:57.405"/>
+<status status="PASS" starttime="20230418 17:28:31.580" endtime="20230418 17:28:37.727"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:51.242" endtime="20230418 16:21:57.405">No keyword with name 'Eyes Close Async' found.</status>
+<status status="PASS" starttime="20230418 17:28:30.554" endtime="20230418 17:28:37.728"/>
 </kw>
-<status status="FAIL" starttime="20230418 16:21:49.858" endtime="20230418 16:21:57.407">Setup failed:
-No keyword with name 'Eyes Open' found.
-
-Also teardown failed:
-No keyword with name 'Eyes Close Async' found.</status>
+<status status="PASS" starttime="20230418 17:28:24.170" endtime="20230418 17:28:37.728"/>
 </test>
-<status status="FAIL" starttime="20230418 16:21:41.146" endtime="20230418 16:21:57.414"/>
+<meta name="Applitools TestResults Path">C:\Users\samue\AppData\Local\Temp\tmpit_5ez5j\EyesTestResults-99456346bbcd42dcadf0c69df121a1b0.json</meta>
+<status status="PASS" starttime="20230418 17:28:06.284" endtime="20230418 17:28:37.731"/>
 </suite>
-<status status="FAIL" starttime="20230418 16:21:41.120" endtime="20230418 16:21:57.417"/>
+<status status="PASS" starttime="20230418 17:28:06.263" endtime="20230418 17:28:37.735"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="2" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="2" skip="0" id="s1" name="Visual">Visual</stat>
-<stat pass="0" fail="2" skip="0" id="s1-s1" name="Test Visual Check">Visual.Test Visual Check</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Visual">Visual</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Test Visual Check">Visual.Test Visual Check</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230418 16:21:42.239" level="ERROR">Error in file 'C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\config\settings.robot' on line 5: Initializing library 'EyesLibrary' with arguments [ runner=web_ufg | config=applitools.yaml ] failed: EyesLibraryConfigError: The configuration file was not found in the following directory: C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\visual\applitools.yaml
-You could initialize config file with command: 
-	`python -m EyesLibrary init-config`
-Traceback (most recent call last):
-  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\EyesLibrary\__init__.py", line 195, in __init__
-    self._configuration = try_parse_configuration(
-                          ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\EyesLibrary\config_parser.py", line 411, in try_parse_configuration
-    raise EyesLibraryConfigError(
-EyesLibrary.errors.EyesLibraryConfigError: The configuration file was not found in the following directory: C:\Users\samue\OneDrive\Área de Trabalho\gen-ai-robot-test\tests\visual\applitools.yaml
-You could initialize config file with command: 
-	`python -m EyesLibrary init-config`</msg>
 </errors>
 </robot>
