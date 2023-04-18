@@ -23,22 +23,16 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Python 3
-- Robot Framework
-- SeleniumLibrary
-- RequestsLibrary
+- Pip
 - ChromeDriver
 
 ### Installing
 
 1. Clone the repository
-2. Install the required Python packages:
+2. Install the dependencies:
 
 ```sh
-python -m pip install
-pip install robotframework
-pip install robotframework-seleniumlibrary
-pip install robotframework-requests
-pip install robotframework-faker
+pip install -r requirements.txt
 ```
 
 ### Running the Tests
