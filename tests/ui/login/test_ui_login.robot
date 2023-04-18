@@ -10,4 +10,3 @@ Scenario: Log In to Sauce Demo
     Input Text      id:user-name    standard_user
     Input Text      id:password     secret_sauce
     Click Button    id:login-button
-    
