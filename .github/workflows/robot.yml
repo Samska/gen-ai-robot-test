@@ -8,9 +8,6 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Runs every day at 00:00
 
-env:
-  HEADLESS: headless
-
 jobs:
   test:
 
@@ -31,7 +28,7 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        robot --outputdir test-reports tests/
+        robot --variable HEADLESS:headless --outputdir test-reports tests/
         
     - name: Archive Test Results
       uses: actions/upload-artifact@v2
