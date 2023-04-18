@@ -26,13 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
 
-    - name: Start Selenium
-      run: |
-        CHROMEDRIVER_PATH="/usr/bin/google-chrome"
-        google-chrome --version
-        chromedriver --version
-        nohup chromedriver --whitelisted-ips &
-
     - name: Run Robot Framework Tests
       run: |
         robot --outputdir test-reports tests/
