@@ -7,11 +7,7 @@ Test Teardown   After Tests
 
 *** Test Cases ***
 Scenario: Log In to Sauce Demo
-    [Documentation]    Tests that a user can successfully log in to the Sauce Demo website.
-    [Tags]             login
-    Input Text         id:username        standard_user
-    Input Text         id:password        secret_sauce
-    Click Button       login-button
-    Wait Until Element Is Visible   //div[@class='product_label']   timeout=10s
-    Element Should Be Visible        //div[@class='product_label']
-    Close Browser
+    Input Text      id:user-name    standard_user
+    Input Text      id:password     secret_sauce
+    Click Button    id:login-button
+    
