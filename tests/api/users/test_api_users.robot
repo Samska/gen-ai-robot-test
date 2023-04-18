@@ -10,7 +10,6 @@ Scenario: Get all registered users
     When I request the list of all registered users
     Then the response status code should be 200
     And the response body should not be empty
-    
 
 Scenario: Create a new user
     Given I have a valid user data
