@@ -7,27 +7,32 @@ Test Setup     Before Tests
 
 *** Test Cases ***
 Scenario: Get all registered users
+    [Tags]    api
     When I request the list of all registered users
     Then the response status code should be 200
     And the response body should not be empty
 
 Scenario: Create a new user
+    [Tags]    api
     Given I have a valid user data
     When I create the user
     Then the response status code should be 201
     And the response body should not be empty
 
 Scenario: Get a specific user informations
+    [Tags]    api
     When I request the created user
     Then the response status code should be 200
     And the response body should not be empty
 
 Scenario: Update the created user
+    [Tags]    api
     When I update the created user
     Then the response status code should be 200
     And the response body should not be empty
 
 Scenario: Delete the created user
+    [Tags]    api
     When I delete the created user
     Then the response status code should be 200
     And the response body should not be empty

@@ -9,10 +9,12 @@ Test Teardown   After Tests
 
 *** Test Cases ***
 Scenario: Visual check login page
+    [Tags]    visual
     Eyes Check Window    Login Page     Fully
     Given Im on the main application page
 
 Scenario: Visual check inventory page
+    [Tags]    visual
     When I log in with credentials     standard_user               secret_sauce
     And the Inventory page loads
     Then the page should contain the text "Products"
