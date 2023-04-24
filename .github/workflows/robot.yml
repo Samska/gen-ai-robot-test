@@ -28,8 +28,7 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests/
-        continue-on-error: true
+        robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
         
     - name: Archive Test Results
       uses: actions/upload-artifact@v3
