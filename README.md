@@ -1,6 +1,6 @@
 # GenerativeAI Robot Framework Tests
 
-This is a Robot Framework project for testing a UI and API using GenerativeAI, that is, part or all of this project's content was made based on ChatGPT suggestions, I took the liberty of changing some parts. The project uses SeleniumLibrary for interacting with the UI and RequestsLibrary for the API. This project uses the following folder structure:
+This is a Robot Framework project for automated testing using GenerativeAI, that is, part or all of this project's content was made based on ChatGPT suggestions, I took the liberty of changing some parts. This project uses the following folder structure:
 
 - **docs**: Contains the documentation related to the project, including requirements, design documents, and user manuals.
 
