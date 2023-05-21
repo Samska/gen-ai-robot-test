@@ -30,10 +30,12 @@ And I fill in the signup fields with an email already registered
 
 Then required field messages should be displayed
     Wait Until Element Is Visible       css=.alert-dismissible   timeout=10s
+    Element Should Be Visible           css=.alert-dismissible
     Page Should Contain                 Nome é obrigatório
     Page Should Contain                 Email é obrigatório
     Page Should Contain                 Password é obrigatório
 
 Then the page should contain the text "${expected_text}"
     Wait Until Element Is Visible       css=.alert-dismissible   timeout=10s
-    Page Should contain     ${expected_text}
+    Element Should Be Visible           css=.alert-dismissible
+    Page Should contain                 ${expected_text}
