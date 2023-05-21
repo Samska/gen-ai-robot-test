@@ -10,7 +10,7 @@ on:
   workflow_dispatch:  # Enable manual triggering
 
 jobs:
-  test:
+  Tests:
 
     runs-on: ubuntu-latest
 
@@ -48,8 +48,8 @@ jobs:
     - name: Upload Test Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: test-results
-        path: test-reports/*.xml
+        name: test-reports
+        path: results
 
     #Use a more descriptive commit message in the actions-gh-pages step to provide more context to the changes being committed.
     - name: Publish Test Report
@@ -62,5 +62,5 @@ jobs:
 
     - name: Display Test Report URL
       run: |
-        echo "Test report: https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html"
+        echo "Test report: https://${{ github.actor }}.github.io/${{ github.repository }}/report.html"
 
