@@ -1,4 +1,7 @@
 *** Keywords ***
+Given Im on the main application page
+    Go To                   ${SERVER_BASE_URL}
+
 Given Im on the signup page
     Location Should Be      https://front.serverest.dev/login
     Click Element           css=a.btn.btn-link
