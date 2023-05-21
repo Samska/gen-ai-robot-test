@@ -1,8 +1,8 @@
 *** Settings ***
-Resource      ../../../config/settings.robot
-Resource      ../../../resources/api/keywords/test_keywords_common.robot
-Resource      ../../../resources/api/keywords/test_keywords_users.robot
-Resource      ../../../resources/api/variables/test_variables_common.robot
+Resource      ../../config/settings.robot
+Resource      ../../resources/api/keywords/test_keywords_common.robot
+Resource      ../../resources/api/keywords/test_keywords_users.robot
+Resource      ../../resources/api/variables/test_variables_common.robot
 Test Setup     Before Tests
 
 *** Test Cases ***
