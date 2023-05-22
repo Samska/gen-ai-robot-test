@@ -1,7 +1,5 @@
 # GenerativeAI Robot Framework Tests
 
-[![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
-
 This is a Robot Framework project for automated testing using GenerativeAI, that is, part or all of this project's content was made based on ChatGPT suggestions, I took the liberty of changing some parts. This project uses the following folder structure:
 
 - **docs**: Contains the documentation related to the project, including requirements, design documents, and user manuals.
@@ -54,3 +52,7 @@ The test results will be generated in the results/ directory. Open the report.ht
 ### Test Configuration
 
 The test configuration can be found in the config / directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
+
+### Badges
+
+[![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
