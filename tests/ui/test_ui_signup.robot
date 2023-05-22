@@ -18,7 +18,7 @@ Scenario: Signup done successfully
     Given Im on the signup page
     And I fill in the signup fields with valid data
     When I click in signup
-    Then the page should contain the text "Cadastro realizado com sucessor"
+    Then the page should contain the text "Cadastro realizado com sucesso"
 
 Scenario: Signup with already used email
     [Tags]    ui
