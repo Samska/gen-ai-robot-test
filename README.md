@@ -1,5 +1,7 @@
 # GenerativeAI Robot Framework Tests
 
+[![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
+
 This is a Robot Framework project for automated testing using GenerativeAI, that is, part or all of this project's content was made based on ChatGPT suggestions, I took the liberty of changing some parts. This project uses the following folder structure:
 
 - **docs**: Contains the documentation related to the project, including requirements, design documents, and user manuals.
