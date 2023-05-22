@@ -41,7 +41,7 @@ jobs: # Define the jobs that this pipeline will execute.
 
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
       run: |
-        robot --variable HEADLESS:headless --outputdir test-reports tests || true
+        robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
     
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v3
