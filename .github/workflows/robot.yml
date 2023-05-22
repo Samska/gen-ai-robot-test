@@ -41,6 +41,8 @@ jobs:
       run: rm -rf test-reports/*
 
     - name: Run Robot Framework Tests
+      env:
+      APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
       run: |
         robot --variable HEADLESS:headless --outputdir test-reports tests || true
     
