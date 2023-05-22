@@ -2,7 +2,7 @@
 Given I have a valid user data
     ${name}=                FakerLibrary.Name
     ${email}=               FakerLibrary.Email
-    ${password}=            FakerLibrary.Password
+    ${password}=            FakerLibrary.Password        length=12        special_chars=False
     Set Suite Variable      ${name}
     Set Suite Variable      ${email}
     Set Suite Variable      ${password}

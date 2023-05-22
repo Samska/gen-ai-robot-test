@@ -12,7 +12,7 @@ When I click in signup
 And I fill in the signup fields with valid data
     ${name}=                FakerLibrary.Name
     ${email}=               FakerLibrary.Email
-    ${password}=            FakerLibrary.Password
+    ${password}=            FakerLibrary.Password        length=12        special_chars=False
     Input Text              id:nome         ${name}
     Input Text              id:email        ${email}
     Input Text              id:password     ${password}
