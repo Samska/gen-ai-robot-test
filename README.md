@@ -59,6 +59,8 @@ This will run all the tests in the tests/ directory and save the report in the r
 
 The test results will be generated in the results/ directory. Open the report.html file to view the HTML report.
 
+You can also consult the test results on this [page](https://samska.github.io/gen-ai-robot-test/report.html) as it is published with each new pipeline run.
+
 ### Test Configuration
 
 The test configuration can be found in the config / directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
