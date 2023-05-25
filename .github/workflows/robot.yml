@@ -60,3 +60,19 @@ jobs: # Define the jobs that this pipeline will execute.
     - name: Display Test Report URL # Displays the URL where test reports can be accessed.
       run: |
         echo "Test report: https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html"
+
+    - name: Send Slack Notification
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{
+          "channel": "'"${SLACK_CHANNEL}"'",
+          "text": "Os testes do Robot Framework foram concluídos!",
+          "attachments": [
+            {
+              "title": "Resultado dos testes",
+              "text": "https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html"
+            }
+          ]
+        }' "${SLACK_WEBHOOK_URL}"
