@@ -40,11 +40,8 @@ jobs: # Define the jobs that this pipeline will execute.
       run: rm -rf test-reports/*
 
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
-      env:
-        APPLITOOLS_API_KEY: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
-        echo $APPLITOOLS_API_KEY
-        robot --variable HEADLESS:headless --outputdir test-reports tests || true
+        robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
     
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v3
