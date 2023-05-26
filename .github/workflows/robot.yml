@@ -36,7 +36,6 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
-        sudo apt-get install -y xml2json
 
     - name: Delete Old Test Reports # Deletes previous test reports before running new tests
       run: rm -rf test-reports/*
@@ -45,8 +44,11 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
-    - name: Convert XML report to JSON # Convert XML report to JSON
-      run: xml2json output.xml -o report.json
+    - name: Convert XML to JSON # Convert the output.xml to report.json
+      uses: tomsquest/xml-to-json-action@v2
+      with:
+        input: output.xml  
+        output: report.json 
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
