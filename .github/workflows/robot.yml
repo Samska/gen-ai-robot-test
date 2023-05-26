@@ -54,6 +54,15 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('report.json', jsonData);"
 
+    - name: Ler report.json e armazenar valor em uma variável de ambiente
+      run: |
+        value=$(jq -r '.robot.statistics.total.stat._pass' report.json)
+        echo "export VARIAVEL=$value" >> $GITHUB_ENV
+
+    - name: Usar a variável de ambiente em outro step
+      run: |
+        echo "O valor da propriedade é: $VARIAVEL"
+
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
       with:
