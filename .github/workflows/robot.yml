@@ -16,9 +16,10 @@ jobs: # Define the jobs that this pipeline will execute.
     runs-on: ubuntu-latest # Executes the job on an Ubuntu environment
 
     steps: # Steps to follow in the job
-    - uses: actions/checkout@v3 # This step checks out the code of the project
+    - name: Project checkout
+    - uses: actions/checkout@v2 # This step checks out the code of the project
 
-    - name: Set Up Python 3.8 # Sets up python 3.8 environment for the project
+    - name: Set up Python 3.8 # Sets up python 3.8 environment for the project
       uses: actions/setup-python@v3
       with:
         python-version: 3.8
@@ -44,13 +45,13 @@ jobs: # Define the jobs that this pipeline will execute.
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: test-results
         path: test-reports
 
     - name: Publish Test Report # Publishes the test report to Github pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./test-reports/
