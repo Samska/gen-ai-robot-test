@@ -57,11 +57,11 @@ jobs: # Define the jobs that this pipeline will execute.
     - name: Read output.json and set test results into env variables     # Read the JSON report to get tests data
       run: |
         passedTests=$(jq -r '.robot.statistics.total.stat._attributes.pass' ./test-reports/output.json)
+        failedTests=$(jq -r '.robot.statistics.total.stat._attributes.fail' ./test-reports/output.json)
+        totalTests=$(expr $passedTests + $failedTests)
         echo "PASSED_TESTS=$passedTests" >> $GITHUB_ENV
-
-    - name: Usar o valor em outro step
-      run: |
-        echo "O valor da propriedade é: $PASSED_TESTS"
+        echo "FAILED_TESTS=$failedTests" >> $GITHUB_ENV
+        echo "TOTAL_TESTS=$totalTests" >> $GITHUB_ENV
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
@@ -91,7 +91,7 @@ jobs: # Define the jobs that this pipeline will execute.
           "attachments": [
             {
               "title": "Test Results",
-              "text": "https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html"
+              "text": ":page_with_curl: *Total Requests:* ${{ env.TOTAL_REQUESTS }}\n:page_facing_up: *Total Tests:* ${{ env.TOTAL_TESTS }}\n:white_check_mark: *Passed Tests:* ${{ env.PASSED_TESTS }}\n:x: *Failed Tests:* ${{ env.FAILED_TESTS }}\n\n<https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html|Click here to see the test in details>"
             }
           ]
         }' "${SLACK_WEBHOOK_URL}"
