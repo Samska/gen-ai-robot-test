@@ -41,6 +41,7 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
+        npm install xml-js
 
     - name: Delete Old Test Reports # Deletes previous test reports before running new tests
       run: rm -rf test-reports/*
@@ -50,8 +51,7 @@ jobs: # Define the jobs that this pipeline will execute.
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
     - name: Convert XML Results to JSON # Convert output.xml to JSON to get test results and manipulate that data
-      run: |
-        npm install xml-js
+      run: |        
         node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('output.json', jsonData);"
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
