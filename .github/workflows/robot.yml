@@ -36,6 +36,7 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
+        sudo apt-get install -y xml2json
 
     - name: Delete Old Test Reports # Deletes previous test reports before running new tests
       run: rm -rf test-reports/*
@@ -43,6 +44,9 @@ jobs: # Define the jobs that this pipeline will execute.
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
+
+    - name: Convert XML report to JSON # Convert XML report to JSON
+      run: xml2json output.xml -o report.json
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
