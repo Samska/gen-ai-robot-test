@@ -56,7 +56,7 @@ jobs: # Define the jobs that this pipeline will execute.
 
     - name: Read output.json and set test results into env variables     # Read the JSON report to get tests data
       run: |
-        passedTests=$(jq -r '.robot.statistics.total.stat._attributes.pass' output.json)
+        passedTests=$(jq -r '.robot.statistics.total.stat._attributes.pass' ./test-reports/output.json)
         echo "PASSED_TESTS=$passedTests" >> $GITHUB_ENV
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
