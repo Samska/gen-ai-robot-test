@@ -52,7 +52,7 @@ jobs: # Define the jobs that this pipeline will execute.
     - name: Convert XML to JSON
       run: |
         npm install xml-js
-        node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('gen-ai-robot-test/test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('gen-ai-robot-test/test-reports/output.json', jsonData);"
+        node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('test-reports/output.json', jsonData);"
 
     - name: Upload JSON artifact
       uses: actions/upload-artifact@v2
