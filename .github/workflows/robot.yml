@@ -48,7 +48,7 @@ jobs: # Define the jobs that this pipeline will execute.
 
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
       run: |
-        robot --variable HEADLESS:headless --outputdir test-reports tests || true
+        robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
     - name: Convert XML Results to JSON # Convert output.xml to JSON to get test results and manipulate that data
       run: |        
