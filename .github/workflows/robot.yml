@@ -45,10 +45,10 @@ jobs: # Define the jobs that this pipeline will execute.
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
     - name: Convert XML to JSON # Convert the output.xml to report.json
-      uses: tomsquest/xml-to-json-action@v2
+      uses: wnameless/xml2json-action@v1
       with:
-        input: output.xml  
-        output: report.json 
+        xml_path: output.xml  
+        json_path: report.json 
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
