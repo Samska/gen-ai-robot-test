@@ -1,0 +1,3290 @@
+{
+  "_declaration": {
+    "_attributes": {
+      "version": "1.0",
+      "encoding": "UTF-8"
+    }
+  },
+  "robot": {
+    "_attributes": {
+      "generator": "Robot 6.0.2 (Python 3.8.16 on linux)",
+      "generated": "20230526 20:52:46.000",
+      "rpa": "false",
+      "schemaversion": "3"
+    },
+    "suite": {
+      "_attributes": {
+        "id": "s1",
+        "name": "Tests",
+        "source": "/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests"
+      },
+      "suite": [
+        {
+          "_attributes": {
+            "id": "s1-s1",
+            "name": "Api",
+            "source": "/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api"
+          },
+          "suite": {
+            "_attributes": {
+              "id": "s1-s1-s1",
+              "name": "Test Api Users",
+              "source": "/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api/test_api_users.robot"
+            },
+            "test": [
+              {
+                "_attributes": {
+                  "id": "s1-s1-s1-t1",
+                  "name": "Scenario: Get all registered users",
+                  "line": "9"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Create Session",
+                        "library": "RequestsLibrary"
+                      },
+                      "arg": [
+                        {
+                          "_text": "serverest"
+                        },
+                        {
+                          "_text": "${SERVER_BASE_URL}"
+                        },
+                        {
+                          "_text": "disable_warnings=True"
+                        }
+                      ],
+                      "doc": {
+                        "_text": "Create Session: create a HTTP session to a server"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:46.573",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:46.572",
+                          "endtime": "20230526 20:52:46.573"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.572",
+                        "endtime": "20230526 20:52:46.573"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I request the list of all registered users",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "GET On Session",
+                          "library": "RequestsLibrary"
+                        },
+                        "var": {
+                          "_text": "${response}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "serverest"
+                          },
+                          {
+                            "_text": "${USERS_API_ENDPOINT}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Sends a GET request on a previously created HTTP Session."
+                        },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.797",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.797",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Response : url=https://serverest.dev/usuarios \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '25b3a9bd-c7ed-4701-90f9-336c54b90235', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9af3bf3db2ebdc05b6544ab54446c7a9;o=1', 'Date': 'Fri, 26 May 2023 20:52:46 GMT', 'Server': 'Google Frontend', 'Content-Length': '1765'} \n body={\n    \"quantidade\": 8,\n    \"usuarios\": [\n        {\n            \"nome\": \"Fulano da Silva\",\n            \"email\": \"fulano@qa.com\",\n            \"password\": \"teste\",\n            \"administrador\": \"true\",\n            \"_id\": \"0uxuPY0cbmQhpEz1\"\n        },\n        {\n            \"nome\": \"Nichole White\",\n            \"email\": \"garciastephen@example.com\",\n            \"password\": \"mSEXXw1MQ1q2\",\n            \"administrador\": \"true\",\n            \"_id\": \"8DygXGzSxgFKifQv\"\n        },\n        {\n            \"nome\": \"Lawrence Hanson\",\n            \"email\": \"michelle11@example.org\",\n            \"password\": \"7feQ4sbxy6Ie\",\n            \"administrador\": \"true\",\n            \"_id\": \"MgBVcaaQYuq5SEYk\"\n        },\n        {\n            \"nome\": \"sadas\",\n            \"email\": \"mill2@mil.com\",\n            \"password\": \"123\",\n            \"administrador\": \"true\",\n            \"_id\": \"OvyYUousDsG4JYeX\"\n        },\n        {\n            \"nome\": \"Cody Valentine\",\n            \"email\": \"todd72@example.org\",\n            \"password\": \"do58Eoup2qUy\",\n            \"administrador\": \"true\",\n            \"_id\": \"T2V5t8ZpKz0PTqGQ\"\n        },\n        {\n            \"nome\": \"Brendan George\",\n            \"email\": \"leslie86@example.com\",\n            \"password\": \"1GiqcZl305aG\",\n            \"administrador\": \"true\",\n            \"_id\": \"TMKqdrqnRTNFOyht\"\n        },\n        {\n            \"nome\": \"Hayley Byrd\",\n            \"email\": \"kimberlymartin@example.com\",\n            \"password\": \"q78F3X1rG3oF\",\n            \"administrador\": \"true\",\n            \"_id\": \"bLBFKECXSYeoPEjz\"\n        },\n        {\n            \"nome\": \"Kyle Cooper\",\n            \"email\": \"yflores@example.org\",\n            \"password\": \"k7JpINT2Qek2\",\n            \"administrador\": \"true\",\n            \"_id\": \"vbb2T2tN8byhWgGI\"\n        }\n    ]\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.798",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.574",
+                            "endtime": "20230526 20:52:46.798"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Test Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current test."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.798",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.798",
+                            "endtime": "20230526 20:52:46.798"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.574",
+                        "endtime": "20230526 20:52:46.799"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the response status code should be 200",
+                      "library": "test_keywords_users",
+                      "sourcename": "Then the response status code should be ${status_code}"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Should Be Equal As Numbers",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${response.status_code}"
+                          },
+                          {
+                            "_text": "${status_code}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Fails if objects are unequal after converting them to real numbers."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.800",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.799",
+                            "endtime": "20230526 20:52:46.800"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Should Be True",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response.json()}"
+                        },
+                        "doc": {
+                          "_text": "Fails if the given condition is not true."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.800",
+                            "endtime": "20230526 20:52:46.801"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.799",
+                        "endtime": "20230526 20:52:46.801"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And the response body should not be empty",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Should Not Be Empty",
+                        "library": "BuiltIn"
+                      },
+                      "arg": {
+                        "_text": "${response.json()}"
+                      },
+                      "doc": {
+                        "_text": "Verifies that the given item is not empty."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:46.802",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 2"
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:46.801",
+                          "endtime": "20230526 20:52:46.802"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.801",
+                        "endtime": "20230526 20:52:46.802"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "api"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:46.571",
+                    "endtime": "20230526 20:52:46.802"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s1-s1-t2",
+                  "name": "Scenario: Create a new user",
+                  "line": "15"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Create Session",
+                        "library": "RequestsLibrary"
+                      },
+                      "arg": [
+                        {
+                          "_text": "serverest"
+                        },
+                        {
+                          "_text": "${SERVER_BASE_URL}"
+                        },
+                        {
+                          "_text": "disable_warnings=True"
+                        }
+                      ],
+                      "doc": {
+                        "_text": "Create Session: create a HTTP session to a server"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:46.805",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:46.804",
+                          "endtime": "20230526 20:52:46.805"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.804",
+                        "endtime": "20230526 20:52:46.805"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Given I have a valid user data",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Name",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${name}"
+                        },
+                        "doc": {
+                          "_text": ":example 'John Doe'"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.806",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Zachary Marshall"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.805",
+                            "endtime": "20230526 20:52:46.806"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Email",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${email}"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.807",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = pricelori@example.net"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.806",
+                            "endtime": "20230526 20:52:46.807"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Password",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${password}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "length=12"
+                          },
+                          {
+                            "_text": "special_chars=False"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Generate a random password of the specified ``length``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.807",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = 3twmxtt1WNGi"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.807",
+                            "endtime": "20230526 20:52:46.807"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${name}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.808",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Zachary Marshall"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.807",
+                            "endtime": "20230526 20:52:46.808"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${email}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.808",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = pricelori@example.net"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.808",
+                            "endtime": "20230526 20:52:46.808"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${password}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.809",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = 3twmxtt1WNGi"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.808",
+                            "endtime": "20230526 20:52:46.809"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.805",
+                        "endtime": "20230526 20:52:46.809"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I create the user",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Create Dictionary",
+                          "library": "BuiltIn"
+                        },
+                        "var": {
+                          "_text": "${payload}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "nome=${name}"
+                          },
+                          {
+                            "_text": "email=${email}"
+                          },
+                          {
+                            "_text": "password=${password}"
+                          },
+                          {
+                            "_text": "administrador=false"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Creates and returns a dictionary based on the given ``items``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.810",
+                            "level": "INFO"
+                          },
+                          "_text": "${payload} = {'nome': 'Zachary Marshall', 'email': 'pricelori@example.net', 'password': '3twmxtt1WNGi', 'administrador': 'false'}"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.809",
+                            "endtime": "20230526 20:52:46.810"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Create Dictionary",
+                          "library": "BuiltIn"
+                        },
+                        "var": {
+                          "_text": "${headers}"
+                        },
+                        "arg": {
+                          "_text": "Content-Type=application/json"
+                        },
+                        "doc": {
+                          "_text": "Creates and returns a dictionary based on the given ``items``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.810",
+                            "level": "INFO"
+                          },
+                          "_text": "${headers} = {'Content-Type': 'application/json'}"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.810",
+                            "endtime": "20230526 20:52:46.810"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "POST On Session",
+                          "library": "RequestsLibrary"
+                        },
+                        "var": {
+                          "_text": "${response}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "serverest"
+                          },
+                          {
+                            "_text": "${USERS_API_ENDPOINT}"
+                          },
+                          {
+                            "_text": "json=${payload}"
+                          },
+                          {
+                            "_text": "headers=${headers}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Sends a POST request on a previously created HTTP Session."
+                        },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.913",
+                              "level": "INFO"
+                            },
+                            "_text": "POST Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '116'} \n body=b'{\"nome\": \"Zachary Marshall\", \"email\": \"pricelori@example.net\", \"password\": \"3twmxtt1WNGi\", \"administrador\": \"false\"}' \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.913",
+                              "level": "INFO"
+                            },
+                            "_text": "POST Response : url=https://serverest.dev/usuarios \n status=201, reason=Created \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'e2075366-d073-47e7-bc24-c2e9d206c984', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '5c5c5bd4782de6a891e0cf3e3f3f8083', 'Date': 'Fri, 26 May 2023 20:52:46 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} \n body={\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"aIaCuTfBpdWCpgNJ\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:46.913",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [201]>"
+                          }
+                        ],
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.810",
+                            "endtime": "20230526 20:52:46.914"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Variable",
+                          "library": "BuiltIn"
+                        },
+                        "var": {
+                          "_text": "${user_id}"
+                        },
+                        "arg": {
+                          "_text": "${response.json()['_id']}"
+                        },
+                        "doc": {
+                          "_text": "Returns the given values which can then be assigned to a variables."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.915",
+                            "level": "INFO"
+                          },
+                          "_text": "${user_id} = aIaCuTfBpdWCpgNJ"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.914",
+                            "endtime": "20230526 20:52:46.915"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Global Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${USER_ID}"
+                          },
+                          {
+                            "_text": "${user_id}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Makes a variable available globally in all tests and suites."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.915",
+                            "level": "INFO"
+                          },
+                          "_text": "${USER_ID} = aIaCuTfBpdWCpgNJ"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.915",
+                            "endtime": "20230526 20:52:46.915"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Test Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current test."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.916",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [201]>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.915",
+                            "endtime": "20230526 20:52:46.916"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.809",
+                        "endtime": "20230526 20:52:46.916"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the response status code should be 201",
+                      "library": "test_keywords_users",
+                      "sourcename": "Then the response status code should be ${status_code}"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Should Be Equal As Numbers",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${response.status_code}"
+                          },
+                          {
+                            "_text": "${status_code}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Fails if objects are unequal after converting them to real numbers."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:46.917",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.916",
+                            "endtime": "20230526 20:52:46.917"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Should Be True",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response.json()}"
+                        },
+                        "doc": {
+                          "_text": "Fails if the given condition is not true."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.917",
+                            "endtime": "20230526 20:52:46.918"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.916",
+                        "endtime": "20230526 20:52:46.918"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And the response body should not be empty",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Should Not Be Empty",
+                        "library": "BuiltIn"
+                      },
+                      "arg": {
+                        "_text": "${response.json()}"
+                      },
+                      "doc": {
+                        "_text": "Verifies that the given item is not empty."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:46.919",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 2"
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:46.919",
+                          "endtime": "20230526 20:52:46.919"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.918",
+                        "endtime": "20230526 20:52:46.920"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "api"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:46.803",
+                    "endtime": "20230526 20:52:46.920"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s1-s1-t3",
+                  "name": "Scenario: Get a specific user informations",
+                  "line": "22"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Create Session",
+                        "library": "RequestsLibrary"
+                      },
+                      "arg": [
+                        {
+                          "_text": "serverest"
+                        },
+                        {
+                          "_text": "${SERVER_BASE_URL}"
+                        },
+                        {
+                          "_text": "disable_warnings=True"
+                        }
+                      ],
+                      "doc": {
+                        "_text": "Create Session: create a HTTP session to a server"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:46.922",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:46.921",
+                          "endtime": "20230526 20:52:46.922"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.921",
+                        "endtime": "20230526 20:52:46.922"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I request the created user",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "GET On Session",
+                          "library": "RequestsLibrary"
+                        },
+                        "var": {
+                          "_text": "${response}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "serverest"
+                          },
+                          {
+                            "_text": "${USERS_API_ENDPOINT}/${USER_ID}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Sends a GET request on a previously created HTTP Session."
+                        },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.028",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Request : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n path_url=/usuarios/aIaCuTfBpdWCpgNJ \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.028",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Response : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'b8b43546-5578-4985-820d-1d173570e9ea', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '634d1f7ad593ac8c3e646cbde2c2ae2d', 'Date': 'Fri, 26 May 2023 20:52:47 GMT', 'Server': 'Google Frontend', 'Content-Length': '165'} \n body={\n    \"nome\": \"Zachary Marshall\",\n    \"email\": \"pricelori@example.net\",\n    \"password\": \"3twmxtt1WNGi\",\n    \"administrador\": \"false\",\n    \"_id\": \"aIaCuTfBpdWCpgNJ\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.028",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:46.923",
+                            "endtime": "20230526 20:52:47.028"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Test Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current test."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.029",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.029",
+                            "endtime": "20230526 20:52:47.029"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:46.923",
+                        "endtime": "20230526 20:52:47.029"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the response status code should be 200",
+                      "library": "test_keywords_users",
+                      "sourcename": "Then the response status code should be ${status_code}"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Should Be Equal As Numbers",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${response.status_code}"
+                          },
+                          {
+                            "_text": "${status_code}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Fails if objects are unequal after converting them to real numbers."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.031",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.030",
+                            "endtime": "20230526 20:52:47.031"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Should Be True",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response.json()}"
+                        },
+                        "doc": {
+                          "_text": "Fails if the given condition is not true."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.031",
+                            "endtime": "20230526 20:52:47.032"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.029",
+                        "endtime": "20230526 20:52:47.032"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And the response body should not be empty",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Should Not Be Empty",
+                        "library": "BuiltIn"
+                      },
+                      "arg": {
+                        "_text": "${response.json()}"
+                      },
+                      "doc": {
+                        "_text": "Verifies that the given item is not empty."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:47.033",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 5"
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:47.033",
+                          "endtime": "20230526 20:52:47.033"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.032",
+                        "endtime": "20230526 20:52:47.034"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "api"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:46.921",
+                    "endtime": "20230526 20:52:47.034"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s1-s1-t4",
+                  "name": "Scenario: Update the created user",
+                  "line": "28"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Create Session",
+                        "library": "RequestsLibrary"
+                      },
+                      "arg": [
+                        {
+                          "_text": "serverest"
+                        },
+                        {
+                          "_text": "${SERVER_BASE_URL}"
+                        },
+                        {
+                          "_text": "disable_warnings=True"
+                        }
+                      ],
+                      "doc": {
+                        "_text": "Create Session: create a HTTP session to a server"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:47.035",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:47.035",
+                          "endtime": "20230526 20:52:47.036"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.035",
+                        "endtime": "20230526 20:52:47.036"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I update the created user",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Create Dictionary",
+                          "library": "BuiltIn"
+                        },
+                        "var": {
+                          "_text": "${payload}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "nome=John Smith"
+                          },
+                          {
+                            "_text": "email=john.smith@example.com"
+                          },
+                          {
+                            "_text": "password=P@ssw0rd123"
+                          },
+                          {
+                            "_text": "administrador=false"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Creates and returns a dictionary based on the given ``items``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.037",
+                            "level": "INFO"
+                          },
+                          "_text": "${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.036",
+                            "endtime": "20230526 20:52:47.037"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Create Dictionary",
+                          "library": "BuiltIn"
+                        },
+                        "var": {
+                          "_text": "${headers}"
+                        },
+                        "arg": {
+                          "_text": "Content-Type=application/json"
+                        },
+                        "doc": {
+                          "_text": "Creates and returns a dictionary based on the given ``items``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.037",
+                            "level": "INFO"
+                          },
+                          "_text": "${headers} = {'Content-Type': 'application/json'}"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.037",
+                            "endtime": "20230526 20:52:47.037"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "PUT On Session",
+                          "library": "RequestsLibrary"
+                        },
+                        "var": {
+                          "_text": "${response}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "serverest"
+                          },
+                          {
+                            "_text": "${USERS_API_ENDPOINT}/${USER_ID}"
+                          },
+                          {
+                            "_text": "json=${payload}"
+                          },
+                          {
+                            "_text": "headers=${headers}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Sends a PUT request on a previously created HTTP Session."
+                        },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.144",
+                              "level": "INFO"
+                            },
+                            "_text": "PUT Request : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n path_url=/usuarios/aIaCuTfBpdWCpgNJ \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} \n body=b'{\"nome\": \"John Smith\", \"email\": \"john.smith@example.com\", \"password\": \"P@ssw0rd123\", \"administrador\": \"false\"}' \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.145",
+                              "level": "INFO"
+                            },
+                            "_text": "PUT Response : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '8bfa0d15-24ed-4760-989a-2d4374ec7890', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'edb384afb6964e11e30c60cdfc19ecff', 'Date': 'Fri, 26 May 2023 20:52:47 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} \n body={\n    \"message\": \"Registro alterado com sucesso\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.145",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.037",
+                            "endtime": "20230526 20:52:47.145"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Test Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current test."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.146",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.145",
+                            "endtime": "20230526 20:52:47.146"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.036",
+                        "endtime": "20230526 20:52:47.146"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the response status code should be 200",
+                      "library": "test_keywords_users",
+                      "sourcename": "Then the response status code should be ${status_code}"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Should Be Equal As Numbers",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${response.status_code}"
+                          },
+                          {
+                            "_text": "${status_code}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Fails if objects are unequal after converting them to real numbers."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.147",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.147",
+                            "endtime": "20230526 20:52:47.147"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Should Be True",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response.json()}"
+                        },
+                        "doc": {
+                          "_text": "Fails if the given condition is not true."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.148",
+                            "endtime": "20230526 20:52:47.148"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.146",
+                        "endtime": "20230526 20:52:47.148"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And the response body should not be empty",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Should Not Be Empty",
+                        "library": "BuiltIn"
+                      },
+                      "arg": {
+                        "_text": "${response.json()}"
+                      },
+                      "doc": {
+                        "_text": "Verifies that the given item is not empty."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:47.149",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 1"
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:47.149",
+                          "endtime": "20230526 20:52:47.150"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.149",
+                        "endtime": "20230526 20:52:47.150"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "api"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:47.034",
+                    "endtime": "20230526 20:52:47.150"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s1-s1-t5",
+                  "name": "Scenario: Delete the created user",
+                  "line": "34"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Create Session",
+                        "library": "RequestsLibrary"
+                      },
+                      "arg": [
+                        {
+                          "_text": "serverest"
+                        },
+                        {
+                          "_text": "${SERVER_BASE_URL}"
+                        },
+                        {
+                          "_text": "disable_warnings=True"
+                        }
+                      ],
+                      "doc": {
+                        "_text": "Create Session: create a HTTP session to a server"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:47.152",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:47.152",
+                          "endtime": "20230526 20:52:47.152"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.151",
+                        "endtime": "20230526 20:52:47.153"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I delete the created user",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "DELETE On Session",
+                          "library": "RequestsLibrary"
+                        },
+                        "var": {
+                          "_text": "${response}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "serverest"
+                          },
+                          {
+                            "_text": "${USERS_API_ENDPOINT}/${USER_ID}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Sends a DELETE request on a previously created HTTP Session."
+                        },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.253",
+                              "level": "INFO"
+                            },
+                            "_text": "DELETE Request : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n path_url=/usuarios/aIaCuTfBpdWCpgNJ \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.253",
+                              "level": "INFO"
+                            },
+                            "_text": "DELETE Response : url=https://serverest.dev/usuarios/aIaCuTfBpdWCpgNJ \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'b6b7d986-1739-4100-b6ae-a357670f8405', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '2a581c2a931f619c1ec0468f1563c0e4', 'Date': 'Fri, 26 May 2023 20:52:47 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} \n body={\n    \"message\": \"Registro excluído com sucesso\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "timestamp": "20230526 20:52:47.254",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.153",
+                            "endtime": "20230526 20:52:47.254"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Test Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current test."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.255",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.254",
+                            "endtime": "20230526 20:52:47.255"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.153",
+                        "endtime": "20230526 20:52:47.255"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the response status code should be 200",
+                      "library": "test_keywords_users",
+                      "sourcename": "Then the response status code should be ${status_code}"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Should Be Equal As Numbers",
+                          "library": "BuiltIn"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${response.status_code}"
+                          },
+                          {
+                            "_text": "${status_code}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Fails if objects are unequal after converting them to real numbers."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.257",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.256",
+                            "endtime": "20230526 20:52:47.257"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Should Be True",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${response.json()}"
+                        },
+                        "doc": {
+                          "_text": "Fails if the given condition is not true."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.257",
+                            "endtime": "20230526 20:52:47.258"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.255",
+                        "endtime": "20230526 20:52:47.258"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And the response body should not be empty",
+                      "library": "test_keywords_users"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Should Not Be Empty",
+                        "library": "BuiltIn"
+                      },
+                      "arg": {
+                        "_text": "${response.json()}"
+                      },
+                      "doc": {
+                        "_text": "Verifies that the given item is not empty."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:47.259",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 1"
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:47.259",
+                          "endtime": "20230526 20:52:47.259"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.258",
+                        "endtime": "20230526 20:52:47.259"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "api"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:47.151",
+                    "endtime": "20230526 20:52:47.260"
+                  }
+                }
+              }
+            ],
+            "status": {
+              "_attributes": {
+                "status": "PASS",
+                "starttime": "20230526 20:52:46.028",
+                "endtime": "20230526 20:52:47.260"
+              }
+            }
+          },
+          "status": {
+            "_attributes": {
+              "status": "PASS",
+              "starttime": "20230526 20:52:46.025",
+              "endtime": "20230526 20:52:47.262"
+            }
+          }
+        },
+        {
+          "_attributes": {
+            "id": "s1-s2",
+            "name": "Ui",
+            "source": "/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/ui"
+          },
+          "suite": {
+            "_attributes": {
+              "id": "s1-s2-s1",
+              "name": "Test Ui Signup",
+              "source": "/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/ui/test_ui_signup.robot"
+            },
+            "test": [
+              {
+                "_attributes": {
+                  "id": "s1-s2-s1-t1",
+                  "name": "Scenario: Signup with empty fields",
+                  "line": "10"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Open Browser",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${SERVER_BASE_URL}"
+                          },
+                          {
+                            "_text": "${HEADLESS} ${BROWSER}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Opens a new browser instance to the optional ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:47.274",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:47.273",
+                            "endtime": "20230526 20:52:49.071"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Maximize Browser Window",
+                          "library": "SeleniumLibrary"
+                        },
+                        "doc": {
+                          "_text": "Maximizes current browser window."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.071",
+                            "endtime": "20230526 20:52:49.177"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:47.273",
+                        "endtime": "20230526 20:52:49.178"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Given Im on the signup page",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Location Should Be",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "https://front.serverest.dev/login"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the current URL is exactly ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.185",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.179",
+                            "endtime": "20230526 20:52:49.185"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Click Element",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=a.btn.btn-link"
+                        },
+                        "doc": {
+                          "_text": "Click the element identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.186",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.185",
+                            "endtime": "20230526 20:52:49.298"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:49.178",
+                        "endtime": "20230526 20:52:49.298"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I click in signup",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Click Button",
+                        "library": "SeleniumLibrary"
+                      },
+                      "arg": {
+                        "_text": "css=.btn.btn-primary"
+                      },
+                      "doc": {
+                        "_text": "Clicks the button identified by ``locator``."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:49.299",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:49.298",
+                          "endtime": "20230526 20:52:49.418"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:49.298",
+                        "endtime": "20230526 20:52:49.418"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then required field messages should be displayed",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Wait Until Element Is Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "css=.alert-dismissible"
+                          },
+                          {
+                            "_text": "timeout=10s"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Waits until the element ``locator`` is visible."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.419",
+                            "endtime": "20230526 20:52:49.658"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Element Should Be Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=.alert-dismissible"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the element identified by ``locator`` is visible."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.680",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.658",
+                            "endtime": "20230526 20:52:49.680"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Page Should Contain",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "Nome é obrigatório"
+                        },
+                        "doc": {
+                          "_text": "Verifies that current page contains ``text``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.698",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Nome é obrigatório'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.680",
+                            "endtime": "20230526 20:52:49.698"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Page Should Contain",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "Email é obrigatório"
+                        },
+                        "doc": {
+                          "_text": "Verifies that current page contains ``text``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.713",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Email é obrigatório'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.698",
+                            "endtime": "20230526 20:52:49.713"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Page Should Contain",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "Password é obrigatório"
+                        },
+                        "doc": {
+                          "_text": "Verifies that current page contains ``text``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.728",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Password é obrigatório'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.713",
+                            "endtime": "20230526 20:52:49.728"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:49.418",
+                        "endtime": "20230526 20:52:49.729"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "After Tests",
+                      "library": "test_keywords_common",
+                      "type": "TEARDOWN"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Close Browser",
+                        "library": "SeleniumLibrary"
+                      },
+                      "doc": {
+                        "_text": "Closes the current browser."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:49.729",
+                          "endtime": "20230526 20:52:49.785"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:49.729",
+                        "endtime": "20230526 20:52:49.785"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "ui"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:47.272",
+                    "endtime": "20230526 20:52:49.786"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s2-s1-t2",
+                  "name": "Scenario: Signup done successfully",
+                  "line": "16"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Open Browser",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${SERVER_BASE_URL}"
+                          },
+                          {
+                            "_text": "${HEADLESS} ${BROWSER}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Opens a new browser instance to the optional ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:49.788",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:49.788",
+                            "endtime": "20230526 20:52:50.808"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Maximize Browser Window",
+                          "library": "SeleniumLibrary"
+                        },
+                        "doc": {
+                          "_text": "Maximizes current browser window."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:50.809",
+                            "endtime": "20230526 20:52:50.914"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:49.787",
+                        "endtime": "20230526 20:52:50.914"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Given Im on the signup page",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Location Should Be",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "https://front.serverest.dev/login"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the current URL is exactly ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:50.922",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:50.916",
+                            "endtime": "20230526 20:52:50.922"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Click Element",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=a.btn.btn-link"
+                        },
+                        "doc": {
+                          "_text": "Click the element identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:50.923",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:50.922",
+                            "endtime": "20230526 20:52:51.005"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:50.915",
+                        "endtime": "20230526 20:52:51.006"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And I fill in the signup fields with valid data",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Name",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${name}"
+                        },
+                        "doc": {
+                          "_text": ":example 'John Doe'"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.007",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Juan Reese"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.006",
+                            "endtime": "20230526 20:52:51.007"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Email",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${email}"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.008",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = stephen03@example.com"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.007",
+                            "endtime": "20230526 20:52:51.008"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Password",
+                          "library": "FakerLibrary"
+                        },
+                        "var": {
+                          "_text": "${password}"
+                        },
+                        "arg": [
+                          {
+                            "_text": "length=12"
+                          },
+                          {
+                            "_text": "special_chars=False"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Generate a random password of the specified ``length``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.008",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = STxJqTlLO5Ok"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.008",
+                            "endtime": "20230526 20:52:51.008"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:nome"
+                          },
+                          {
+                            "_text": "${name}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.009",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'Juan Reese' into text field 'id:nome'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.009",
+                            "endtime": "20230526 20:52:51.205"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:email"
+                          },
+                          {
+                            "_text": "${email}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.206",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'stephen03@example.com' into text field 'id:email'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.205",
+                            "endtime": "20230526 20:52:51.336"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:password"
+                          },
+                          {
+                            "_text": "${password}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.337",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'STxJqTlLO5Ok' into text field 'id:password'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.337",
+                            "endtime": "20230526 20:52:51.451"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Select Checkbox",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "id=administrador"
+                        },
+                        "doc": {
+                          "_text": "Selects the checkbox identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.452",
+                            "level": "INFO"
+                          },
+                          "_text": "Selecting checkbox 'id=administrador'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.451",
+                            "endtime": "20230526 20:52:51.538"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${name}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.539",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Juan Reese"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.539",
+                            "endtime": "20230526 20:52:51.539"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${email}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.540",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = stephen03@example.com"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.539",
+                            "endtime": "20230526 20:52:51.540"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Set Suite Variable",
+                          "library": "BuiltIn"
+                        },
+                        "arg": {
+                          "_text": "${password}"
+                        },
+                        "doc": {
+                          "_text": "Makes a variable available everywhere within the scope of the current suite."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.540",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = STxJqTlLO5Ok"
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.540",
+                            "endtime": "20230526 20:52:51.540"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:51.006",
+                        "endtime": "20230526 20:52:51.540"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I click in signup",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Click Button",
+                        "library": "SeleniumLibrary"
+                      },
+                      "arg": {
+                        "_text": "css=.btn.btn-primary"
+                      },
+                      "doc": {
+                        "_text": "Clicks the button identified by ``locator``."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:51.541",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:51.541",
+                          "endtime": "20230526 20:52:51.612"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:51.540",
+                        "endtime": "20230526 20:52:51.613"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the page should contain the text \"Cadastro realizado com sucesso\"",
+                      "library": "test_keywords_signup",
+                      "sourcename": "Then the page should contain the text \"${expected_text}\""
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Wait Until Element Is Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "css=.alert-dismissible"
+                          },
+                          {
+                            "_text": "timeout=10s"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Waits until the element ``locator`` is visible."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.613",
+                            "endtime": "20230526 20:52:51.852"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Element Should Be Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=.alert-dismissible"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the element identified by ``locator`` is visible."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.876",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.853",
+                            "endtime": "20230526 20:52:51.876"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Page Should Contain",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "${expected_text}"
+                        },
+                        "doc": {
+                          "_text": "Verifies that current page contains ``text``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.892",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Cadastro realizado com sucesso'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.876",
+                            "endtime": "20230526 20:52:51.892"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:51.613",
+                        "endtime": "20230526 20:52:51.892"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "After Tests",
+                      "library": "test_keywords_common",
+                      "type": "TEARDOWN"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Close Browser",
+                        "library": "SeleniumLibrary"
+                      },
+                      "doc": {
+                        "_text": "Closes the current browser."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:51.893",
+                          "endtime": "20230526 20:52:51.954"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:51.892",
+                        "endtime": "20230526 20:52:51.955"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "ui"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:49.787",
+                    "endtime": "20230526 20:52:51.955"
+                  }
+                }
+              },
+              {
+                "_attributes": {
+                  "id": "s1-s2-s1-t3",
+                  "name": "Scenario: Signup with already used email",
+                  "line": "23"
+                },
+                "kw": [
+                  {
+                    "_attributes": {
+                      "name": "Before Tests",
+                      "library": "test_keywords_common",
+                      "type": "SETUP"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Open Browser",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "${SERVER_BASE_URL}"
+                          },
+                          {
+                            "_text": "${HEADLESS} ${BROWSER}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Opens a new browser instance to the optional ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:51.958",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:51.957",
+                            "endtime": "20230526 20:52:52.946"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Maximize Browser Window",
+                          "library": "SeleniumLibrary"
+                        },
+                        "doc": {
+                          "_text": "Maximizes current browser window."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:52.947",
+                            "endtime": "20230526 20:52:53.053"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:51.956",
+                        "endtime": "20230526 20:52:53.054"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Given Im on the signup page",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Location Should Be",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "https://front.serverest.dev/login"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the current URL is exactly ``url``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.060",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.054",
+                            "endtime": "20230526 20:52:53.060"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Click Element",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=a.btn.btn-link"
+                        },
+                        "doc": {
+                          "_text": "Click the element identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.061",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.061",
+                            "endtime": "20230526 20:52:53.141"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:53.054",
+                        "endtime": "20230526 20:52:53.141"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "And I fill in the signup fields with an email already registered",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:nome"
+                          },
+                          {
+                            "_text": "${name}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.142",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'Juan Reese' into text field 'id:nome'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.142",
+                            "endtime": "20230526 20:52:53.322"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:email"
+                          },
+                          {
+                            "_text": "${email}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.323",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'stephen03@example.com' into text field 'id:email'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.323",
+                            "endtime": "20230526 20:52:53.463"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Input Text",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "id:password"
+                          },
+                          {
+                            "_text": "${password}"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Types the given ``text`` into the text field identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.464",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'STxJqTlLO5Ok' into text field 'id:password'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.464",
+                            "endtime": "20230526 20:52:53.575"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Select Checkbox",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "id=administrador"
+                        },
+                        "doc": {
+                          "_text": "Selects the checkbox identified by ``locator``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:53.575",
+                            "level": "INFO"
+                          },
+                          "_text": "Selecting checkbox 'id=administrador'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.575",
+                            "endtime": "20230526 20:52:53.662"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:53.141",
+                        "endtime": "20230526 20:52:53.662"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "When I click in signup",
+                      "library": "test_keywords_signup"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Click Button",
+                        "library": "SeleniumLibrary"
+                      },
+                      "arg": {
+                        "_text": "css=.btn.btn-primary"
+                      },
+                      "doc": {
+                        "_text": "Clicks the button identified by ``locator``."
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "timestamp": "20230526 20:52:53.663",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:53.663",
+                          "endtime": "20230526 20:52:53.758"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:53.662",
+                        "endtime": "20230526 20:52:53.758"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "Then the page should contain the text \"Este email já está sendo usado\"",
+                      "library": "test_keywords_signup",
+                      "sourcename": "Then the page should contain the text \"${expected_text}\""
+                    },
+                    "kw": [
+                      {
+                        "_attributes": {
+                          "name": "Wait Until Element Is Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": [
+                          {
+                            "_text": "css=.alert-dismissible"
+                          },
+                          {
+                            "_text": "timeout=10s"
+                          }
+                        ],
+                        "doc": {
+                          "_text": "Waits until the element ``locator`` is visible."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:53.759",
+                            "endtime": "20230526 20:52:54.214"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Element Should Be Visible",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "css=.alert-dismissible"
+                        },
+                        "doc": {
+                          "_text": "Verifies that the element identified by ``locator`` is visible."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:54.237",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:54.214",
+                            "endtime": "20230526 20:52:54.237"
+                          }
+                        }
+                      },
+                      {
+                        "_attributes": {
+                          "name": "Page Should Contain",
+                          "library": "SeleniumLibrary"
+                        },
+                        "arg": {
+                          "_text": "${expected_text}"
+                        },
+                        "doc": {
+                          "_text": "Verifies that current page contains ``text``."
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "timestamp": "20230526 20:52:54.255",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Este email já está sendo usado'."
+                        },
+                        "status": {
+                          "_attributes": {
+                            "status": "PASS",
+                            "starttime": "20230526 20:52:54.237",
+                            "endtime": "20230526 20:52:54.256"
+                          }
+                        }
+                      }
+                    ],
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:53.758",
+                        "endtime": "20230526 20:52:54.256"
+                      }
+                    }
+                  },
+                  {
+                    "_attributes": {
+                      "name": "After Tests",
+                      "library": "test_keywords_common",
+                      "type": "TEARDOWN"
+                    },
+                    "kw": {
+                      "_attributes": {
+                        "name": "Close Browser",
+                        "library": "SeleniumLibrary"
+                      },
+                      "doc": {
+                        "_text": "Closes the current browser."
+                      },
+                      "status": {
+                        "_attributes": {
+                          "status": "PASS",
+                          "starttime": "20230526 20:52:54.257",
+                          "endtime": "20230526 20:52:55.313"
+                        }
+                      }
+                    },
+                    "status": {
+                      "_attributes": {
+                        "status": "PASS",
+                        "starttime": "20230526 20:52:54.256",
+                        "endtime": "20230526 20:52:55.313"
+                      }
+                    }
+                  }
+                ],
+                "tag": {
+                  "_text": "ui"
+                },
+                "status": {
+                  "_attributes": {
+                    "status": "PASS",
+                    "starttime": "20230526 20:52:51.956",
+                    "endtime": "20230526 20:52:55.313"
+                  }
+                }
+              }
+            ],
+            "status": {
+              "_attributes": {
+                "status": "PASS",
+                "starttime": "20230526 20:52:47.264",
+                "endtime": "20230526 20:52:55.314"
+              }
+            }
+          },
+          "status": {
+            "_attributes": {
+              "status": "PASS",
+              "starttime": "20230526 20:52:47.262",
+              "endtime": "20230526 20:52:55.316"
+            }
+          }
+        }
+      ],
+      "status": {
+        "_attributes": {
+          "status": "PASS",
+          "starttime": "20230526 20:52:46.002",
+          "endtime": "20230526 20:52:55.317"
+        }
+      }
+    },
+    "statistics": {
+      "total": {
+        "stat": {
+          "_attributes": {
+            "pass": "8",
+            "fail": "0",
+            "skip": "0"
+          },
+          "_text": "All Tests"
+        }
+      },
+      "tag": {
+        "stat": [
+          {
+            "_attributes": {
+              "pass": "5",
+              "fail": "0",
+              "skip": "0"
+            },
+            "_text": "api"
+          },
+          {
+            "_attributes": {
+              "pass": "3",
+              "fail": "0",
+              "skip": "0"
+            },
+            "_text": "ui"
+          }
+        ]
+      },
+      "suite": {
+        "stat": [
+          {
+            "_attributes": {
+              "pass": "8",
+              "fail": "0",
+              "skip": "0",
+              "id": "s1",
+              "name": "Tests"
+            },
+            "_text": "Tests"
+          },
+          {
+            "_attributes": {
+              "pass": "5",
+              "fail": "0",
+              "skip": "0",
+              "id": "s1-s1",
+              "name": "Api"
+            },
+            "_text": "Tests.Api"
+          },
+          {
+            "_attributes": {
+              "pass": "5",
+              "fail": "0",
+              "skip": "0",
+              "id": "s1-s1-s1",
+              "name": "Test Api Users"
+            },
+            "_text": "Tests.Api.Test Api Users"
+          },
+          {
+            "_attributes": {
+              "pass": "3",
+              "fail": "0",
+              "skip": "0",
+              "id": "s1-s2",
+              "name": "Ui"
+            },
+            "_text": "Tests.Ui"
+          },
+          {
+            "_attributes": {
+              "pass": "3",
+              "fail": "0",
+              "skip": "0",
+              "id": "s1-s2-s1",
+              "name": "Test Ui Signup"
+            },
+            "_text": "Tests.Ui.Test Ui Signup"
+          }
+        ]
+      }
+    },
+    "errors": {}
+  }
+}
