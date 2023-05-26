@@ -59,6 +59,10 @@ jobs: # Define the jobs that this pipeline will execute.
         passedTests=$(jq -r '.robot.statistics.total.stat._attributes.pass' ./test-reports/output.json)
         echo "PASSED_TESTS=$passedTests" >> $GITHUB_ENV
 
+    - name: Usar o valor em outro step
+      run: |
+        echo "O valor da propriedade é: $PASSED_TESTS"
+
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
       with:
