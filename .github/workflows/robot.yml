@@ -11,8 +11,8 @@ on: # Triggers under which the pipeline will be executed
 
 
 jobs: # Define the jobs that this pipeline will execute.
-  setup: # Stage name
-    name: Configures the environment and dependencies for the tests
+  setup-and-run-tests: # Stage name
+    name: Setup the environment and run the tests
     runs-on: ubuntu-latest # Executes the job on an Ubuntu environment
 
     steps: # Steps to follow in the job
@@ -35,13 +35,6 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
-
-  tests: # Stage name
-    name: Run the tests and delete old results
-    needs: setup
-    runs-on: ubuntu-latest # Executes the job on an Ubuntu environment
-
-    steps: # Steps to follow in the job
 
     - name: Delete Old Test Reports # Deletes previous test reports before running new tests
       run: rm -rf test-reports/*
