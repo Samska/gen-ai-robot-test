@@ -49,16 +49,10 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
-    - name: Convert XML to JSON
+    - name: Convert XML Results to JSON # Convert output.xml to JSON to get test results and manipulate that data
       run: |
         npm install xml-js
-        node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('test-reports/output.json', jsonData);"
-
-    - name: Upload JSON artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: converted-json
-        path: gen-ai-robot-test/test-reports/output.json
+        node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('output.json', jsonData);"
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
