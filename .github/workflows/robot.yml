@@ -45,10 +45,10 @@ jobs: # Define the jobs that this pipeline will execute.
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
     - name: Convert XML to JSON # Convert the output.xml to report.json
-      uses: wnameless/xml2json-action@v1
+      uses: openai/github-action-xml-to-json@v1
       with:
-        xml_path: output.xml  
-        json_path: report.json 
+        input_file: output.xml  
+        output_file: report.json 
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
