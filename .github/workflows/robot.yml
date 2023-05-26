@@ -41,7 +41,6 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
-        npm install xml-js
 
     - name: Delete Old Test Reports # Deletes previous test reports before running new tests
       run: rm -rf test-reports/*
@@ -49,19 +48,6 @@ jobs: # Define the jobs that this pipeline will execute.
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
-
-    - name: Convert XML to JSON
-      run: |
-        node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('report.json', jsonData);"
-
-    - name: Ler report.json e armazenar valor em uma variável de ambiente
-      run: |
-        value=$(jq -r '.robot.statistics.total.stat._pass' report.json)
-        echo "export VARIAVEL=$value" >> $GITHUB_ENV
-
-    - name: Usar a variável de ambiente em outro step
-      run: |
-        echo "O valor da propriedade é: $VARIAVEL"
 
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
