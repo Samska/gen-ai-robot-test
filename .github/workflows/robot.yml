@@ -86,12 +86,19 @@ jobs: # Define the jobs that this pipeline will execute.
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
       run: |
+        if [[ ${{ env.FAILED_TESTS }} -gt 0 ]]; then
+          color="#FF0000"
+        else
+          color="#00FF00"
+        fi
+
         curl -X POST -H 'Content-type: application/json' --data '{
           "channel": "'"${SLACK_CHANNEL}"'",
           "attachments": [
             {
               "title": "Test Results",
-              "text": ":page_with_curl: *Total Tests:* ${{ env.TOTAL_TESTS }}\n:white_check_mark: *Passed Tests:* ${{ env.PASSED_TESTS }}\n:x: *Failed Tests:* ${{ env.FAILED_TESTS }}\n\n<https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html|Click here to see the test in details>"
+              "text": ":page_with_curl: *Total Tests:* ${{ env.TOTAL_TESTS }}\n:white_check_mark: *Passed Tests:* ${{ env.PASSED_TESTS }}\n:x: *Failed Tests:* ${{ env.FAILED_TESTS }}\n\n<https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html|Click here to see the test in details>",
+              "color": "'"${color}"'"
             }
           ]
         }' "${SLACK_WEBHOOK_URL}"
