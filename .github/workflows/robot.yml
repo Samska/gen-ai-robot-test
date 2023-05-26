@@ -54,6 +54,12 @@ jobs: # Define the jobs that this pipeline will execute.
       run: |        
         node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('./test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('output.json', jsonData);"
 
+    - name: Upload JSON artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: converted-json
+        path: output.json
+
     - name: Upload Test Results # Uploads the test results artifact to Github Actions
       uses: actions/upload-artifact@v2
       with:
