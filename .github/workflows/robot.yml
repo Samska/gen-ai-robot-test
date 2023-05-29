@@ -42,10 +42,7 @@ jobs: # Define the jobs that this pipeline will execute.
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
         npm install xml-js
-
-    - name: Delete Old Test Reports # Deletes previous test reports before running new tests
-      run: rm -rf test-reports/*
-
+        
     - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
