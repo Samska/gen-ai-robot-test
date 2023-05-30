@@ -1,25 +1,23 @@
-name: Robot Framework Tests # Name of the Github Action pipeline
+name: Robot Framework Tests
 
-on: # Triggers under which the pipeline will be executed
-  push: # Trigger the pipeline on Git push events
+on: 
+  push: 
     branches:
-      - master # Only build on the 'master' branch push events
-  pull_request: # Trigger the pipeline on pull request events
-  schedule: # Trigger the pipeline on a schedule. The following runs once per day at midnight UTC.
+      - master 
+  schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch: # Manually trigger the pipeline via the github actions UI
+  workflow_dispatch: # Enable the run worklfow button on the Action
 
-
-jobs: # Define the jobs that this pipeline will execute.
-  setup-and-run-tests: # Stage name
+jobs: 
+  setup-and-run-tests: 
     name: Setup the environment and run the tests
-    runs-on: ubuntu-latest # Executes the job on an Ubuntu environment
+    runs-on: ubuntu-latest 
 
-    steps: # Steps to follow in the job
+    steps: 
     - name: Project checkout
-      uses: actions/checkout@v2 # This step checks out the code of the project
+      uses: actions/checkout@v2 
 
-    - name: Set up Python 3.8 # Sets up python 3.8 environment for the project
+    - name: Set up Python 3.8 
       uses: actions/setup-python@v3
       with:
         python-version: 3.8
@@ -29,7 +27,7 @@ jobs: # Define the jobs that this pipeline will execute.
       with:
         node-version: '14'
 
-    - name: Cache pip packages # Caches pip packages for future builds
+    - name: Cache pip packages
       uses: actions/cache@v2
       with:
         path: ~/.cache/pip
@@ -37,21 +35,21 @@ jobs: # Define the jobs that this pipeline will execute.
         restore-keys: |
           ${{ runner.os }}-pip-
 
-    - name: Install Dependencies # Installs dependencies required for Robot framework test execution
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r config/requirements.txt
         npm install xml-js
         
-    - name: Run Robot Framework Tests # Runs Robot framework tests with some custom arguments for the tests. It also masks the errors produced by Robot Framework tests.
+    - name: Run Robot Framework Tests # Run tests with arguments, I'm removing visual tests because free Applitools has a run quota
       run: |
         robot --variable HEADLESS:headless --exclude visual --outputdir test-reports tests || true
 
-    - name: Convert XML Results to JSON # Convert output.xml to JSON to get test results and manipulate that data
+    - name: Convert XML Results to JSON
       run: |        
         node -e "const fs = require('fs'); const xml2js = require('xml-js'); const xmlData = fs.readFileSync('./test-reports/output.xml', 'utf8'); const jsonData = xml2js.xml2json(xmlData, { compact: true, spaces: 2 }); fs.writeFileSync('./test-reports/output.json', jsonData);"
 
-    - name: Read output.json and set test results into env variables     # Read the JSON report to get tests data
+    - name: Read output.json and set test results into env variables
       run: |
         passedTests=$(jq -r '.robot.statistics.total.stat._attributes.pass' ./test-reports/output.json)
         failedTests=$(jq -r '.robot.statistics.total.stat._attributes.fail' ./test-reports/output.json)
@@ -60,13 +58,13 @@ jobs: # Define the jobs that this pipeline will execute.
         echo "FAILED_TESTS=$failedTests" >> $GITHUB_ENV
         echo "TOTAL_TESTS=$totalTests" >> $GITHUB_ENV
 
-    - name: Upload Test Results # Uploads the test results artifact to Github Actions
+    - name: Upload Test Results
       uses: actions/upload-artifact@v2
       with:
         name: test-results
         path: test-reports
 
-    - name: Publish Test Report # Publishes the test report to Github pages
+    - name: Publish Test Report
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -74,11 +72,11 @@ jobs: # Define the jobs that this pipeline will execute.
         cname: ${{ env.CNAME }}
         commit_message: Update test report for ${{ github.sha }}
 
-    - name: Display Test Report URL # Displays the URL where test reports can be accessed.
+    - name: Display Test Report URL
       run: |
         echo "Test report: https://${{ github.actor }}.github.io/gen-ai-robot-test/report.html"
 
-    - name: Send Slack Notification # Send a slack notification to my slack project in the test-channel with URL Test results
+    - name: Send Slack Notification
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
