@@ -59,16 +59,20 @@ jobs:
         echo "TOTAL_TESTS=$totalTests" >> $GITHUB_ENV
 
     - name: Upload Test Results
-      id: upload_artifact
+      id: upload_results
       uses: actions/upload-artifact@v2
       with:
         name: test-results
         path: test-reports
 
-    - name: Get Artifact URL
+    - name: SET Artifact URL
       run: |
-        echo "Artifact URL: ${{ steps.upload_artifact.outputs.artifact_url }}"
+        echo "ARTIFACT_URL=${{ steps.upload_results.outputs.artifact_url }}" >> $GITHUB_ENV
 
+    - name: SET Artifact URL
+      run: |
+        echo $ARTIFACT_URL
+        
     - name: Publish Test Report
       uses: peaceiris/actions-gh-pages@v3
       with:
