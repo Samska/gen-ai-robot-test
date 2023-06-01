@@ -65,13 +65,11 @@ jobs:
         name: test-results
         path: test-reports
 
-    - name: SET Artifact URL
+    - name: GET Artifact URL
+      id: get_artifact_url
       run: |
-        echo "ARTIFACT_URL=${{ steps.upload_results.outputs.uploaded-artifact }}" >> $GITHUB_ENV
-
-    - name: SET Artifact URL
-      run: |
-        echo $ARTIFACT_URL
+        echo "::set-output name=artifact_url::$(curl -sS https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts | jq -r '.artifacts[] | select(.name=="test-results") | .archive_download_url')"
+        echo "Artifact URL: ${{ steps.get_artifact_url.outputs.artifact_url }}"
         
     - name: Publish Test Report
       uses: peaceiris/actions-gh-pages@v3
