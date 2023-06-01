@@ -9,7 +9,7 @@ Test Setup     Before Tests
 Scenario: Get all registered users
     [Tags]    api
     When I request the list of all registered users
-    Then the response status code should be 201
+    Then the response status code should be 200
     And the response body should not be empty
 
 Scenario: Create a new user
