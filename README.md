@@ -41,12 +41,6 @@ I also have structured this project following the principles of the Page Object 
 
 The focus is that by following this pattern, we have code reusability, facilitated maintenance, separation of responsibilities, and better readability.
 
-- **tests**: Here you will find all the test scripts, organized by page or endpoint.
-
-- **keywords**: Keywords are high-level actions that can involve interaction with one or more pages/endpoints. Keywords are reusable and can be used in multiple tests. 
-
-- **variables**: Variables are values that are used in various places in our tests. By isolating these variables in their own place, we can make our tests more consistent and easy to maintain.
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
