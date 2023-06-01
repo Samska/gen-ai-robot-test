@@ -1,8 +1,8 @@
 *** Settings ***
 Resource        ../../config/settings.robot
-Resource        ../../resources/ui/keywords/test_keywords_common.robot
-Resource        ../../resources/ui/keywords/test_keywords_signup.robot
-Resource        ../../resources/ui/variables/test_variables_common.robot
+Resource        ../../resources/e2e/keywords/test_keywords_common.robot
+Resource        ../../resources/e2e/keywords/test_keywords_signup.robot
+Resource        ../../resources/e2e/variables/test_variables_common.robot
 Test Setup      Before Tests
 Test Teardown   After Tests
 
