@@ -63,7 +63,7 @@ You can also consult the test results on this [page](https://samska.github.io/ge
 
 ### Test Configuration
 
-The test configuration can be found in the config / directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
+The test configuration can be found in the config directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
 
 ### Badges
 
