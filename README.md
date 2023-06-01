@@ -1,3 +1,6 @@
+[![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
+[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
+
 # GenerativeAI Robot Framework Tests
 
 This is a Robot Framework project for automated testing using GenerativeAI, that is, part or all of this project's content was made based on AI suggestions, I took the liberty of changing some parts. This project uses the following folder structure:
@@ -79,8 +82,3 @@ You can also consult the test results on this [page](https://samska.github.io/ge
 ### Test Configuration
 
 The test configuration can be found in the config directory. The settings.robot file contains the default configuration, which can be overridden using environment variables or command line arguments.
-
-### Badges
-
-[![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
-[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
