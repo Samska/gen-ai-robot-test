@@ -68,3 +68,4 @@ The test configuration can be found in the config directory. The settings.robot 
 ### Badges
 
 [![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
+[![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
