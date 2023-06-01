@@ -1,7 +1,7 @@
 [![Robot Framework Tests](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml/badge.svg)](https://github.com/Samska/gen-ai-robot-test/actions/workflows/robot.yml)
 [![Badge ServeRest](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/ServeRest/ServeRest/)
 
-# GenerativeAI Robot Framework Tests
+# GenerativeAI Robot Framework Tests 
 
 This is a Robot Framework project for automated testing using GenerativeAI, that is, part or all of this project's content was made based on AI suggestions, I took the liberty of changing some parts. This project uses the following folder structure:
 
