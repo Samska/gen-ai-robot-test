@@ -13,7 +13,7 @@ gen-ai-robot-test/
  ├── docs/                                  # Any documentation related to the project
  │    ├── chatgpt-interactions/             # Interactions with ChatGPT           
  │        ├── files.png                     # Format in which interactions were saved
- ├── resources/                             # Resources used in the project as keywords and variables separated by test type folder
+ ├── resources/                             # Resources used in the project like keywords and variables
  │    ├── e2e/
  │        ├── keywords/
  │          ├── test_keywords_common.robot
