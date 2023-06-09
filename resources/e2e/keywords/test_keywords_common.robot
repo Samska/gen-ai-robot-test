@@ -1,6 +1,6 @@
 *** Keywords ***
 Before Tests
-        Open Browser                    ${SERVER_BASE_URL}      ${HEADLESS} ${BROWSER}          --disable-logging      
+        Open Browser                    ${SERVER_BASE_URL}      ${HEADLESS} ${BROWSER}      
         Maximize Browser Window
 
 After Tests
