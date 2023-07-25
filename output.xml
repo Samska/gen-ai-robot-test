@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1 (Python 3.8.17 on linux)" generated="20230718 01:24:36.458" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1 (Python 3.8.17 on linux)" generated="20230725 01:03:50.679" rpa="false" schemaversion="4">
 <suite id="s1" name="Tests" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests">
 <suite id="s1-s1" name="Api" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api">
 <suite id="s1-s1-s1" name="Test Api Users" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api/test_api_users.robot">
@@ -10,10 +10,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230718 01:24:36.970" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230718 01:24:36.969" endtime="20230718 01:24:36.970"/>
+<msg timestamp="20230725 01:03:51.177" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230725 01:03:51.177" endtime="20230725 01:03:51.177"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:36.969" endtime="20230718 01:24:36.970"/>
+<status status="PASS" starttime="20230725 01:03:51.176" endtime="20230725 01:03:51.178"/>
 </kw>
 <kw name="When I request the list of all registered users" library="test_keywords_users">
 <kw name="GET On Session" library="RequestsLibrary">
@@ -21,73 +21,80 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20230718 01:24:37.109" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+<msg timestamp="20230725 01:03:51.308" level="INFO">GET Request : url=https://serverest.dev/usuarios 
  path_url=/usuarios 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230718 01:24:37.109" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+<msg timestamp="20230725 01:03:51.308" level="INFO">GET Response : url=https://serverest.dev/usuarios 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '19b6e9a9-5c89-4859-a311-abecffd30684', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '03f4cfced001acbffbabb4decfdd3693;o=1', 'Date': 'Tue, 18 Jul 2023 01:24:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '453'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '1234cac7-d3a5-463b-9cc7-7c14dc08cb68', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '6f95da942c38fdccbd3b44ae1f2ee1c4;o=1', 'Date': 'Tue, 25 Jul 2023 01:03:51 GMT', 'Server': 'Google Frontend', 'Content-Length': '680'} 
  body={
-    "quantidade": 2,
+    "quantidade": 3,
     "usuarios": [
         {
-            "nome": "Beltrano",
-            "email": "fulano@qa1.com",
-            "password": "testes",
-            "administrador": "true",
-            "_id": "Lm4p5sLFpk4hXovZ"
-        },
-        {
-            "nome": "Nada com nada",
-            "email": "nada@qa.com.br",
+            "nome": "Fulano da Silva",
+            "email": "fulano@qa.com",
             "password": "teste",
             "administrador": "true",
-            "_id": "x6hmGimUlKZIg4Fk"
+            "_id": "0uxuPY0cbmQhpEz1"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "beltrano@qa.com.br",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "HWwESq5H2SFI7JrP"
+        },
+        {
+            "nome": "Diego Portella",
+            "email": "diego.portella@qa.com.br",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "QOJ2ejY5FKwtB7Og"
         }
     ]
 } 
  </msg>
-<msg timestamp="20230718 01:24:37.109" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:36.971" endtime="20230718 01:24:37.109"/>
+<msg timestamp="20230725 01:03:51.308" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.178" endtime="20230725 01:03:51.308"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20230718 01:24:37.110" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.109" endtime="20230718 01:24:37.110"/>
+<msg timestamp="20230725 01:03:51.309" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.309" endtime="20230725 01:03:51.309"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:36.970" endtime="20230718 01:24:37.110"/>
+<status status="PASS" starttime="20230725 01:03:51.178" endtime="20230725 01:03:51.309"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <arg>${status_code}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20230718 01:24:37.111" level="INFO">Argument types are:
+<msg timestamp="20230725 01:03:51.310" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.111" endtime="20230718 01:24:37.112"/>
+<status status="PASS" starttime="20230725 01:03:51.310" endtime="20230725 01:03:51.311"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20230718 01:24:37.112" endtime="20230718 01:24:37.112"/>
+<status status="PASS" starttime="20230725 01:03:51.311" endtime="20230725 01:03:51.311"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.110" endtime="20230718 01:24:37.112"/>
+<status status="PASS" starttime="20230725 01:03:51.309" endtime="20230725 01:03:51.311"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230718 01:24:37.114" level="INFO">Length is 2</msg>
-<status status="PASS" starttime="20230718 01:24:37.113" endtime="20230718 01:24:37.114"/>
+<msg timestamp="20230725 01:03:51.313" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20230725 01:03:51.312" endtime="20230725 01:03:51.313"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.113" endtime="20230718 01:24:37.114"/>
+<status status="PASS" starttime="20230725 01:03:51.312" endtime="20230725 01:03:51.313"/>
 </kw>
 <tag>api</tag>
-<status status="PASS" starttime="20230718 01:24:36.968" endtime="20230718 01:24:37.114"/>
+<status status="PASS" starttime="20230725 01:03:51.175" endtime="20230725 01:03:51.313"/>
 </test>
 <test id="s1-s1-s1-t2" name="Scenario: Create a new user" line="15">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -96,50 +103,50 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230718 01:24:37.116" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230718 01:24:37.116" endtime="20230718 01:24:37.116"/>
+<msg timestamp="20230725 01:03:51.314" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230725 01:03:51.314" endtime="20230725 01:03:51.315"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.115" endtime="20230718 01:24:37.116"/>
+<status status="PASS" starttime="20230725 01:03:51.314" endtime="20230725 01:03:51.315"/>
 </kw>
 <kw name="Given I have a valid user data" library="test_keywords_users">
 <kw name="Name" library="FakerLibrary">
 <var>${name}</var>
 <doc>:example: 'John Doe'</doc>
-<msg timestamp="20230718 01:24:37.117" level="INFO">${name} = John Barnes</msg>
-<status status="PASS" starttime="20230718 01:24:37.117" endtime="20230718 01:24:37.117"/>
+<msg timestamp="20230725 01:03:51.316" level="INFO">${name} = Jeffrey Mullen</msg>
+<status status="PASS" starttime="20230725 01:03:51.315" endtime="20230725 01:03:51.316"/>
 </kw>
 <kw name="Email" library="FakerLibrary">
 <var>${email}</var>
-<msg timestamp="20230718 01:24:37.118" level="INFO">${email} = youngheather@example.com</msg>
-<status status="PASS" starttime="20230718 01:24:37.117" endtime="20230718 01:24:37.118"/>
+<msg timestamp="20230725 01:03:51.317" level="INFO">${email} = michellecarey@example.org</msg>
+<status status="PASS" starttime="20230725 01:03:51.316" endtime="20230725 01:03:51.317"/>
 </kw>
 <kw name="Password" library="FakerLibrary">
 <var>${password}</var>
 <arg>length=12</arg>
 <arg>special_chars=False</arg>
 <doc>Generate a random password of the specified ``length``.</doc>
-<msg timestamp="20230718 01:24:37.119" level="INFO">${password} = fiX26TWDY4k2</msg>
-<status status="PASS" starttime="20230718 01:24:37.118" endtime="20230718 01:24:37.119"/>
+<msg timestamp="20230725 01:03:51.317" level="INFO">${password} = UY8KiK4iG9gd</msg>
+<status status="PASS" starttime="20230725 01:03:51.317" endtime="20230725 01:03:51.317"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${name}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:37.119" level="INFO">${name} = John Barnes</msg>
-<status status="PASS" starttime="20230718 01:24:37.119" endtime="20230718 01:24:37.119"/>
+<msg timestamp="20230725 01:03:51.317" level="INFO">${name} = Jeffrey Mullen</msg>
+<status status="PASS" starttime="20230725 01:03:51.317" endtime="20230725 01:03:51.317"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${email}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:37.119" level="INFO">${email} = youngheather@example.com</msg>
-<status status="PASS" starttime="20230718 01:24:37.119" endtime="20230718 01:24:37.119"/>
+<msg timestamp="20230725 01:03:51.318" level="INFO">${email} = michellecarey@example.org</msg>
+<status status="PASS" starttime="20230725 01:03:51.318" endtime="20230725 01:03:51.318"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${password}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:37.120" level="INFO">${password} = fiX26TWDY4k2</msg>
-<status status="PASS" starttime="20230718 01:24:37.120" endtime="20230718 01:24:37.120"/>
+<msg timestamp="20230725 01:03:51.318" level="INFO">${password} = UY8KiK4iG9gd</msg>
+<status status="PASS" starttime="20230725 01:03:51.318" endtime="20230725 01:03:51.318"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.116" endtime="20230718 01:24:37.120"/>
+<status status="PASS" starttime="20230725 01:03:51.315" endtime="20230725 01:03:51.318"/>
 </kw>
 <kw name="When I create the user" library="test_keywords_users">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -149,15 +156,15 @@
 <arg>password=${password}</arg>
 <arg>administrador=false</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230718 01:24:37.121" level="INFO">${payload} = {'nome': 'John Barnes', 'email': 'youngheather@example.com', 'password': 'fiX26TWDY4k2', 'administrador': 'false'}</msg>
-<status status="PASS" starttime="20230718 01:24:37.120" endtime="20230718 01:24:37.121"/>
+<msg timestamp="20230725 01:03:51.319" level="INFO">${payload} = {'nome': 'Jeffrey Mullen', 'email': 'michellecarey@example.org', 'password': 'UY8KiK4iG9gd', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20230725 01:03:51.319" endtime="20230725 01:03:51.319"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230718 01:24:37.121" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20230718 01:24:37.121" endtime="20230718 01:24:37.121"/>
+<msg timestamp="20230725 01:03:51.320" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230725 01:03:51.319" endtime="20230725 01:03:51.320"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -166,72 +173,72 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20230718 01:24:37.191" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+<msg timestamp="20230725 01:03:51.394" level="INFO">POST Request : url=https://serverest.dev/usuarios 
  path_url=/usuarios 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '114'} 
- body=b'{"nome": "John Barnes", "email": "youngheather@example.com", "password": "fiX26TWDY4k2", "administrador": "false"}' 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '118'} 
+ body=b'{"nome": "Jeffrey Mullen", "email": "michellecarey@example.org", "password": "UY8KiK4iG9gd", "administrador": "false"}' 
  </msg>
-<msg timestamp="20230718 01:24:37.192" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+<msg timestamp="20230725 01:03:51.394" level="INFO">POST Response : url=https://serverest.dev/usuarios 
  status=201, reason=Created 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '10cda359-c3c5-4017-a7cd-f295c19b7a53', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '84a284914b17601f3d0bc6013b974c84', 'Date': 'Tue, 18 Jul 2023 01:24:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '489ce2f3-42a9-47ac-a6c3-196819b36e91', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '10760534b5cfcd75e925bc9e40ddb717', 'Date': 'Tue, 25 Jul 2023 01:03:51 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
  body={
     "message": "Cadastro realizado com sucesso",
-    "_id": "P829bn04BW8MGkyd"
+    "_id": "Fu109wbpb2IN6FCh"
 } 
  </msg>
-<msg timestamp="20230718 01:24:37.192" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.121" endtime="20230718 01:24:37.192"/>
+<msg timestamp="20230725 01:03:51.394" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.320" endtime="20230725 01:03:51.394"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${user_id}</var>
 <arg>${response.json()['_id']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230718 01:24:37.193" level="INFO">${user_id} = P829bn04BW8MGkyd</msg>
-<status status="PASS" starttime="20230718 01:24:37.192" endtime="20230718 01:24:37.193"/>
+<msg timestamp="20230725 01:03:51.396" level="INFO">${user_id} = Fu109wbpb2IN6FCh</msg>
+<status status="PASS" starttime="20230725 01:03:51.395" endtime="20230725 01:03:51.396"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${USER_ID}</arg>
 <arg>${user_id}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230718 01:24:37.194" level="INFO">${USER_ID} = P829bn04BW8MGkyd</msg>
-<status status="PASS" starttime="20230718 01:24:37.193" endtime="20230718 01:24:37.194"/>
+<msg timestamp="20230725 01:03:51.396" level="INFO">${USER_ID} = Fu109wbpb2IN6FCh</msg>
+<status status="PASS" starttime="20230725 01:03:51.396" endtime="20230725 01:03:51.396"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20230718 01:24:37.194" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.194" endtime="20230718 01:24:37.194"/>
+<msg timestamp="20230725 01:03:51.397" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.396" endtime="20230725 01:03:51.397"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.120" endtime="20230718 01:24:37.194"/>
+<status status="PASS" starttime="20230725 01:03:51.318" endtime="20230725 01:03:51.397"/>
 </kw>
 <kw name="Then the response status code should be 201" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <arg>${status_code}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20230718 01:24:37.195" level="INFO">Argument types are:
+<msg timestamp="20230725 01:03:51.398" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.195" endtime="20230718 01:24:37.196"/>
+<status status="PASS" starttime="20230725 01:03:51.397" endtime="20230725 01:03:51.398"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20230718 01:24:37.196" endtime="20230718 01:24:37.196"/>
+<status status="PASS" starttime="20230725 01:03:51.398" endtime="20230725 01:03:51.399"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.194" endtime="20230718 01:24:37.196"/>
+<status status="PASS" starttime="20230725 01:03:51.397" endtime="20230725 01:03:51.399"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230718 01:24:37.197" level="INFO">Length is 2</msg>
-<status status="PASS" starttime="20230718 01:24:37.197" endtime="20230718 01:24:37.198"/>
+<msg timestamp="20230725 01:03:51.400" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20230725 01:03:51.399" endtime="20230725 01:03:51.400"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.197" endtime="20230718 01:24:37.198"/>
+<status status="PASS" starttime="20230725 01:03:51.399" endtime="20230725 01:03:51.400"/>
 </kw>
 <tag>api</tag>
-<status status="PASS" starttime="20230718 01:24:37.115" endtime="20230718 01:24:37.198"/>
+<status status="PASS" starttime="20230725 01:03:51.313" endtime="20230725 01:03:51.400"/>
 </test>
 <test id="s1-s1-s1-t3" name="Scenario: Get a specific user informations" line="22">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -240,10 +247,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230718 01:24:37.199" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230718 01:24:37.199" endtime="20230718 01:24:37.199"/>
+<msg timestamp="20230725 01:03:51.401" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230725 01:03:51.401" endtime="20230725 01:03:51.402"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.199" endtime="20230718 01:24:37.200"/>
+<status status="PASS" starttime="20230725 01:03:51.401" endtime="20230725 01:03:51.402"/>
 </kw>
 <kw name="When I request the created user" library="test_keywords_users">
 <kw name="GET On Session" library="RequestsLibrary">
@@ -251,61 +258,61 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20230718 01:24:37.270" level="INFO">GET Request : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
- path_url=/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.468" level="INFO">GET Request : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
+ path_url=/usuarios/Fu109wbpb2IN6FCh 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230718 01:24:37.270" level="INFO">GET Response : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.468" level="INFO">GET Response : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '113d00bc-2a16-4305-a82e-b91a6d0e81c1', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'fddb6ec80284dca3369855d5d750446c', 'Date': 'Tue, 18 Jul 2023 01:24:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '163'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '5cbfaa83-5a3c-40ff-9894-6a1be49fd8ff', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'd422790d44bc48c1398a43a16a9d2037', 'Date': 'Tue, 25 Jul 2023 01:03:51 GMT', 'Server': 'Google Frontend', 'Content-Length': '167'} 
  body={
-    "nome": "John Barnes",
-    "email": "youngheather@example.com",
-    "password": "fiX26TWDY4k2",
+    "nome": "Jeffrey Mullen",
+    "email": "michellecarey@example.org",
+    "password": "UY8KiK4iG9gd",
     "administrador": "false",
-    "_id": "P829bn04BW8MGkyd"
+    "_id": "Fu109wbpb2IN6FCh"
 } 
  </msg>
-<msg timestamp="20230718 01:24:37.270" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.200" endtime="20230718 01:24:37.270"/>
+<msg timestamp="20230725 01:03:51.468" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.402" endtime="20230725 01:03:51.468"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20230718 01:24:37.271" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.270" endtime="20230718 01:24:37.271"/>
+<msg timestamp="20230725 01:03:51.469" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.469" endtime="20230725 01:03:51.469"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.200" endtime="20230718 01:24:37.271"/>
+<status status="PASS" starttime="20230725 01:03:51.402" endtime="20230725 01:03:51.469"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <arg>${status_code}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20230718 01:24:37.273" level="INFO">Argument types are:
+<msg timestamp="20230725 01:03:51.471" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.272" endtime="20230718 01:24:37.273"/>
+<status status="PASS" starttime="20230725 01:03:51.470" endtime="20230725 01:03:51.471"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20230718 01:24:37.273" endtime="20230718 01:24:37.274"/>
+<status status="PASS" starttime="20230725 01:03:51.471" endtime="20230725 01:03:51.472"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.271" endtime="20230718 01:24:37.274"/>
+<status status="PASS" starttime="20230725 01:03:51.469" endtime="20230725 01:03:51.472"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230718 01:24:37.275" level="INFO">Length is 5</msg>
-<status status="PASS" starttime="20230718 01:24:37.274" endtime="20230718 01:24:37.275"/>
+<msg timestamp="20230725 01:03:51.473" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20230725 01:03:51.472" endtime="20230725 01:03:51.473"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.274" endtime="20230718 01:24:37.275"/>
+<status status="PASS" starttime="20230725 01:03:51.472" endtime="20230725 01:03:51.473"/>
 </kw>
 <tag>api</tag>
-<status status="PASS" starttime="20230718 01:24:37.198" endtime="20230718 01:24:37.275"/>
+<status status="PASS" starttime="20230725 01:03:51.400" endtime="20230725 01:03:51.473"/>
 </test>
 <test id="s1-s1-s1-t4" name="Scenario: Update the created user" line="28">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -314,10 +321,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230718 01:24:37.277" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230718 01:24:37.277" endtime="20230718 01:24:37.277"/>
+<msg timestamp="20230725 01:03:51.475" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230725 01:03:51.474" endtime="20230725 01:03:51.475"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.277" endtime="20230718 01:24:37.278"/>
+<status status="PASS" starttime="20230725 01:03:51.474" endtime="20230725 01:03:51.475"/>
 </kw>
 <kw name="When I update the created user" library="test_keywords_users">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -327,15 +334,15 @@
 <arg>password=P@ssw0rd123</arg>
 <arg>administrador=false</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230718 01:24:37.278" level="INFO">${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}</msg>
-<status status="PASS" starttime="20230718 01:24:37.278" endtime="20230718 01:24:37.278"/>
+<msg timestamp="20230725 01:03:51.476" level="INFO">${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20230725 01:03:51.476" endtime="20230725 01:03:51.476"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230718 01:24:37.279" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20230718 01:24:37.279" endtime="20230718 01:24:37.279"/>
+<msg timestamp="20230725 01:03:51.476" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230725 01:03:51.476" endtime="20230725 01:03:51.476"/>
 </kw>
 <kw name="PUT On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -344,57 +351,57 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<msg timestamp="20230718 01:24:37.354" level="INFO">PUT Request : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
- path_url=/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.549" level="INFO">PUT Request : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
+ path_url=/usuarios/Fu109wbpb2IN6FCh 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} 
  body=b'{"nome": "John Smith", "email": "john.smith@example.com", "password": "P@ssw0rd123", "administrador": "false"}' 
  </msg>
-<msg timestamp="20230718 01:24:37.354" level="INFO">PUT Response : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.549" level="INFO">PUT Response : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '808826e5-1a74-46a9-ac29-eb3ef636b3ca', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '5dc2881e22496aff2fbca6f801194cdf', 'Date': 'Tue, 18 Jul 2023 01:24:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '78489257-7b05-4fed-9dac-730fe857bba8', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '643bec062b026a3bad450de9eb1d84df', 'Date': 'Tue, 25 Jul 2023 01:03:51 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} 
  body={
     "message": "Registro alterado com sucesso"
 } 
  </msg>
-<msg timestamp="20230718 01:24:37.354" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.279" endtime="20230718 01:24:37.354"/>
+<msg timestamp="20230725 01:03:51.550" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.477" endtime="20230725 01:03:51.550"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20230718 01:24:37.355" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.355" endtime="20230718 01:24:37.355"/>
+<msg timestamp="20230725 01:03:51.550" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.550" endtime="20230725 01:03:51.550"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.278" endtime="20230718 01:24:37.355"/>
+<status status="PASS" starttime="20230725 01:03:51.475" endtime="20230725 01:03:51.550"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <arg>${status_code}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20230718 01:24:37.357" level="INFO">Argument types are:
+<msg timestamp="20230725 01:03:51.552" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.356" endtime="20230718 01:24:37.357"/>
+<status status="PASS" starttime="20230725 01:03:51.551" endtime="20230725 01:03:51.552"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20230718 01:24:37.357" endtime="20230718 01:24:37.358"/>
+<status status="PASS" starttime="20230725 01:03:51.552" endtime="20230725 01:03:51.553"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.355" endtime="20230718 01:24:37.358"/>
+<status status="PASS" starttime="20230725 01:03:51.550" endtime="20230725 01:03:51.553"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230718 01:24:37.359" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230718 01:24:37.358" endtime="20230718 01:24:37.359"/>
+<msg timestamp="20230725 01:03:51.554" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230725 01:03:51.553" endtime="20230725 01:03:51.554"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.358" endtime="20230718 01:24:37.359"/>
+<status status="PASS" starttime="20230725 01:03:51.553" endtime="20230725 01:03:51.554"/>
 </kw>
 <tag>api</tag>
-<status status="PASS" starttime="20230718 01:24:37.276" endtime="20230718 01:24:37.359"/>
+<status status="PASS" starttime="20230725 01:03:51.474" endtime="20230725 01:03:51.554"/>
 </test>
 <test id="s1-s1-s1-t5" name="Scenario: Delete the created user" line="34">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -403,10 +410,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230718 01:24:37.361" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230718 01:24:37.360" endtime="20230718 01:24:37.361"/>
+<msg timestamp="20230725 01:03:51.555" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230725 01:03:51.555" endtime="20230725 01:03:51.556"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.360" endtime="20230718 01:24:37.361"/>
+<status status="PASS" starttime="20230725 01:03:51.555" endtime="20230725 01:03:51.556"/>
 </kw>
 <kw name="When I delete the created user" library="test_keywords_users">
 <kw name="DELETE On Session" library="RequestsLibrary">
@@ -414,61 +421,61 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<msg timestamp="20230718 01:24:37.434" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
- path_url=/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.622" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
+ path_url=/usuarios/Fu109wbpb2IN6FCh 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20230718 01:24:37.434" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/P829bn04BW8MGkyd 
+<msg timestamp="20230725 01:03:51.622" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/Fu109wbpb2IN6FCh 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '833fe54a-d11f-4e9d-b330-728a9065cb76', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '184009a88f698c3aba6b3bca6c7c8c06', 'Date': 'Tue, 18 Jul 2023 01:24:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'acd28573-5b45-49ab-8a97-c15052c1d6cf', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'be3d46cc586a15205151d5b51e189b8f', 'Date': 'Tue, 25 Jul 2023 01:03:51 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} 
  body={
     "message": "Registro excluído com sucesso"
 } 
  </msg>
-<msg timestamp="20230718 01:24:37.434" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.361" endtime="20230718 01:24:37.434"/>
+<msg timestamp="20230725 01:03:51.622" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.556" endtime="20230725 01:03:51.622"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20230718 01:24:37.435" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.434" endtime="20230718 01:24:37.435"/>
+<msg timestamp="20230725 01:03:51.623" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230725 01:03:51.622" endtime="20230725 01:03:51.623"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.361" endtime="20230718 01:24:37.435"/>
+<status status="PASS" starttime="20230725 01:03:51.556" endtime="20230725 01:03:51.623"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${response.status_code}</arg>
 <arg>${status_code}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20230718 01:24:37.436" level="INFO">Argument types are:
+<msg timestamp="20230725 01:03:51.624" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20230718 01:24:37.435" endtime="20230718 01:24:37.437"/>
+<status status="PASS" starttime="20230725 01:03:51.623" endtime="20230725 01:03:51.625"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20230718 01:24:37.437" endtime="20230718 01:24:37.437"/>
+<status status="PASS" starttime="20230725 01:03:51.625" endtime="20230725 01:03:51.625"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.435" endtime="20230718 01:24:37.437"/>
+<status status="PASS" starttime="20230725 01:03:51.623" endtime="20230725 01:03:51.625"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230718 01:24:37.439" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230718 01:24:37.438" endtime="20230718 01:24:37.439"/>
+<msg timestamp="20230725 01:03:51.627" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230725 01:03:51.626" endtime="20230725 01:03:51.627"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.438" endtime="20230718 01:24:37.439"/>
+<status status="PASS" starttime="20230725 01:03:51.626" endtime="20230725 01:03:51.627"/>
 </kw>
 <tag>api</tag>
-<status status="PASS" starttime="20230718 01:24:37.359" endtime="20230718 01:24:37.439"/>
+<status status="PASS" starttime="20230725 01:03:51.554" endtime="20230725 01:03:51.627"/>
 </test>
-<status status="PASS" starttime="20230718 01:24:36.481" endtime="20230718 01:24:37.440"/>
+<status status="PASS" starttime="20230725 01:03:50.701" endtime="20230725 01:03:51.628"/>
 </suite>
-<status status="PASS" starttime="20230718 01:24:36.479" endtime="20230718 01:24:37.441"/>
+<status status="PASS" starttime="20230725 01:03:50.700" endtime="20230725 01:03:51.629"/>
 </suite>
 <suite id="s1-s2" name="E2E" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/e2e">
 <suite id="s1-s2-s1" name="Test Ui Signup" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/e2e/test_ui_signup.robot">
@@ -478,81 +485,81 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230718 01:24:37.453" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<status status="PASS" starttime="20230718 01:24:37.453" endtime="20230718 01:24:39.759"/>
+<msg timestamp="20230725 01:03:51.641" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20230725 01:03:51.640" endtime="20230725 01:03:55.425"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230718 01:24:39.759" endtime="20230718 01:24:39.864"/>
+<status status="PASS" starttime="20230725 01:03:55.426" endtime="20230725 01:03:55.548"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:37.452" endtime="20230718 01:24:39.864"/>
+<status status="PASS" starttime="20230725 01:03:51.640" endtime="20230725 01:03:55.549"/>
 </kw>
 <kw name="Given Im on the signup page" library="test_keywords_signup">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>https://front.serverest.dev/login</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20230718 01:24:39.871" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
-<status status="PASS" starttime="20230718 01:24:39.865" endtime="20230718 01:24:39.871"/>
+<msg timestamp="20230725 01:03:55.554" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.549" endtime="20230725 01:03:55.554"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css=a.btn.btn-link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:39.872" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
-<status status="PASS" starttime="20230718 01:24:39.871" endtime="20230718 01:24:39.969"/>
+<msg timestamp="20230725 01:03:55.555" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.554" endtime="20230725 01:03:55.623"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:39.865" endtime="20230718 01:24:39.969"/>
+<status status="PASS" starttime="20230725 01:03:55.549" endtime="20230725 01:03:55.623"/>
 </kw>
 <kw name="When I click in signup" library="test_keywords_signup">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>css=.btn.btn-primary</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:39.970" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
-<status status="PASS" starttime="20230718 01:24:39.969" endtime="20230718 01:24:40.044"/>
+<msg timestamp="20230725 01:03:55.624" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.623" endtime="20230725 01:03:55.696"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:39.969" endtime="20230718 01:24:40.044"/>
+<status status="PASS" starttime="20230725 01:03:55.623" endtime="20230725 01:03:55.696"/>
 </kw>
 <kw name="Then required field messages should be displayed" library="test_keywords_signup">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230718 01:24:40.044" endtime="20230718 01:24:40.283"/>
+<status status="PASS" starttime="20230725 01:03:55.696" endtime="20230725 01:03:55.935"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230718 01:24:40.303" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
-<status status="PASS" starttime="20230718 01:24:40.283" endtime="20230718 01:24:40.303"/>
+<msg timestamp="20230725 01:03:55.954" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20230725 01:03:55.935" endtime="20230725 01:03:55.954"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Nome é obrigatório</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230718 01:24:40.320" level="INFO">Current page contains text 'Nome é obrigatório'.</msg>
-<status status="PASS" starttime="20230718 01:24:40.303" endtime="20230718 01:24:40.320"/>
+<msg timestamp="20230725 01:03:55.970" level="INFO">Current page contains text 'Nome é obrigatório'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.955" endtime="20230725 01:03:55.970"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Email é obrigatório</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230718 01:24:40.335" level="INFO">Current page contains text 'Email é obrigatório'.</msg>
-<status status="PASS" starttime="20230718 01:24:40.320" endtime="20230718 01:24:40.335"/>
+<msg timestamp="20230725 01:03:55.984" level="INFO">Current page contains text 'Email é obrigatório'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.970" endtime="20230725 01:03:55.985"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Password é obrigatório</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230718 01:24:40.349" level="INFO">Current page contains text 'Password é obrigatório'.</msg>
-<status status="PASS" starttime="20230718 01:24:40.335" endtime="20230718 01:24:40.349"/>
+<msg timestamp="20230725 01:03:55.998" level="INFO">Current page contains text 'Password é obrigatório'.</msg>
+<status status="PASS" starttime="20230725 01:03:55.985" endtime="20230725 01:03:55.998"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:40.044" endtime="20230718 01:24:40.349"/>
+<status status="PASS" starttime="20230725 01:03:55.696" endtime="20230725 01:03:55.998"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230718 01:24:40.350" endtime="20230718 01:24:40.406"/>
+<status status="PASS" starttime="20230725 01:03:55.999" endtime="20230725 01:03:56.055"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:40.349" endtime="20230718 01:24:40.406"/>
+<status status="PASS" starttime="20230725 01:03:55.999" endtime="20230725 01:03:56.055"/>
 </kw>
 <tag>e2e</tag>
-<status status="PASS" starttime="20230718 01:24:37.452" endtime="20230718 01:24:40.407"/>
+<status status="PASS" starttime="20230725 01:03:51.639" endtime="20230725 01:03:56.055"/>
 </test>
 <test id="s1-s2-s1-t2" name="Scenario: Signup done successfully" line="16">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -560,136 +567,136 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230718 01:24:40.410" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<status status="PASS" starttime="20230718 01:24:40.409" endtime="20230718 01:24:41.593"/>
+<msg timestamp="20230725 01:03:56.057" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20230725 01:03:56.057" endtime="20230725 01:03:57.326"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230718 01:24:41.593" endtime="20230718 01:24:41.698"/>
+<status status="PASS" starttime="20230725 01:03:57.327" endtime="20230725 01:03:57.453"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:40.408" endtime="20230718 01:24:41.698"/>
+<status status="PASS" starttime="20230725 01:03:56.056" endtime="20230725 01:03:57.453"/>
 </kw>
 <kw name="Given Im on the signup page" library="test_keywords_signup">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>https://front.serverest.dev/login</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20230718 01:24:41.707" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
-<status status="PASS" starttime="20230718 01:24:41.699" endtime="20230718 01:24:41.707"/>
+<msg timestamp="20230725 01:03:57.458" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.454" endtime="20230725 01:03:57.459"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css=a.btn.btn-link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:41.708" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
-<status status="PASS" starttime="20230718 01:24:41.708" endtime="20230718 01:24:41.792"/>
+<msg timestamp="20230725 01:03:57.460" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.459" endtime="20230725 01:03:57.516"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:41.698" endtime="20230718 01:24:41.793"/>
+<status status="PASS" starttime="20230725 01:03:57.453" endtime="20230725 01:03:57.516"/>
 </kw>
 <kw name="And I fill in the signup fields with valid data" library="test_keywords_signup">
 <kw name="Name" library="FakerLibrary">
 <var>${name}</var>
 <doc>:example: 'John Doe'</doc>
-<msg timestamp="20230718 01:24:41.794" level="INFO">${name} = Breanna Cantu</msg>
-<status status="PASS" starttime="20230718 01:24:41.793" endtime="20230718 01:24:41.794"/>
+<msg timestamp="20230725 01:03:57.517" level="INFO">${name} = Timothy Johnson</msg>
+<status status="PASS" starttime="20230725 01:03:57.516" endtime="20230725 01:03:57.517"/>
 </kw>
 <kw name="Email" library="FakerLibrary">
 <var>${email}</var>
-<msg timestamp="20230718 01:24:41.795" level="INFO">${email} = angelawoods@example.net</msg>
-<status status="PASS" starttime="20230718 01:24:41.794" endtime="20230718 01:24:41.795"/>
+<msg timestamp="20230725 01:03:57.518" level="INFO">${email} = williamwoodward@example.net</msg>
+<status status="PASS" starttime="20230725 01:03:57.517" endtime="20230725 01:03:57.518"/>
 </kw>
 <kw name="Password" library="FakerLibrary">
 <var>${password}</var>
 <arg>length=12</arg>
 <arg>special_chars=False</arg>
 <doc>Generate a random password of the specified ``length``.</doc>
-<msg timestamp="20230718 01:24:41.795" level="INFO">${password} = U2AdqkJPAUKV</msg>
-<status status="PASS" starttime="20230718 01:24:41.795" endtime="20230718 01:24:41.795"/>
+<msg timestamp="20230725 01:03:57.518" level="INFO">${password} = GLUWajln069n</msg>
+<status status="PASS" starttime="20230725 01:03:57.518" endtime="20230725 01:03:57.518"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:nome</arg>
 <arg>${name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:41.796" level="INFO">Typing text 'Breanna Cantu' into text field 'id:nome'.</msg>
-<status status="PASS" starttime="20230718 01:24:41.795" endtime="20230718 01:24:41.930"/>
+<msg timestamp="20230725 01:03:57.519" level="INFO">Typing text 'Timothy Johnson' into text field 'id:nome'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.519" endtime="20230725 01:03:57.637"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:41.931" level="INFO">Typing text 'angelawoods@example.net' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20230718 01:24:41.930" endtime="20230718 01:24:42.049"/>
+<msg timestamp="20230725 01:03:57.638" level="INFO">Typing text 'williamwoodward@example.net' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.637" endtime="20230725 01:03:57.761"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:42.049" level="INFO">Typing text 'U2AdqkJPAUKV' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20230718 01:24:42.049" endtime="20230718 01:24:42.158"/>
+<msg timestamp="20230725 01:03:57.762" level="INFO">Typing text 'GLUWajln069n' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.761" endtime="20230725 01:03:57.869"/>
 </kw>
 <kw name="Select Checkbox" library="SeleniumLibrary">
 <arg>id=administrador</arg>
 <doc>Selects the checkbox identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:42.159" level="INFO">Selecting checkbox 'id=administrador'.</msg>
-<status status="PASS" starttime="20230718 01:24:42.159" endtime="20230718 01:24:42.242"/>
+<msg timestamp="20230725 01:03:57.870" level="INFO">Selecting checkbox 'id=administrador'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.869" endtime="20230725 01:03:57.948"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${name}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:42.243" level="INFO">${name} = Breanna Cantu</msg>
-<status status="PASS" starttime="20230718 01:24:42.242" endtime="20230718 01:24:42.243"/>
+<msg timestamp="20230725 01:03:57.948" level="INFO">${name} = Timothy Johnson</msg>
+<status status="PASS" starttime="20230725 01:03:57.948" endtime="20230725 01:03:57.949"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${email}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:42.243" level="INFO">${email} = angelawoods@example.net</msg>
-<status status="PASS" starttime="20230718 01:24:42.243" endtime="20230718 01:24:42.243"/>
+<msg timestamp="20230725 01:03:57.949" level="INFO">${email} = williamwoodward@example.net</msg>
+<status status="PASS" starttime="20230725 01:03:57.949" endtime="20230725 01:03:57.949"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${password}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230718 01:24:42.244" level="INFO">${password} = U2AdqkJPAUKV</msg>
-<status status="PASS" starttime="20230718 01:24:42.243" endtime="20230718 01:24:42.244"/>
+<msg timestamp="20230725 01:03:57.949" level="INFO">${password} = GLUWajln069n</msg>
+<status status="PASS" starttime="20230725 01:03:57.949" endtime="20230725 01:03:57.949"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:41.793" endtime="20230718 01:24:42.244"/>
+<status status="PASS" starttime="20230725 01:03:57.516" endtime="20230725 01:03:57.949"/>
 </kw>
 <kw name="When I click in signup" library="test_keywords_signup">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>css=.btn.btn-primary</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:42.245" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
-<status status="PASS" starttime="20230718 01:24:42.244" endtime="20230718 01:24:42.311"/>
+<msg timestamp="20230725 01:03:57.950" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20230725 01:03:57.950" endtime="20230725 01:03:58.011"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:42.244" endtime="20230718 01:24:42.311"/>
+<status status="PASS" starttime="20230725 01:03:57.949" endtime="20230725 01:03:58.011"/>
 </kw>
 <kw name="Then the page should contain the text &quot;Cadastro realizado com sucesso&quot;" library="test_keywords_signup" sourcename="Then the page should contain the text &quot;${expected_text}&quot;">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230718 01:24:42.311" endtime="20230718 01:24:42.550"/>
+<status status="PASS" starttime="20230725 01:03:58.012" endtime="20230725 01:03:58.250"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230718 01:24:42.571" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
-<status status="PASS" starttime="20230718 01:24:42.550" endtime="20230718 01:24:42.571"/>
+<msg timestamp="20230725 01:03:58.269" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20230725 01:03:58.250" endtime="20230725 01:03:58.269"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>${expected_text}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230718 01:24:42.585" level="INFO">Current page contains text 'Cadastro realizado com sucesso'.</msg>
-<status status="PASS" starttime="20230718 01:24:42.571" endtime="20230718 01:24:42.585"/>
+<msg timestamp="20230725 01:03:58.283" level="INFO">Current page contains text 'Cadastro realizado com sucesso'.</msg>
+<status status="PASS" starttime="20230725 01:03:58.269" endtime="20230725 01:03:58.283"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:42.311" endtime="20230718 01:24:42.585"/>
+<status status="PASS" starttime="20230725 01:03:58.012" endtime="20230725 01:03:58.283"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230718 01:24:42.586" endtime="20230718 01:24:42.641"/>
+<status status="PASS" starttime="20230725 01:03:58.284" endtime="20230725 01:03:59.339"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:42.586" endtime="20230718 01:24:42.641"/>
+<status status="PASS" starttime="20230725 01:03:58.283" endtime="20230725 01:03:59.339"/>
 </kw>
 <tag>e2e</tag>
-<status status="PASS" starttime="20230718 01:24:40.408" endtime="20230718 01:24:42.641"/>
+<status status="PASS" starttime="20230725 01:03:56.056" endtime="20230725 01:03:59.339"/>
 </test>
 <test id="s1-s2-s1-t3" name="Scenario: Signup with already used email" line="23">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -697,105 +704,105 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230718 01:24:42.643" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<status status="PASS" starttime="20230718 01:24:42.643" endtime="20230718 01:24:43.862"/>
+<msg timestamp="20230725 01:03:59.342" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20230725 01:03:59.341" endtime="20230725 01:04:00.621"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230718 01:24:43.862" endtime="20230718 01:24:43.966"/>
+<status status="PASS" starttime="20230725 01:04:00.621" endtime="20230725 01:04:00.725"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:42.642" endtime="20230718 01:24:43.966"/>
+<status status="PASS" starttime="20230725 01:03:59.340" endtime="20230725 01:04:00.725"/>
 </kw>
 <kw name="Given Im on the signup page" library="test_keywords_signup">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <arg>https://front.serverest.dev/login</arg>
 <doc>Verifies that the current URL is exactly ``url``.</doc>
-<msg timestamp="20230718 01:24:43.973" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
-<status status="PASS" starttime="20230718 01:24:43.967" endtime="20230718 01:24:43.973"/>
+<msg timestamp="20230725 01:04:00.731" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20230725 01:04:00.726" endtime="20230725 01:04:00.731"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css=a.btn.btn-link</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:43.974" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
-<status status="PASS" starttime="20230718 01:24:43.973" endtime="20230718 01:24:44.060"/>
+<msg timestamp="20230725 01:04:00.732" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20230725 01:04:00.732" endtime="20230725 01:04:00.816"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:43.967" endtime="20230718 01:24:44.060"/>
+<status status="PASS" starttime="20230725 01:04:00.726" endtime="20230725 01:04:00.816"/>
 </kw>
 <kw name="And I fill in the signup fields with an email already registered" library="test_keywords_signup">
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:nome</arg>
 <arg>${name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:44.061" level="INFO">Typing text 'Breanna Cantu' into text field 'id:nome'.</msg>
-<status status="PASS" starttime="20230718 01:24:44.061" endtime="20230718 01:24:44.192"/>
+<msg timestamp="20230725 01:04:00.817" level="INFO">Typing text 'Timothy Johnson' into text field 'id:nome'.</msg>
+<status status="PASS" starttime="20230725 01:04:00.817" endtime="20230725 01:04:00.949"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:44.193" level="INFO">Typing text 'angelawoods@example.net' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20230718 01:24:44.193" endtime="20230718 01:24:44.306"/>
+<msg timestamp="20230725 01:04:00.950" level="INFO">Typing text 'williamwoodward@example.net' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20230725 01:04:00.950" endtime="20230725 01:04:01.073"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:44.307" level="INFO">Typing text 'U2AdqkJPAUKV' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20230718 01:24:44.307" endtime="20230718 01:24:44.415"/>
+<msg timestamp="20230725 01:04:01.074" level="INFO">Typing text 'GLUWajln069n' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20230725 01:04:01.074" endtime="20230725 01:04:01.178"/>
 </kw>
 <kw name="Select Checkbox" library="SeleniumLibrary">
 <arg>id=administrador</arg>
 <doc>Selects the checkbox identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:44.416" level="INFO">Selecting checkbox 'id=administrador'.</msg>
-<status status="PASS" starttime="20230718 01:24:44.416" endtime="20230718 01:24:44.498"/>
+<msg timestamp="20230725 01:04:01.179" level="INFO">Selecting checkbox 'id=administrador'.</msg>
+<status status="PASS" starttime="20230725 01:04:01.178" endtime="20230725 01:04:01.255"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:44.060" endtime="20230718 01:24:44.498"/>
+<status status="PASS" starttime="20230725 01:04:00.816" endtime="20230725 01:04:01.255"/>
 </kw>
 <kw name="When I click in signup" library="test_keywords_signup">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>css=.btn.btn-primary</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230718 01:24:44.499" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
-<status status="PASS" starttime="20230718 01:24:44.499" endtime="20230718 01:24:44.561"/>
+<msg timestamp="20230725 01:04:01.256" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20230725 01:04:01.256" endtime="20230725 01:04:01.318"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:44.498" endtime="20230718 01:24:44.561"/>
+<status status="PASS" starttime="20230725 01:04:01.255" endtime="20230725 01:04:01.318"/>
 </kw>
 <kw name="Then the page should contain the text &quot;Este email já está sendo usado&quot;" library="test_keywords_signup" sourcename="Then the page should contain the text &quot;${expected_text}&quot;">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230718 01:24:44.561" endtime="20230718 01:24:45.007"/>
+<status status="PASS" starttime="20230725 01:04:01.319" endtime="20230725 01:04:01.554"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>css=.alert-dismissible</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230718 01:24:45.027" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
-<status status="PASS" starttime="20230718 01:24:45.008" endtime="20230718 01:24:45.028"/>
+<msg timestamp="20230725 01:04:01.573" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20230725 01:04:01.554" endtime="20230725 01:04:01.573"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>${expected_text}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230718 01:24:45.042" level="INFO">Current page contains text 'Este email já está sendo usado'.</msg>
-<status status="PASS" starttime="20230718 01:24:45.028" endtime="20230718 01:24:45.043"/>
+<msg timestamp="20230725 01:04:01.587" level="INFO">Current page contains text 'Este email já está sendo usado'.</msg>
+<status status="PASS" starttime="20230725 01:04:01.573" endtime="20230725 01:04:01.587"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:44.561" endtime="20230718 01:24:45.043"/>
+<status status="PASS" starttime="20230725 01:04:01.318" endtime="20230725 01:04:01.587"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230718 01:24:45.043" endtime="20230718 01:24:45.098"/>
+<status status="PASS" starttime="20230725 01:04:01.588" endtime="20230725 01:04:01.646"/>
 </kw>
-<status status="PASS" starttime="20230718 01:24:45.043" endtime="20230718 01:24:45.098"/>
+<status status="PASS" starttime="20230725 01:04:01.588" endtime="20230725 01:04:01.646"/>
 </kw>
 <tag>e2e</tag>
-<status status="PASS" starttime="20230718 01:24:42.642" endtime="20230718 01:24:45.099"/>
+<status status="PASS" starttime="20230725 01:03:59.340" endtime="20230725 01:04:01.646"/>
 </test>
-<status status="PASS" starttime="20230718 01:24:37.444" endtime="20230718 01:24:45.100"/>
+<status status="PASS" starttime="20230725 01:03:51.631" endtime="20230725 01:04:01.647"/>
 </suite>
-<status status="PASS" starttime="20230718 01:24:37.442" endtime="20230718 01:24:45.102"/>
+<status status="PASS" starttime="20230725 01:03:51.629" endtime="20230725 01:04:01.649"/>
 </suite>
-<status status="PASS" starttime="20230718 01:24:36.459" endtime="20230718 01:24:45.103"/>
+<status status="PASS" starttime="20230725 01:03:50.680" endtime="20230725 01:04:01.651"/>
 </suite>
 <statistics>
 <total>
