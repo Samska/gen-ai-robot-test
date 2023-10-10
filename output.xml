@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.8.18 on linux)" generated="20231003 00:10:10.211" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.8.18 on linux)" generated="20231010 00:09:56.502" rpa="false" schemaversion="4">
 <suite id="s1" name="Tests" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests">
 <suite id="s1-s1" name="Api" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api">
 <suite id="s1-s1-s1" name="Test Api Users" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/api/test_api_users.robot">
@@ -10,10 +10,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231003 00:10:10.972" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231003 00:10:10.971" endtime="20231003 00:10:10.972"/>
+<msg timestamp="20231010 00:09:56.984" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231010 00:09:56.984" endtime="20231010 00:09:56.985"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:10.971" endtime="20231003 00:10:10.972"/>
+<status status="PASS" starttime="20231010 00:09:56.984" endtime="20231010 00:09:56.985"/>
 </kw>
 <kw name="When I request the list of all registered users" library="test_keywords_users">
 <kw name="GET On Session" library="RequestsLibrary">
@@ -21,24 +21,66 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20231003 00:10:11.939" level="FAIL">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24d56130&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</msg>
-<status status="FAIL" starttime="20231003 00:10:10.972" endtime="20231003 00:10:11.947"/>
+<msg timestamp="20231010 00:09:57.147" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231010 00:09:57.148" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '45a69677a0116202b361fb29c037d8ab;o=1', 'Date': 'Tue, 10 Oct 2023 00:09:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '253'} 
+ body={
+    "quantidade": 1,
+    "usuarios": [
+        {
+            "nome": "Fulano da Silva",
+            "email": "fulano@qa.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "0uxuPY0cbmQhpEz1"
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20231010 00:09:57.148" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:56.985" endtime="20231010 00:09:57.148"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:11.947" endtime="20231003 00:10:11.947"/>
+<msg timestamp="20231010 00:09:57.148" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.148" endtime="20231010 00:09:57.148"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:10.972" endtime="20231003 00:10:11.947"/>
+<status status="PASS" starttime="20231010 00:09:56.985" endtime="20231010 00:09:57.148"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
-<status status="NOT RUN" starttime="20231003 00:10:11.948" endtime="20231003 00:10:11.948"/>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231010 00:09:57.150" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.149" endtime="20231010 00:09:57.150"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231010 00:09:57.150" endtime="20231010 00:09:57.150"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.148" endtime="20231010 00:09:57.150"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
-<status status="NOT RUN" starttime="20231003 00:10:11.948" endtime="20231003 00:10:11.948"/>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231010 00:09:57.151" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20231010 00:09:57.151" endtime="20231010 00:09:57.151"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.150" endtime="20231010 00:09:57.151"/>
 </kw>
 <tag>api</tag>
-<status status="FAIL" starttime="20231003 00:10:10.970" endtime="20231003 00:10:11.948">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24d56130&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</status>
+<status status="PASS" starttime="20231010 00:09:56.983" endtime="20231010 00:09:57.152"/>
 </test>
 <test id="s1-s1-s1-t2" name="Scenario: Create a new user" line="15">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -47,50 +89,50 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231003 00:10:11.950" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231003 00:10:11.950" endtime="20231003 00:10:11.950"/>
+<msg timestamp="20231010 00:09:57.153" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231010 00:09:57.153" endtime="20231010 00:09:57.153"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:11.949" endtime="20231003 00:10:11.950"/>
+<status status="PASS" starttime="20231010 00:09:57.152" endtime="20231010 00:09:57.153"/>
 </kw>
 <kw name="Given I have a valid user data" library="test_keywords_users">
 <kw name="Name" library="FakerLibrary">
 <var>${name}</var>
 <doc>:example: 'John Doe'</doc>
-<msg timestamp="20231003 00:10:11.951" level="INFO">${name} = Kelly Horton</msg>
-<status status="PASS" starttime="20231003 00:10:11.951" endtime="20231003 00:10:11.951"/>
+<msg timestamp="20231010 00:09:57.154" level="INFO">${name} = Richard Alvarado</msg>
+<status status="PASS" starttime="20231010 00:09:57.154" endtime="20231010 00:09:57.154"/>
 </kw>
 <kw name="Email" library="FakerLibrary">
 <var>${email}</var>
-<msg timestamp="20231003 00:10:11.952" level="INFO">${email} = nicole98@example.org</msg>
-<status status="PASS" starttime="20231003 00:10:11.951" endtime="20231003 00:10:11.952"/>
+<msg timestamp="20231010 00:09:57.154" level="INFO">${email} = iward@example.net</msg>
+<status status="PASS" starttime="20231010 00:09:57.154" endtime="20231010 00:09:57.154"/>
 </kw>
 <kw name="Password" library="FakerLibrary">
 <var>${password}</var>
 <arg>length=12</arg>
 <arg>special_chars=False</arg>
 <doc>Generate a random password of the specified ``length``.</doc>
-<msg timestamp="20231003 00:10:11.952" level="INFO">${password} = vrgOF4pt9M6z</msg>
-<status status="PASS" starttime="20231003 00:10:11.952" endtime="20231003 00:10:11.952"/>
+<msg timestamp="20231010 00:09:57.155" level="INFO">${password} = 422jSAjmx40O</msg>
+<status status="PASS" starttime="20231010 00:09:57.155" endtime="20231010 00:09:57.155"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${name}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20231003 00:10:11.953" level="INFO">${name} = Kelly Horton</msg>
-<status status="PASS" starttime="20231003 00:10:11.952" endtime="20231003 00:10:11.953"/>
+<msg timestamp="20231010 00:09:57.155" level="INFO">${name} = Richard Alvarado</msg>
+<status status="PASS" starttime="20231010 00:09:57.155" endtime="20231010 00:09:57.155"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${email}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20231003 00:10:11.953" level="INFO">${email} = nicole98@example.org</msg>
-<status status="PASS" starttime="20231003 00:10:11.953" endtime="20231003 00:10:11.953"/>
+<msg timestamp="20231010 00:09:57.156" level="INFO">${email} = iward@example.net</msg>
+<status status="PASS" starttime="20231010 00:09:57.156" endtime="20231010 00:09:57.156"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${password}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20231003 00:10:11.953" level="INFO">${password} = vrgOF4pt9M6z</msg>
-<status status="PASS" starttime="20231003 00:10:11.953" endtime="20231003 00:10:11.954"/>
+<msg timestamp="20231010 00:09:57.156" level="INFO">${password} = 422jSAjmx40O</msg>
+<status status="PASS" starttime="20231010 00:09:57.156" endtime="20231010 00:09:57.156"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:11.950" endtime="20231003 00:10:11.954"/>
+<status status="PASS" starttime="20231010 00:09:57.153" endtime="20231010 00:09:57.156"/>
 </kw>
 <kw name="When I create the user" library="test_keywords_users">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -100,15 +142,15 @@
 <arg>password=${password}</arg>
 <arg>administrador=false</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231003 00:10:11.954" level="INFO">${payload} = {'nome': 'Kelly Horton', 'email': 'nicole98@example.org', 'password': 'vrgOF4pt9M6z', 'administrador': 'false'}</msg>
-<status status="PASS" starttime="20231003 00:10:11.954" endtime="20231003 00:10:11.954"/>
+<msg timestamp="20231010 00:09:57.157" level="INFO">${payload} = {'nome': 'Richard Alvarado', 'email': 'iward@example.net', 'password': '422jSAjmx40O', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20231010 00:09:57.157" endtime="20231010 00:09:57.157"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231003 00:10:11.955" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231003 00:10:11.955" endtime="20231003 00:10:11.955"/>
+<msg timestamp="20231010 00:09:57.157" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231010 00:09:57.157" endtime="20231010 00:09:57.157"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -117,36 +159,72 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20231003 00:10:12.783" level="FAIL">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c7e400&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</msg>
-<status status="FAIL" starttime="20231003 00:10:11.955" endtime="20231003 00:10:12.784"/>
+<msg timestamp="20231010 00:09:57.266" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '112'} 
+ body=b'{"nome": "Richard Alvarado", "email": "iward@example.net", "password": "422jSAjmx40O", "administrador": "false"}' 
+ </msg>
+<msg timestamp="20231010 00:09:57.266" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '416cef6a091b1aea3a80b6157556ac50', 'Date': 'Tue, 10 Oct 2023 00:09:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "Q0jLRq0T1jUd3elK"
+} 
+ </msg>
+<msg timestamp="20231010 00:09:57.267" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.158" endtime="20231010 00:09:57.267"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${user_id}</var>
 <arg>${response.json()['_id']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:12.784" endtime="20231003 00:10:12.784"/>
+<msg timestamp="20231010 00:09:57.268" level="INFO">${user_id} = Q0jLRq0T1jUd3elK</msg>
+<status status="PASS" starttime="20231010 00:09:57.267" endtime="20231010 00:09:57.268"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${USER_ID}</arg>
 <arg>${user_id}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:12.784" endtime="20231003 00:10:12.784"/>
+<msg timestamp="20231010 00:09:57.268" level="INFO">${USER_ID} = Q0jLRq0T1jUd3elK</msg>
+<status status="PASS" starttime="20231010 00:09:57.268" endtime="20231010 00:09:57.268"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:12.784" endtime="20231003 00:10:12.784"/>
+<msg timestamp="20231010 00:09:57.268" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.268" endtime="20231010 00:09:57.268"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:11.954" endtime="20231003 00:10:12.784"/>
+<status status="PASS" starttime="20231010 00:09:57.156" endtime="20231010 00:09:57.269"/>
 </kw>
 <kw name="Then the response status code should be 201" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
-<status status="NOT RUN" starttime="20231003 00:10:12.785" endtime="20231003 00:10:12.785"/>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231010 00:09:57.270" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.269" endtime="20231010 00:09:57.270"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231010 00:09:57.270" endtime="20231010 00:09:57.270"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.269" endtime="20231010 00:09:57.270"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
-<status status="NOT RUN" starttime="20231003 00:10:12.785" endtime="20231003 00:10:12.785"/>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231010 00:09:57.271" level="INFO">Length is 2</msg>
+<status status="PASS" starttime="20231010 00:09:57.271" endtime="20231010 00:09:57.271"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.270" endtime="20231010 00:09:57.271"/>
 </kw>
 <tag>api</tag>
-<status status="FAIL" starttime="20231003 00:10:11.949" endtime="20231003 00:10:12.785">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c7e400&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</status>
+<status status="PASS" starttime="20231010 00:09:57.152" endtime="20231010 00:09:57.272"/>
 </test>
 <test id="s1-s1-s1-t3" name="Scenario: Get a specific user informations" line="22">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -155,10 +233,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231003 00:10:12.787" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231003 00:10:12.787" endtime="20231003 00:10:12.787"/>
+<msg timestamp="20231010 00:09:57.273" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231010 00:09:57.273" endtime="20231010 00:09:57.273"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:12.786" endtime="20231003 00:10:12.787"/>
+<status status="PASS" starttime="20231010 00:09:57.272" endtime="20231010 00:09:57.273"/>
 </kw>
 <kw name="When I request the created user" library="test_keywords_users">
 <kw name="GET On Session" library="RequestsLibrary">
@@ -166,24 +244,61 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20231003 00:10:13.521" level="FAIL">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c7e610&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</msg>
-<status status="FAIL" starttime="20231003 00:10:12.787" endtime="20231003 00:10:13.521"/>
+<msg timestamp="20231010 00:09:57.360" level="INFO">GET Request : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ path_url=/usuarios/Q0jLRq0T1jUd3elK 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231010 00:09:57.360" level="INFO">GET Response : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9d34b2923961f3f03507d566975004b2', 'Date': 'Tue, 10 Oct 2023 00:09:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '161'} 
+ body={
+    "nome": "Richard Alvarado",
+    "email": "iward@example.net",
+    "password": "422jSAjmx40O",
+    "administrador": "false",
+    "_id": "Q0jLRq0T1jUd3elK"
+} 
+ </msg>
+<msg timestamp="20231010 00:09:57.360" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.274" endtime="20231010 00:09:57.360"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:13.521" endtime="20231003 00:10:13.521"/>
+<msg timestamp="20231010 00:09:57.361" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.361" endtime="20231010 00:09:57.361"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:12.787" endtime="20231003 00:10:13.522"/>
+<status status="PASS" starttime="20231010 00:09:57.273" endtime="20231010 00:09:57.361"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
-<status status="NOT RUN" starttime="20231003 00:10:13.522" endtime="20231003 00:10:13.522"/>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231010 00:09:57.362" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.362" endtime="20231010 00:09:57.362"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231010 00:09:57.362" endtime="20231010 00:09:57.363"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.361" endtime="20231010 00:09:57.363"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
-<status status="NOT RUN" starttime="20231003 00:10:13.522" endtime="20231003 00:10:13.522"/>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231010 00:09:57.364" level="INFO">Length is 5</msg>
+<status status="PASS" starttime="20231010 00:09:57.364" endtime="20231010 00:09:57.364"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.363" endtime="20231010 00:09:57.364"/>
 </kw>
 <tag>api</tag>
-<status status="FAIL" starttime="20231003 00:10:12.786" endtime="20231003 00:10:13.522">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c7e610&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</status>
+<status status="PASS" starttime="20231010 00:09:57.272" endtime="20231010 00:09:57.364"/>
 </test>
 <test id="s1-s1-s1-t4" name="Scenario: Update the created user" line="28">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -192,10 +307,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231003 00:10:13.524" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231003 00:10:13.524" endtime="20231003 00:10:13.524"/>
+<msg timestamp="20231010 00:09:57.366" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231010 00:09:57.366" endtime="20231010 00:09:57.366"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:13.523" endtime="20231003 00:10:13.524"/>
+<status status="PASS" starttime="20231010 00:09:57.366" endtime="20231010 00:09:57.366"/>
 </kw>
 <kw name="When I update the created user" library="test_keywords_users">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -205,15 +320,15 @@
 <arg>password=P@ssw0rd123</arg>
 <arg>administrador=false</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231003 00:10:13.525" level="INFO">${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}</msg>
-<status status="PASS" starttime="20231003 00:10:13.525" endtime="20231003 00:10:13.525"/>
+<msg timestamp="20231010 00:09:57.367" level="INFO">${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}</msg>
+<status status="PASS" starttime="20231010 00:09:57.367" endtime="20231010 00:09:57.367"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20231003 00:10:13.525" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231003 00:10:13.525" endtime="20231003 00:10:13.525"/>
+<msg timestamp="20231010 00:09:57.367" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231010 00:09:57.367" endtime="20231010 00:09:57.367"/>
 </kw>
 <kw name="PUT On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -222,24 +337,57 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<msg timestamp="20231003 00:10:14.239" level="FAIL">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c21040&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</msg>
-<status status="FAIL" starttime="20231003 00:10:13.526" endtime="20231003 00:10:14.239"/>
+<msg timestamp="20231010 00:09:57.456" level="INFO">PUT Request : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ path_url=/usuarios/Q0jLRq0T1jUd3elK 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} 
+ body=b'{"nome": "John Smith", "email": "john.smith@example.com", "password": "P@ssw0rd123", "administrador": "false"}' 
+ </msg>
+<msg timestamp="20231010 00:09:57.456" level="INFO">PUT Response : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '1a3440b405514e97880075942b4154b0', 'Date': 'Tue, 10 Oct 2023 00:09:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} 
+ body={
+    "message": "Registro alterado com sucesso"
+} 
+ </msg>
+<msg timestamp="20231010 00:09:57.456" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.367" endtime="20231010 00:09:57.456"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:14.240" endtime="20231003 00:10:14.240"/>
+<msg timestamp="20231010 00:09:57.456" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.456" endtime="20231010 00:09:57.456"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:13.524" endtime="20231003 00:10:14.240"/>
+<status status="PASS" starttime="20231010 00:09:57.366" endtime="20231010 00:09:57.457"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
-<status status="NOT RUN" starttime="20231003 00:10:14.240" endtime="20231003 00:10:14.240"/>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231010 00:09:57.458" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.457" endtime="20231010 00:09:57.458"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231010 00:09:57.458" endtime="20231010 00:09:57.458"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.457" endtime="20231010 00:09:57.459"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
-<status status="NOT RUN" starttime="20231003 00:10:14.240" endtime="20231003 00:10:14.240"/>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231010 00:09:57.459" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20231010 00:09:57.459" endtime="20231010 00:09:57.459"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.459" endtime="20231010 00:09:57.459"/>
 </kw>
 <tag>api</tag>
-<status status="FAIL" starttime="20231003 00:10:13.523" endtime="20231003 00:10:14.240">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c21040&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</status>
+<status status="PASS" starttime="20231010 00:09:57.365" endtime="20231010 00:09:57.460"/>
 </test>
 <test id="s1-s1-s1-t5" name="Scenario: Delete the created user" line="34">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -248,10 +396,10 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>disable_warnings=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231003 00:10:14.242" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231003 00:10:14.242" endtime="20231003 00:10:14.242"/>
+<msg timestamp="20231010 00:09:57.461" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231010 00:09:57.461" endtime="20231010 00:09:57.461"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:14.241" endtime="20231003 00:10:14.242"/>
+<status status="PASS" starttime="20231010 00:09:57.460" endtime="20231010 00:09:57.461"/>
 </kw>
 <kw name="When I delete the created user" library="test_keywords_users">
 <kw name="DELETE On Session" library="RequestsLibrary">
@@ -259,28 +407,61 @@
 <arg>serverest</arg>
 <arg>${USERS_API_ENDPOINT}/${USER_ID}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<msg timestamp="20231003 00:10:14.957" level="FAIL">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c21040&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</msg>
-<status status="FAIL" starttime="20231003 00:10:14.243" endtime="20231003 00:10:14.957"/>
+<msg timestamp="20231010 00:09:57.538" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ path_url=/usuarios/Q0jLRq0T1jUd3elK 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231010 00:09:57.538" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/Q0jLRq0T1jUd3elK 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'a73d552db069446a0b1d52de27d4068e', 'Date': 'Tue, 10 Oct 2023 00:09:57 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg timestamp="20231010 00:09:57.539" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.462" endtime="20231010 00:09:57.539"/>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:14.957" endtime="20231003 00:10:14.957"/>
+<msg timestamp="20231010 00:09:57.539" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.539" endtime="20231010 00:09:57.539"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:14.242" endtime="20231003 00:10:14.957"/>
+<status status="PASS" starttime="20231010 00:09:57.461" endtime="20231010 00:09:57.539"/>
 </kw>
 <kw name="Then the response status code should be 200" library="test_keywords_users" sourcename="Then the response status code should be ${status_code}">
-<status status="NOT RUN" starttime="20231003 00:10:14.958" endtime="20231003 00:10:14.958"/>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20231010 00:09:57.540" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231010 00:09:57.540" endtime="20231010 00:09:57.541"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231010 00:09:57.541" endtime="20231010 00:09:57.541"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.539" endtime="20231010 00:09:57.541"/>
 </kw>
 <kw name="And the response body should not be empty" library="test_keywords_users">
-<status status="NOT RUN" starttime="20231003 00:10:14.958" endtime="20231003 00:10:14.958"/>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231010 00:09:57.542" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20231010 00:09:57.542" endtime="20231010 00:09:57.542"/>
+</kw>
+<status status="PASS" starttime="20231010 00:09:57.542" endtime="20231010 00:09:57.542"/>
 </kw>
 <tag>api</tag>
-<status status="FAIL" starttime="20231003 00:10:14.241" endtime="20231003 00:10:14.958">ConnectionError: HTTPSConnectionPool(host='serverest.dev', port=443): Max retries exceeded with url: /usuarios/ (Caused by NameResolutionError("&lt;urllib3.connection.HTTPSConnection object at 0x7f6b24c21040&gt;: Failed to resolve 'serverest.dev' ([Errno -5] No address associated with hostname)"))</status>
+<status status="PASS" starttime="20231010 00:09:57.460" endtime="20231010 00:09:57.543"/>
 </test>
-<status status="FAIL" starttime="20231003 00:10:10.233" endtime="20231003 00:10:14.959"/>
+<status status="PASS" starttime="20231010 00:09:56.525" endtime="20231010 00:09:57.543"/>
 </suite>
-<status status="FAIL" starttime="20231003 00:10:10.231" endtime="20231003 00:10:14.961"/>
+<status status="PASS" starttime="20231010 00:09:56.523" endtime="20231010 00:09:57.544"/>
 </suite>
 <suite id="s1-s2" name="E2E" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/e2e">
 <suite id="s1-s2-s1" name="Test Ui Signup" source="/home/runner/work/gen-ai-robot-test/gen-ai-robot-test/tests/e2e/test_ui_signup.robot">
@@ -290,85 +471,81 @@
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231003 00:10:14.973" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<msg timestamp="20231003 00:10:23.098" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231003 00:10:23.099" level="FAIL">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x55aa5e70a6b3 &lt;unknown&gt;
-#1 0x55aa5e3e01e7 &lt;unknown&gt;
-#2 0x55aa5e3d82f3 &lt;unknown&gt;
-#3 0x55aa5e3c8d17 &lt;unknown&gt;
-#4 0x55aa5e3ca191 &lt;unknown&gt;
-#5 0x55aa5e3c9053 &lt;unknown&gt;
-#6 0x55aa5e3c806c &lt;unknown&gt;
-#7 0x55aa5e3c7fde &lt;unknown&gt;
-#8 0x55aa5e3c6be4 &lt;unknown&gt;
-#9 0x55aa5e3c706a &lt;unknown&gt;
-#10 0x55aa5e3e28ce &lt;unknown&gt;
-#11 0x55aa5e462ad5 &lt;unknown&gt;
-#12 0x55aa5e4490c2 &lt;unknown&gt;
-#13 0x55aa5e462322 &lt;unknown&gt;
-#14 0x55aa5e448e93 &lt;unknown&gt;
-#15 0x55aa5e41b934 &lt;unknown&gt;
-#16 0x55aa5e41c71e &lt;unknown&gt;
-#17 0x55aa5e6cfcb8 &lt;unknown&gt;
-#18 0x55aa5e6d3bf0 &lt;unknown&gt;
-#19 0x55aa5e6de19c &lt;unknown&gt;
-#20 0x55aa5e6d4808 &lt;unknown&gt;
-#21 0x55aa5e6a127f &lt;unknown&gt;
-#22 0x55aa5e6f8e88 &lt;unknown&gt;
-#23 0x55aa5e6f9059 &lt;unknown&gt;
-#24 0x55aa5e709843 &lt;unknown&gt;
-#25 0x7f289a494b43 &lt;unknown&gt;
-</msg>
-<status status="FAIL" starttime="20231003 00:10:14.972" endtime="20231003 00:10:23.100"/>
+<msg timestamp="20231010 00:09:57.555" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20231010 00:09:57.555" endtime="20231010 00:10:04.845"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:23.100" endtime="20231003 00:10:23.100"/>
+<status status="PASS" starttime="20231010 00:10:04.846" endtime="20231010 00:10:04.962"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:14.972" endtime="20231003 00:10:23.100"/>
+<status status="PASS" starttime="20231010 00:09:57.554" endtime="20231010 00:10:04.962"/>
+</kw>
+<kw name="Given Im on the signup page" library="test_keywords_signup">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://front.serverest.dev/login</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20231010 00:10:04.986" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20231010 00:10:04.963" endtime="20231010 00:10:04.986"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=a.btn.btn-link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:04.987" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20231010 00:10:04.986" endtime="20231010 00:10:05.130"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:04.962" endtime="20231010 00:10:05.130"/>
+</kw>
+<kw name="When I click in signup" library="test_keywords_signup">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn.btn-primary</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:05.131" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20231010 00:10:05.131" endtime="20231010 00:10:05.243"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:05.130" endtime="20231010 00:10:05.243"/>
+</kw>
+<kw name="Then required field messages should be displayed" library="test_keywords_signup">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231010 00:10:05.244" endtime="20231010 00:10:05.476"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231010 00:10:05.496" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20231010 00:10:05.477" endtime="20231010 00:10:05.496"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Nome é obrigatório</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231010 00:10:05.543" level="INFO">Current page contains text 'Nome é obrigatório'.</msg>
+<status status="PASS" starttime="20231010 00:10:05.496" endtime="20231010 00:10:05.543"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Email é obrigatório</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231010 00:10:05.557" level="INFO">Current page contains text 'Email é obrigatório'.</msg>
+<status status="PASS" starttime="20231010 00:10:05.544" endtime="20231010 00:10:05.557"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Password é obrigatório</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231010 00:10:05.570" level="INFO">Current page contains text 'Password é obrigatório'.</msg>
+<status status="PASS" starttime="20231010 00:10:05.557" endtime="20231010 00:10:05.570"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:05.243" endtime="20231010 00:10:05.570"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231003 00:10:23.101" endtime="20231003 00:10:23.157"/>
+<status status="PASS" starttime="20231010 00:10:05.571" endtime="20231010 00:10:05.628"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:23.101" endtime="20231003 00:10:23.157"/>
+<status status="PASS" starttime="20231010 00:10:05.570" endtime="20231010 00:10:05.628"/>
 </kw>
 <tag>e2e</tag>
-<status status="FAIL" starttime="20231003 00:10:14.971" endtime="20231003 00:10:23.157">Setup failed:
-WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x55aa5e70a6b3 &lt;unknown&gt;
-#1 0x55aa5e3e01e7 &lt;unknown&gt;
-#2 0x55aa5e3d82f3 &lt;unknown&gt;
-#3 0x55aa5e3c8d17 &lt;unknown&gt;
-#4 0x55aa5e3ca191 &lt;unknown&gt;
-#5 0x55aa5e3c9053 &lt;unknown&gt;
-#6 0x55aa5e3c806c &lt;unknown&gt;
-#7 0x55aa5e3c7fde &lt;unknown&gt;
-#8 0x55aa5e3c6be4 &lt;unknown&gt;
-#9 0x55aa5e3c706a &lt;unknown&gt;
-#10 0x55aa5e3e28ce &lt;unknown&gt;
-#11 0x55aa5e462ad5 &lt;unknown&gt;
-#12 0x55aa5e4490c2 &lt;unknown&gt;
-#13 0x55aa5e462322 &lt;unknown&gt;
-#14 0x55aa5e448e93 &lt;unknown&gt;
-#15 0x55aa5e41b934 &lt;unknown&gt;
-#16 0x55aa5e41c71e &lt;unknown&gt;
-#17 0x55aa5e6cfcb8 &lt;unknown&gt;
-#18 0x55aa5e6d3bf0 &lt;unknown&gt;
-#19 0x55aa5e6de19c &lt;unknown&gt;
-#20 0x55aa5e6d4808 &lt;unknown&gt;
-#21 0x55aa5e6a127f &lt;unknown&gt;
-#22 0x55aa5e6f8e88 &lt;unknown&gt;
-#23 0x55aa5e6f9059 &lt;unknown&gt;
-#24 0x55aa5e709843 &lt;unknown&gt;
-#25 0x7f289a494b43 &lt;unknown&gt;
-</status>
+<status status="PASS" starttime="20231010 00:09:57.554" endtime="20231010 00:10:05.628"/>
 </test>
 <test id="s1-s2-s1-t2" name="Scenario: Signup done successfully" line="16">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -376,85 +553,136 @@ Stacktrace:
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231003 00:10:23.161" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<msg timestamp="20231003 00:10:24.018" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231003 00:10:24.018" level="FAIL">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x5564f92666b3 &lt;unknown&gt;
-#1 0x5564f8f3c1e7 &lt;unknown&gt;
-#2 0x5564f8f342f3 &lt;unknown&gt;
-#3 0x5564f8f24d17 &lt;unknown&gt;
-#4 0x5564f8f26191 &lt;unknown&gt;
-#5 0x5564f8f25053 &lt;unknown&gt;
-#6 0x5564f8f2406c &lt;unknown&gt;
-#7 0x5564f8f23fde &lt;unknown&gt;
-#8 0x5564f8f22be4 &lt;unknown&gt;
-#9 0x5564f8f2306a &lt;unknown&gt;
-#10 0x5564f8f3e8ce &lt;unknown&gt;
-#11 0x5564f8fbead5 &lt;unknown&gt;
-#12 0x5564f8fa50c2 &lt;unknown&gt;
-#13 0x5564f8fbe322 &lt;unknown&gt;
-#14 0x5564f8fa4e93 &lt;unknown&gt;
-#15 0x5564f8f77934 &lt;unknown&gt;
-#16 0x5564f8f7871e &lt;unknown&gt;
-#17 0x5564f922bcb8 &lt;unknown&gt;
-#18 0x5564f922fbf0 &lt;unknown&gt;
-#19 0x5564f923a19c &lt;unknown&gt;
-#20 0x5564f9230808 &lt;unknown&gt;
-#21 0x5564f91fd27f &lt;unknown&gt;
-#22 0x5564f9254e88 &lt;unknown&gt;
-#23 0x5564f9255059 &lt;unknown&gt;
-#24 0x5564f9265843 &lt;unknown&gt;
-#25 0x7ff4a3c94b43 &lt;unknown&gt;
-</msg>
-<status status="FAIL" starttime="20231003 00:10:23.160" endtime="20231003 00:10:24.018"/>
+<msg timestamp="20231010 00:10:05.631" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20231010 00:10:05.630" endtime="20231010 00:10:06.982"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:24.019" endtime="20231003 00:10:24.019"/>
+<status status="PASS" starttime="20231010 00:10:06.982" endtime="20231010 00:10:07.086"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:23.159" endtime="20231003 00:10:24.019"/>
+<status status="PASS" starttime="20231010 00:10:05.630" endtime="20231010 00:10:07.086"/>
+</kw>
+<kw name="Given Im on the signup page" library="test_keywords_signup">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://front.serverest.dev/login</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20231010 00:10:07.092" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.087" endtime="20231010 00:10:07.092"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=a.btn.btn-link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.093" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.092" endtime="20231010 00:10:07.147"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:07.086" endtime="20231010 00:10:07.148"/>
+</kw>
+<kw name="And I fill in the signup fields with valid data" library="test_keywords_signup">
+<kw name="Name" library="FakerLibrary">
+<var>${name}</var>
+<doc>:example: 'John Doe'</doc>
+<msg timestamp="20231010 00:10:07.149" level="INFO">${name} = Seth Moran</msg>
+<status status="PASS" starttime="20231010 00:10:07.148" endtime="20231010 00:10:07.149"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20231010 00:10:07.149" level="INFO">${email} = ariana44@example.org</msg>
+<status status="PASS" starttime="20231010 00:10:07.149" endtime="20231010 00:10:07.149"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>length=12</arg>
+<arg>special_chars=False</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20231010 00:10:07.150" level="INFO">${password} = NHIdFsiKAMv1</msg>
+<status status="PASS" starttime="20231010 00:10:07.149" endtime="20231010 00:10:07.150"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:nome</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.151" level="INFO">Typing text 'Seth Moran' into text field 'id:nome'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.150" endtime="20231010 00:10:07.318"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.319" level="INFO">Typing text 'ariana44@example.org' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.319" endtime="20231010 00:10:07.429"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.430" level="INFO">Typing text 'NHIdFsiKAMv1' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.429" endtime="20231010 00:10:07.519"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>id=administrador</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.520" level="INFO">Selecting checkbox 'id=administrador'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.520" endtime="20231010 00:10:07.599"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231010 00:10:07.600" level="INFO">${name} = Seth Moran</msg>
+<status status="PASS" starttime="20231010 00:10:07.599" endtime="20231010 00:10:07.600"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231010 00:10:07.600" level="INFO">${email} = ariana44@example.org</msg>
+<status status="PASS" starttime="20231010 00:10:07.600" endtime="20231010 00:10:07.600"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231010 00:10:07.600" level="INFO">${password} = NHIdFsiKAMv1</msg>
+<status status="PASS" starttime="20231010 00:10:07.600" endtime="20231010 00:10:07.600"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:07.148" endtime="20231010 00:10:07.600"/>
+</kw>
+<kw name="When I click in signup" library="test_keywords_signup">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn.btn-primary</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:07.601" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.601" endtime="20231010 00:10:07.658"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:07.601" endtime="20231010 00:10:07.658"/>
+</kw>
+<kw name="Then the page should contain the text &quot;Cadastro realizado com sucesso&quot;" library="test_keywords_signup" sourcename="Then the page should contain the text &quot;${expected_text}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231010 00:10:07.659" endtime="20231010 00:10:07.893"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231010 00:10:07.911" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20231010 00:10:07.893" endtime="20231010 00:10:07.911"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231010 00:10:07.924" level="INFO">Current page contains text 'Cadastro realizado com sucesso'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.912" endtime="20231010 00:10:07.924"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:07.659" endtime="20231010 00:10:07.924"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231003 00:10:24.020" endtime="20231003 00:10:24.074"/>
+<status status="PASS" starttime="20231010 00:10:07.925" endtime="20231010 00:10:07.982"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:24.019" endtime="20231003 00:10:24.074"/>
+<status status="PASS" starttime="20231010 00:10:07.925" endtime="20231010 00:10:07.982"/>
 </kw>
 <tag>e2e</tag>
-<status status="FAIL" starttime="20231003 00:10:23.159" endtime="20231003 00:10:24.074">Setup failed:
-WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x5564f92666b3 &lt;unknown&gt;
-#1 0x5564f8f3c1e7 &lt;unknown&gt;
-#2 0x5564f8f342f3 &lt;unknown&gt;
-#3 0x5564f8f24d17 &lt;unknown&gt;
-#4 0x5564f8f26191 &lt;unknown&gt;
-#5 0x5564f8f25053 &lt;unknown&gt;
-#6 0x5564f8f2406c &lt;unknown&gt;
-#7 0x5564f8f23fde &lt;unknown&gt;
-#8 0x5564f8f22be4 &lt;unknown&gt;
-#9 0x5564f8f2306a &lt;unknown&gt;
-#10 0x5564f8f3e8ce &lt;unknown&gt;
-#11 0x5564f8fbead5 &lt;unknown&gt;
-#12 0x5564f8fa50c2 &lt;unknown&gt;
-#13 0x5564f8fbe322 &lt;unknown&gt;
-#14 0x5564f8fa4e93 &lt;unknown&gt;
-#15 0x5564f8f77934 &lt;unknown&gt;
-#16 0x5564f8f7871e &lt;unknown&gt;
-#17 0x5564f922bcb8 &lt;unknown&gt;
-#18 0x5564f922fbf0 &lt;unknown&gt;
-#19 0x5564f923a19c &lt;unknown&gt;
-#20 0x5564f9230808 &lt;unknown&gt;
-#21 0x5564f91fd27f &lt;unknown&gt;
-#22 0x5564f9254e88 &lt;unknown&gt;
-#23 0x5564f9255059 &lt;unknown&gt;
-#24 0x5564f9265843 &lt;unknown&gt;
-#25 0x7ff4a3c94b43 &lt;unknown&gt;
-</status>
+<status status="PASS" starttime="20231010 00:10:05.630" endtime="20231010 00:10:07.982"/>
 </test>
 <test id="s1-s2-s1-t3" name="Scenario: Signup with already used email" line="23">
 <kw name="Before Tests" library="test_keywords_common" type="SETUP">
@@ -462,106 +690,120 @@ Stacktrace:
 <arg>${SERVER_BASE_URL}</arg>
 <arg>${HEADLESS} ${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231003 00:10:24.077" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
-<msg timestamp="20231003 00:10:24.834" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231003 00:10:24.835" level="FAIL">WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x5645aa4f86b3 &lt;unknown&gt;
-#1 0x5645aa1ce1e7 &lt;unknown&gt;
-#2 0x5645aa1c62f3 &lt;unknown&gt;
-#3 0x5645aa1b6d17 &lt;unknown&gt;
-#4 0x5645aa1b8191 &lt;unknown&gt;
-#5 0x5645aa1b7053 &lt;unknown&gt;
-#6 0x5645aa1b606c &lt;unknown&gt;
-#7 0x5645aa1b5fde &lt;unknown&gt;
-#8 0x5645aa1b4be4 &lt;unknown&gt;
-#9 0x5645aa1b506a &lt;unknown&gt;
-#10 0x5645aa1d08ce &lt;unknown&gt;
-#11 0x5645aa250ad5 &lt;unknown&gt;
-#12 0x5645aa2370c2 &lt;unknown&gt;
-#13 0x5645aa250322 &lt;unknown&gt;
-#14 0x5645aa236e93 &lt;unknown&gt;
-#15 0x5645aa209934 &lt;unknown&gt;
-#16 0x5645aa20a71e &lt;unknown&gt;
-#17 0x5645aa4bdcb8 &lt;unknown&gt;
-#18 0x5645aa4c1bf0 &lt;unknown&gt;
-#19 0x5645aa4cc19c &lt;unknown&gt;
-#20 0x5645aa4c2808 &lt;unknown&gt;
-#21 0x5645aa48f27f &lt;unknown&gt;
-#22 0x5645aa4e6e88 &lt;unknown&gt;
-#23 0x5645aa4e7059 &lt;unknown&gt;
-#24 0x5645aa4f7843 &lt;unknown&gt;
-#25 0x7f5a72494b43 &lt;unknown&gt;
-</msg>
-<status status="FAIL" starttime="20231003 00:10:24.076" endtime="20231003 00:10:24.835"/>
+<msg timestamp="20231010 00:10:07.984" level="INFO">Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'.</msg>
+<status status="PASS" starttime="20231010 00:10:07.983" endtime="20231010 00:10:09.373"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20231003 00:10:24.835" endtime="20231003 00:10:24.835"/>
+<status status="PASS" starttime="20231010 00:10:09.374" endtime="20231010 00:10:09.477"/>
 </kw>
-<status status="FAIL" starttime="20231003 00:10:24.076" endtime="20231003 00:10:24.835"/>
+<status status="PASS" starttime="20231010 00:10:07.983" endtime="20231010 00:10:09.477"/>
+</kw>
+<kw name="Given Im on the signup page" library="test_keywords_signup">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://front.serverest.dev/login</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20231010 00:10:09.482" level="INFO">Current location is 'https://front.serverest.dev/login'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.478" endtime="20231010 00:10:09.483"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=a.btn.btn-link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.483" level="INFO">Clicking element 'css=a.btn.btn-link'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.483" endtime="20231010 00:10:09.541"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:09.477" endtime="20231010 00:10:09.541"/>
+</kw>
+<kw name="And I fill in the signup fields with an email already registered" library="test_keywords_signup">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:nome</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.542" level="INFO">Typing text 'Seth Moran' into text field 'id:nome'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.542" endtime="20231010 00:10:09.659"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:email</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.660" level="INFO">Typing text 'ariana44@example.org' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.659" endtime="20231010 00:10:09.759"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.760" level="INFO">Typing text 'NHIdFsiKAMv1' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.759" endtime="20231010 00:10:09.846"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>id=administrador</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.846" level="INFO">Selecting checkbox 'id=administrador'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.846" endtime="20231010 00:10:09.923"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:09.541" endtime="20231010 00:10:09.923"/>
+</kw>
+<kw name="When I click in signup" library="test_keywords_signup">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css=.btn.btn-primary</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231010 00:10:09.924" level="INFO">Clicking button 'css=.btn.btn-primary'.</msg>
+<status status="PASS" starttime="20231010 00:10:09.923" endtime="20231010 00:10:09.983"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:09.923" endtime="20231010 00:10:09.983"/>
+</kw>
+<kw name="Then the page should contain the text &quot;Este email já está sendo usado&quot;" library="test_keywords_signup" sourcename="Then the page should contain the text &quot;${expected_text}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231010 00:10:09.984" endtime="20231010 00:10:10.218"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>css=.alert-dismissible</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231010 00:10:10.237" level="INFO">Element 'css=.alert-dismissible' is displayed.</msg>
+<status status="PASS" starttime="20231010 00:10:10.219" endtime="20231010 00:10:10.237"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${expected_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231010 00:10:10.250" level="INFO">Current page contains text 'Este email já está sendo usado'.</msg>
+<status status="PASS" starttime="20231010 00:10:10.237" endtime="20231010 00:10:10.250"/>
+</kw>
+<status status="PASS" starttime="20231010 00:10:09.983" endtime="20231010 00:10:10.250"/>
 </kw>
 <kw name="After Tests" library="test_keywords_common" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231003 00:10:24.836" endtime="20231003 00:10:24.890"/>
+<status status="PASS" starttime="20231010 00:10:10.251" endtime="20231010 00:10:10.307"/>
 </kw>
-<status status="PASS" starttime="20231003 00:10:24.836" endtime="20231003 00:10:24.890"/>
+<status status="PASS" starttime="20231010 00:10:10.251" endtime="20231010 00:10:10.307"/>
 </kw>
 <tag>e2e</tag>
-<status status="FAIL" starttime="20231003 00:10:24.075" endtime="20231003 00:10:24.890">Setup failed:
-WebDriverException: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
-  (Session info: headless chrome=117.0.5938.92)
-Stacktrace:
-#0 0x5645aa4f86b3 &lt;unknown&gt;
-#1 0x5645aa1ce1e7 &lt;unknown&gt;
-#2 0x5645aa1c62f3 &lt;unknown&gt;
-#3 0x5645aa1b6d17 &lt;unknown&gt;
-#4 0x5645aa1b8191 &lt;unknown&gt;
-#5 0x5645aa1b7053 &lt;unknown&gt;
-#6 0x5645aa1b606c &lt;unknown&gt;
-#7 0x5645aa1b5fde &lt;unknown&gt;
-#8 0x5645aa1b4be4 &lt;unknown&gt;
-#9 0x5645aa1b506a &lt;unknown&gt;
-#10 0x5645aa1d08ce &lt;unknown&gt;
-#11 0x5645aa250ad5 &lt;unknown&gt;
-#12 0x5645aa2370c2 &lt;unknown&gt;
-#13 0x5645aa250322 &lt;unknown&gt;
-#14 0x5645aa236e93 &lt;unknown&gt;
-#15 0x5645aa209934 &lt;unknown&gt;
-#16 0x5645aa20a71e &lt;unknown&gt;
-#17 0x5645aa4bdcb8 &lt;unknown&gt;
-#18 0x5645aa4c1bf0 &lt;unknown&gt;
-#19 0x5645aa4cc19c &lt;unknown&gt;
-#20 0x5645aa4c2808 &lt;unknown&gt;
-#21 0x5645aa48f27f &lt;unknown&gt;
-#22 0x5645aa4e6e88 &lt;unknown&gt;
-#23 0x5645aa4e7059 &lt;unknown&gt;
-#24 0x5645aa4f7843 &lt;unknown&gt;
-#25 0x7f5a72494b43 &lt;unknown&gt;
-</status>
+<status status="PASS" starttime="20231010 00:10:07.982" endtime="20231010 00:10:10.307"/>
 </test>
-<status status="FAIL" starttime="20231003 00:10:14.964" endtime="20231003 00:10:24.891"/>
+<status status="PASS" starttime="20231010 00:09:57.547" endtime="20231010 00:10:10.308"/>
 </suite>
-<status status="FAIL" starttime="20231003 00:10:14.962" endtime="20231003 00:10:24.892"/>
+<status status="PASS" starttime="20231010 00:09:57.545" endtime="20231010 00:10:10.310"/>
 </suite>
-<status status="FAIL" starttime="20231003 00:10:10.212" endtime="20231003 00:10:24.893"/>
+<status status="PASS" starttime="20231010 00:09:56.503" endtime="20231010 00:10:10.311"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="8" skip="0">All Tests</stat>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="5" skip="0">api</stat>
-<stat pass="0" fail="3" skip="0">e2e</stat>
+<stat pass="5" fail="0" skip="0">api</stat>
+<stat pass="3" fail="0" skip="0">e2e</stat>
 </tag>
 <suite>
-<stat pass="0" fail="8" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="0" fail="5" skip="0" id="s1-s1" name="Api">Tests.Api</stat>
-<stat pass="0" fail="5" skip="0" id="s1-s1-s1" name="Test Api Users">Tests.Api.Test Api Users</stat>
-<stat pass="0" fail="3" skip="0" id="s1-s2" name="E2E">Tests.E2E</stat>
-<stat pass="0" fail="3" skip="0" id="s1-s2-s1" name="Test Ui Signup">Tests.E2E.Test Ui Signup</stat>
+<stat pass="8" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Api">Tests.Api</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1-s1" name="Test Api Users">Tests.Api.Test Api Users</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s2" name="E2E">Tests.E2E</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s2-s1" name="Test Ui Signup">Tests.E2E.Test Ui Signup</stat>
 </suite>
 </statistics>
 <errors>
