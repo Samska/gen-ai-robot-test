@@ -7,10 +7,10 @@
   },
   "robot": {
     "_attributes": {
-      "generator": "Robot 6.1.1 (Python 3.8.18 on linux)",
-      "generated": "20240109 00:11:26.432",
+      "generator": "Robot 7.0 (Python 3.8.18 on linux)",
+      "generated": "2024-01-16T00:10:54.922556",
       "rpa": "false",
-      "schemaversion": "4"
+      "schemaversion": "5"
     },
     "suite": {
       "_attributes": {
@@ -42,13 +42,20 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Create Session",
-                        "library": "RequestsLibrary"
+                        "owner": "RequestsLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.453787",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
                       },
                       "arg": [
                         {
@@ -64,40 +71,56 @@
                       "doc": {
                         "_text": "Create Session: create a HTTP session to a server"
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.141",
-                          "level": "INFO"
-                        },
-                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.141",
-                          "endtime": "20240109 00:11:27.142"
+                          "start": "2024-01-16T00:10:55.453471",
+                          "elapsed": "0.000622"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.140",
-                        "endtime": "20240109 00:11:27.142"
+                        "start": "2024-01-16T00:10:55.452249",
+                        "elapsed": "0.001956"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I request the list of all registered users",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "GET On Session",
-                          "library": "RequestsLibrary"
+                          "owner": "RequestsLibrary"
                         },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.648068",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.648172",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Response : url=https://serverest.dev/usuarios \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'f2e3f407e7c70ddb0570da813a56cd34;o=1', 'Date': 'Tue, 16 Jan 2024 00:10:55 GMT', 'Server': 'Google Frontend', 'Content-Length': '253'} \n body={\n    \"quantidade\": 1,\n    \"usuarios\": [\n        {\n            \"nome\": \"Fulano da Silva\",\n            \"email\": \"fulano@qa.com\",\n            \"password\": \"teste\",\n            \"administrador\": \"true\",\n            \"_id\": \"0uxuPY0cbmQhpEz1\"\n        }\n    ]\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.648304",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
                         "var": {
                           "_text": "${response}"
                         },
@@ -112,41 +135,25 @@
                         "doc": {
                           "_text": "Sends a GET request on a previously created HTTP Session."
                         },
-                        "msg": [
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.297",
-                              "level": "INFO"
-                            },
-                            "_text": "GET Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.297",
-                              "level": "INFO"
-                            },
-                            "_text": "GET Response : url=https://serverest.dev/usuarios \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '66d859d9bd27bdf403955739f59a6972;o=1', 'Date': 'Tue, 09 Jan 2024 00:11:27 GMT', 'Server': 'Google Frontend', 'Content-Length': '253'} \n body={\n    \"quantidade\": 1,\n    \"usuarios\": [\n        {\n            \"nome\": \"Fulano da Silva\",\n            \"email\": \"fulano@qa.com\",\n            \"password\": \"teste\",\n            \"administrador\": \"true\",\n            \"_id\": \"0uxuPY0cbmQhpEz1\"\n        }\n    ]\n} \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.297",
-                              "level": "INFO"
-                            },
-                            "_text": "${response} = <Response [200]>"
-                          }
-                        ],
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.142",
-                            "endtime": "20240109 00:11:27.297"
+                            "start": "2024-01-16T00:10:55.454709",
+                            "elapsed": "0.193626"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Test Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.648743",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
                         },
                         "arg": {
                           "_text": "${response}"
@@ -154,18 +161,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current test."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.298",
-                            "level": "INFO"
-                          },
-                          "_text": "${response} = <Response [200]>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.298",
-                            "endtime": "20240109 00:11:27.298"
+                            "start": "2024-01-16T00:10:55.648514",
+                            "elapsed": "0.000277"
                           }
                         }
                       }
@@ -173,22 +173,29 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.142",
-                        "endtime": "20240109 00:11:27.298"
+                        "start": "2024-01-16T00:10:55.454397",
+                        "elapsed": "0.194471"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the response status code should be 200",
-                      "library": "test_keywords_users",
-                      "sourcename": "Then the response status code should be ${status_code}"
+                      "owner": "test_keywords_users",
+                      "source_name": "Then the response status code should be ${status_code}"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Should Be Equal As Numbers",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.649880",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
                         },
                         "arg": [
                           {
@@ -201,25 +208,18 @@
                         "doc": {
                           "_text": "Fails if objects are unequal after converting them to real numbers."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.299",
-                            "level": "INFO"
-                          },
-                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.298",
-                            "endtime": "20240109 00:11:27.299"
+                            "start": "2024-01-16T00:10:55.649362",
+                            "elapsed": "0.000616"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Should Be True",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
                         },
                         "arg": {
                           "_text": "${response.json()}"
@@ -230,8 +230,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.299",
-                            "endtime": "20240109 00:11:27.300"
+                            "start": "2024-01-16T00:10:55.650135",
+                            "elapsed": "0.000494"
                           }
                         }
                       }
@@ -239,20 +239,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.298",
-                        "endtime": "20240109 00:11:27.300"
+                        "start": "2024-01-16T00:10:55.649049",
+                        "elapsed": "0.001660"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And the response body should not be empty",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Should Not Be Empty",
-                        "library": "BuiltIn"
+                        "owner": "BuiltIn"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.651651",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 2."
                       },
                       "arg": {
                         "_text": "${response.json()}"
@@ -260,26 +267,19 @@
                       "doc": {
                         "_text": "Verifies that the given item is not empty."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.300",
-                          "level": "INFO"
-                        },
-                        "_text": "Length is 2"
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.300",
-                          "endtime": "20240109 00:11:27.300"
+                          "start": "2024-01-16T00:10:55.651144",
+                          "elapsed": "0.000561"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.300",
-                        "endtime": "20240109 00:11:27.301"
+                        "start": "2024-01-16T00:10:55.650869",
+                        "elapsed": "0.000913"
                       }
                     }
                   }
@@ -290,8 +290,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.139",
-                    "endtime": "20240109 00:11:27.301"
+                    "start": "2024-01-16T00:10:55.451541",
+                    "elapsed": "0.200362"
                   }
                 }
               },
@@ -305,13 +305,20 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Create Session",
-                        "library": "RequestsLibrary"
+                        "owner": "RequestsLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.653157",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
                       },
                       "arg": [
                         {
@@ -327,39 +334,39 @@
                       "doc": {
                         "_text": "Create Session: create a HTTP session to a server"
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.302",
-                          "level": "INFO"
-                        },
-                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.302",
-                          "endtime": "20240109 00:11:27.302"
+                          "start": "2024-01-16T00:10:55.652900",
+                          "elapsed": "0.000443"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.301",
-                        "endtime": "20240109 00:11:27.302"
+                        "start": "2024-01-16T00:10:55.652620",
+                        "elapsed": "0.000808"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Given I have a valid user data",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Name",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.654257",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Barry Sweeney"
                         },
                         "var": {
                           "_text": "${name}"
@@ -367,48 +374,48 @@
                         "doc": {
                           "_text": ":example: 'John Doe'"
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.303",
-                            "level": "INFO"
-                          },
-                          "_text": "${name} = David Bailey"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.303",
-                            "endtime": "20240109 00:11:27.303"
+                            "start": "2024-01-16T00:10:55.653876",
+                            "elapsed": "0.000412"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Email",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.654759",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = shanemcclain@example.com"
                         },
                         "var": {
                           "_text": "${email}"
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.303",
-                            "level": "INFO"
-                          },
-                          "_text": "${email} = delacruzdan@example.net"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.303",
-                            "endtime": "20240109 00:11:27.303"
+                            "start": "2024-01-16T00:10:55.654424",
+                            "elapsed": "0.000365"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Password",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.655190",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = 6VoEIwxRMjD1"
                         },
                         "var": {
                           "_text": "${password}"
@@ -424,25 +431,25 @@
                         "doc": {
                           "_text": "Generate a random password of the specified ``length``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.304",
-                            "level": "INFO"
-                          },
-                          "_text": "${password} = IFbyGMWs7LKy"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.303",
-                            "endtime": "20240109 00:11:27.304"
+                            "start": "2024-01-16T00:10:55.654921",
+                            "elapsed": "0.000299"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.655580",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Barry Sweeney"
                         },
                         "arg": {
                           "_text": "${name}"
@@ -450,25 +457,25 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.304",
-                            "level": "INFO"
-                          },
-                          "_text": "${name} = David Bailey"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.304",
-                            "endtime": "20240109 00:11:27.304"
+                            "start": "2024-01-16T00:10:55.655372",
+                            "elapsed": "0.000253"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.655956",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = shanemcclain@example.com"
                         },
                         "arg": {
                           "_text": "${email}"
@@ -476,25 +483,25 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.304",
-                            "level": "INFO"
-                          },
-                          "_text": "${email} = delacruzdan@example.net"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.304",
-                            "endtime": "20240109 00:11:27.304"
+                            "start": "2024-01-16T00:10:55.655765",
+                            "elapsed": "0.000233"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.656320",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = 6VoEIwxRMjD1"
                         },
                         "arg": {
                           "_text": "${password}"
@@ -502,18 +509,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.305",
-                            "level": "INFO"
-                          },
-                          "_text": "${password} = IFbyGMWs7LKy"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.305",
-                            "endtime": "20240109 00:11:27.305"
+                            "start": "2024-01-16T00:10:55.656131",
+                            "elapsed": "0.000231"
                           }
                         }
                       }
@@ -521,21 +521,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.302",
-                        "endtime": "20240109 00:11:27.305"
+                        "start": "2024-01-16T00:10:55.653621",
+                        "elapsed": "0.002812"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I create the user",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Create Dictionary",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.657290",
+                            "level": "INFO"
+                          },
+                          "_text": "${payload} = {'nome': 'Barry Sweeney', 'email': 'shanemcclain@example.com', 'password': '6VoEIwxRMjD1', 'administrador': 'false'}"
                         },
                         "var": {
                           "_text": "${payload}"
@@ -557,25 +564,25 @@
                         "doc": {
                           "_text": "Creates and returns a dictionary based on the given ``items``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.306",
-                            "level": "INFO"
-                          },
-                          "_text": "${payload} = {'nome': 'David Bailey', 'email': 'delacruzdan@example.net', 'password': 'IFbyGMWs7LKy', 'administrador': 'false'}"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.305",
-                            "endtime": "20240109 00:11:27.306"
+                            "start": "2024-01-16T00:10:55.656879",
+                            "elapsed": "0.000442"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Create Dictionary",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.657651",
+                            "level": "INFO"
+                          },
+                          "_text": "${headers} = {'Content-Type': 'application/json'}"
                         },
                         "var": {
                           "_text": "${headers}"
@@ -586,26 +593,42 @@
                         "doc": {
                           "_text": "Creates and returns a dictionary based on the given ``items``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.306",
-                            "level": "INFO"
-                          },
-                          "_text": "${headers} = {'Content-Type': 'application/json'}"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.306",
-                            "endtime": "20240109 00:11:27.306"
+                            "start": "2024-01-16T00:10:55.657474",
+                            "elapsed": "0.000205"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "POST On Session",
-                          "library": "RequestsLibrary"
+                          "owner": "RequestsLibrary"
                         },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.753565",
+                              "level": "INFO"
+                            },
+                            "_text": "POST Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '116'} \n body=b'{\"nome\": \"Barry Sweeney\", \"email\": \"shanemcclain@example.com\", \"password\": \"6VoEIwxRMjD1\", \"administrador\": \"false\"}' \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.753651",
+                              "level": "INFO"
+                            },
+                            "_text": "POST Response : url=https://serverest.dev/usuarios \n status=201, reason=Created \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'eb48ef768e4c3665cedd4659e881a480', 'Date': 'Tue, 16 Jan 2024 00:10:55 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} \n body={\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"0oGJvS3FaZkPCp9B\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.753772",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [201]>"
+                          }
+                        ],
                         "var": {
                           "_text": "${response}"
                         },
@@ -626,41 +649,25 @@
                         "doc": {
                           "_text": "Sends a POST request on a previously created HTTP Session."
                         },
-                        "msg": [
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.392",
-                              "level": "INFO"
-                            },
-                            "_text": "POST Request : url=https://serverest.dev/usuarios \n path_url=/usuarios \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '114'} \n body=b'{\"nome\": \"David Bailey\", \"email\": \"delacruzdan@example.net\", \"password\": \"IFbyGMWs7LKy\", \"administrador\": \"false\"}' \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.392",
-                              "level": "INFO"
-                            },
-                            "_text": "POST Response : url=https://serverest.dev/usuarios \n status=201, reason=Created \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9ace67c94b055978db57575b687e5206', 'Date': 'Tue, 09 Jan 2024 00:11:27 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} \n body={\n    \"message\": \"Cadastro realizado com sucesso\",\n    \"_id\": \"nTT6MsUM2f9B6Leo\"\n} \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.393",
-                              "level": "INFO"
-                            },
-                            "_text": "${response} = <Response [201]>"
-                          }
-                        ],
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.306",
-                            "endtime": "20240109 00:11:27.393"
+                            "start": "2024-01-16T00:10:55.657865",
+                            "elapsed": "0.095938"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.754564",
+                            "level": "INFO"
+                          },
+                          "_text": "${user_id} = 0oGJvS3FaZkPCp9B"
                         },
                         "var": {
                           "_text": "${user_id}"
@@ -671,25 +678,25 @@
                         "doc": {
                           "_text": "Returns the given values which can then be assigned to a variables."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.394",
-                            "level": "INFO"
-                          },
-                          "_text": "${user_id} = nTT6MsUM2f9B6Leo"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.393",
-                            "endtime": "20240109 00:11:27.394"
+                            "start": "2024-01-16T00:10:55.754010",
+                            "elapsed": "0.000586"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Global Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.755043",
+                            "level": "INFO"
+                          },
+                          "_text": "${USER_ID} = 0oGJvS3FaZkPCp9B"
                         },
                         "arg": [
                           {
@@ -702,25 +709,25 @@
                         "doc": {
                           "_text": "Makes a variable available globally in all tests and suites."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.394",
-                            "level": "INFO"
-                          },
-                          "_text": "${USER_ID} = nTT6MsUM2f9B6Leo"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.394",
-                            "endtime": "20240109 00:11:27.394"
+                            "start": "2024-01-16T00:10:55.754760",
+                            "elapsed": "0.000329"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Test Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.755422",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [201]>"
                         },
                         "arg": {
                           "_text": "${response}"
@@ -728,18 +735,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current test."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.394",
-                            "level": "INFO"
-                          },
-                          "_text": "${response} = <Response [201]>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.394",
-                            "endtime": "20240109 00:11:27.394"
+                            "start": "2024-01-16T00:10:55.755233",
+                            "elapsed": "0.000233"
                           }
                         }
                       }
@@ -747,22 +747,29 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.305",
-                        "endtime": "20240109 00:11:27.395"
+                        "start": "2024-01-16T00:10:55.656610",
+                        "elapsed": "0.098930"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the response status code should be 201",
-                      "library": "test_keywords_users",
-                      "sourcename": "Then the response status code should be ${status_code}"
+                      "owner": "test_keywords_users",
+                      "source_name": "Then the response status code should be ${status_code}"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Should Be Equal As Numbers",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.756504",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
                         },
                         "arg": [
                           {
@@ -775,25 +782,18 @@
                         "doc": {
                           "_text": "Fails if objects are unequal after converting them to real numbers."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.395",
-                            "level": "INFO"
-                          },
-                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.395",
-                            "endtime": "20240109 00:11:27.396"
+                            "start": "2024-01-16T00:10:55.756014",
+                            "elapsed": "0.000557"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Should Be True",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
                         },
                         "arg": {
                           "_text": "${response.json()}"
@@ -804,8 +804,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.396",
-                            "endtime": "20240109 00:11:27.396"
+                            "start": "2024-01-16T00:10:55.756713",
+                            "elapsed": "0.000514"
                           }
                         }
                       }
@@ -813,20 +813,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.395",
-                        "endtime": "20240109 00:11:27.396"
+                        "start": "2024-01-16T00:10:55.755718",
+                        "elapsed": "0.001588"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And the response body should not be empty",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Should Not Be Empty",
-                        "library": "BuiltIn"
+                        "owner": "BuiltIn"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.758207",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 2."
                       },
                       "arg": {
                         "_text": "${response.json()}"
@@ -834,26 +841,19 @@
                       "doc": {
                         "_text": "Verifies that the given item is not empty."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.397",
-                          "level": "INFO"
-                        },
-                        "_text": "Length is 2"
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.396",
-                          "endtime": "20240109 00:11:27.397"
+                          "start": "2024-01-16T00:10:55.757736",
+                          "elapsed": "0.000525"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.396",
-                        "endtime": "20240109 00:11:27.397"
+                        "start": "2024-01-16T00:10:55.757465",
+                        "elapsed": "0.000871"
                       }
                     }
                   }
@@ -864,8 +864,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.301",
-                    "endtime": "20240109 00:11:27.397"
+                    "start": "2024-01-16T00:10:55.652207",
+                    "elapsed": "0.106249"
                   }
                 }
               },
@@ -879,13 +879,20 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Create Session",
-                        "library": "RequestsLibrary"
+                        "owner": "RequestsLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.759838",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
                       },
                       "arg": [
                         {
@@ -901,40 +908,56 @@
                       "doc": {
                         "_text": "Create Session: create a HTTP session to a server"
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.398",
-                          "level": "INFO"
-                        },
-                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.398",
-                          "endtime": "20240109 00:11:27.398"
+                          "start": "2024-01-16T00:10:55.759593",
+                          "elapsed": "0.000430"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.398",
-                        "endtime": "20240109 00:11:27.399"
+                        "start": "2024-01-16T00:10:55.759305",
+                        "elapsed": "0.000803"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I request the created user",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "GET On Session",
-                          "library": "RequestsLibrary"
+                          "owner": "RequestsLibrary"
                         },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.850949",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Request : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n path_url=/usuarios/0oGJvS3FaZkPCp9B \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.851093",
+                              "level": "INFO"
+                            },
+                            "_text": "GET Response : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'eadab6c7341fc6c31618943ccf8c09c3', 'Date': 'Tue, 16 Jan 2024 00:10:55 GMT', 'Server': 'Google Frontend', 'Content-Length': '165'} \n body={\n    \"nome\": \"Barry Sweeney\",\n    \"email\": \"shanemcclain@example.com\",\n    \"password\": \"6VoEIwxRMjD1\",\n    \"administrador\": \"false\",\n    \"_id\": \"0oGJvS3FaZkPCp9B\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.851283",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
                         "var": {
                           "_text": "${response}"
                         },
@@ -949,41 +972,25 @@
                         "doc": {
                           "_text": "Sends a GET request on a previously created HTTP Session."
                         },
-                        "msg": [
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.484",
-                              "level": "INFO"
-                            },
-                            "_text": "GET Request : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n path_url=/usuarios/nTT6MsUM2f9B6Leo \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} \n body=None \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.484",
-                              "level": "INFO"
-                            },
-                            "_text": "GET Response : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '4ee17b35e2f57a47f520f63f124efe1c', 'Date': 'Tue, 09 Jan 2024 00:11:27 GMT', 'Server': 'Google Frontend', 'Content-Length': '163'} \n body={\n    \"nome\": \"David Bailey\",\n    \"email\": \"delacruzdan@example.net\",\n    \"password\": \"IFbyGMWs7LKy\",\n    \"administrador\": \"false\",\n    \"_id\": \"nTT6MsUM2f9B6Leo\"\n} \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.484",
-                              "level": "INFO"
-                            },
-                            "_text": "${response} = <Response [200]>"
-                          }
-                        ],
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.399",
-                            "endtime": "20240109 00:11:27.484"
+                            "start": "2024-01-16T00:10:55.760548",
+                            "elapsed": "0.090769"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Test Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.851877",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
                         },
                         "arg": {
                           "_text": "${response}"
@@ -991,18 +998,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current test."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.485",
-                            "level": "INFO"
-                          },
-                          "_text": "${response} = <Response [200]>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.484",
-                            "endtime": "20240109 00:11:27.485"
+                            "start": "2024-01-16T00:10:55.851588",
+                            "elapsed": "0.000342"
                           }
                         }
                       }
@@ -1010,22 +1010,29 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.399",
-                        "endtime": "20240109 00:11:27.485"
+                        "start": "2024-01-16T00:10:55.760285",
+                        "elapsed": "0.091745"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the response status code should be 200",
-                      "library": "test_keywords_users",
-                      "sourcename": "Then the response status code should be ${status_code}"
+                      "owner": "test_keywords_users",
+                      "source_name": "Then the response status code should be ${status_code}"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Should Be Equal As Numbers",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.853179",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
                         },
                         "arg": [
                           {
@@ -1038,25 +1045,18 @@
                         "doc": {
                           "_text": "Fails if objects are unequal after converting them to real numbers."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.486",
-                            "level": "INFO"
-                          },
-                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.485",
-                            "endtime": "20240109 00:11:27.486"
+                            "start": "2024-01-16T00:10:55.852599",
+                            "elapsed": "0.000655"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Should Be True",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
                         },
                         "arg": {
                           "_text": "${response.json()}"
@@ -1067,8 +1067,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.486",
-                            "endtime": "20240109 00:11:27.487"
+                            "start": "2024-01-16T00:10:55.853405",
+                            "elapsed": "0.000500"
                           }
                         }
                       }
@@ -1076,20 +1076,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.485",
-                        "endtime": "20240109 00:11:27.487"
+                        "start": "2024-01-16T00:10:55.852255",
+                        "elapsed": "0.001762"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And the response body should not be empty",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Should Not Be Empty",
-                        "library": "BuiltIn"
+                        "owner": "BuiltIn"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.854933",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 5."
                       },
                       "arg": {
                         "_text": "${response.json()}"
@@ -1097,26 +1104,19 @@
                       "doc": {
                         "_text": "Verifies that the given item is not empty."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.487",
-                          "level": "INFO"
-                        },
-                        "_text": "Length is 5"
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.487",
-                          "endtime": "20240109 00:11:27.487"
+                          "start": "2024-01-16T00:10:55.854472",
+                          "elapsed": "0.000515"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.487",
-                        "endtime": "20240109 00:11:27.487"
+                        "start": "2024-01-16T00:10:55.854196",
+                        "elapsed": "0.000920"
                       }
                     }
                   }
@@ -1127,8 +1127,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.397",
-                    "endtime": "20240109 00:11:27.488"
+                    "start": "2024-01-16T00:10:55.758750",
+                    "elapsed": "0.096503"
                   }
                 }
               },
@@ -1142,13 +1142,20 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Create Session",
-                        "library": "RequestsLibrary"
+                        "owner": "RequestsLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.856725",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
                       },
                       "arg": [
                         {
@@ -1164,39 +1171,39 @@
                       "doc": {
                         "_text": "Create Session: create a HTTP session to a server"
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.489",
-                          "level": "INFO"
-                        },
-                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.488",
-                          "endtime": "20240109 00:11:27.489"
+                          "start": "2024-01-16T00:10:55.856450",
+                          "elapsed": "0.000496"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.488",
-                        "endtime": "20240109 00:11:27.489"
+                        "start": "2024-01-16T00:10:55.856186",
+                        "elapsed": "0.000849"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I update the created user",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Create Dictionary",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.857893",
+                            "level": "INFO"
+                          },
+                          "_text": "${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}"
                         },
                         "var": {
                           "_text": "${payload}"
@@ -1218,25 +1225,25 @@
                         "doc": {
                           "_text": "Creates and returns a dictionary based on the given ``items``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.490",
-                            "level": "INFO"
-                          },
-                          "_text": "${payload} = {'nome': 'John Smith', 'email': 'john.smith@example.com', 'password': 'P@ssw0rd123', 'administrador': 'false'}"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.489",
-                            "endtime": "20240109 00:11:27.490"
+                            "start": "2024-01-16T00:10:55.857660",
+                            "elapsed": "0.000262"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Create Dictionary",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.858306",
+                            "level": "INFO"
+                          },
+                          "_text": "${headers} = {'Content-Type': 'application/json'}"
                         },
                         "var": {
                           "_text": "${headers}"
@@ -1247,26 +1254,42 @@
                         "doc": {
                           "_text": "Creates and returns a dictionary based on the given ``items``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.490",
-                            "level": "INFO"
-                          },
-                          "_text": "${headers} = {'Content-Type': 'application/json'}"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.490",
-                            "endtime": "20240109 00:11:27.490"
+                            "start": "2024-01-16T00:10:55.858123",
+                            "elapsed": "0.000211"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "PUT On Session",
-                          "library": "RequestsLibrary"
+                          "owner": "RequestsLibrary"
                         },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.946611",
+                              "level": "INFO"
+                            },
+                            "_text": "PUT Request : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n path_url=/usuarios/0oGJvS3FaZkPCp9B \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} \n body=b'{\"nome\": \"John Smith\", \"email\": \"john.smith@example.com\", \"password\": \"P@ssw0rd123\", \"administrador\": \"false\"}' \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.946699",
+                              "level": "INFO"
+                            },
+                            "_text": "PUT Response : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'aa0a144aae94ec1f2a2e2c5f99d2e42b', 'Date': 'Tue, 16 Jan 2024 00:10:55 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} \n body={\n    \"message\": \"Registro alterado com sucesso\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:55.946839",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
                         "var": {
                           "_text": "${response}"
                         },
@@ -1287,41 +1310,25 @@
                         "doc": {
                           "_text": "Sends a PUT request on a previously created HTTP Session."
                         },
-                        "msg": [
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.576",
-                              "level": "INFO"
-                            },
-                            "_text": "PUT Request : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n path_url=/usuarios/nTT6MsUM2f9B6Leo \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} \n body=b'{\"nome\": \"John Smith\", \"email\": \"john.smith@example.com\", \"password\": \"P@ssw0rd123\", \"administrador\": \"false\"}' \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.576",
-                              "level": "INFO"
-                            },
-                            "_text": "PUT Response : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'f8f2d5d2fb1abea3700c0481898c8f37', 'Date': 'Tue, 09 Jan 2024 00:11:27 GMT', 'Server': 'Google Frontend', 'Content-Length': '50'} \n body={\n    \"message\": \"Registro alterado com sucesso\"\n} \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.576",
-                              "level": "INFO"
-                            },
-                            "_text": "${response} = <Response [200]>"
-                          }
-                        ],
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.490",
-                            "endtime": "20240109 00:11:27.576"
+                            "start": "2024-01-16T00:10:55.858470",
+                            "elapsed": "0.088400"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Test Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.947345",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
                         },
                         "arg": {
                           "_text": "${response}"
@@ -1329,18 +1336,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current test."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.577",
-                            "level": "INFO"
-                          },
-                          "_text": "${response} = <Response [200]>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.576",
-                            "endtime": "20240109 00:11:27.577"
+                            "start": "2024-01-16T00:10:55.947090",
+                            "elapsed": "0.000305"
                           }
                         }
                       }
@@ -1348,22 +1348,29 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.489",
-                        "endtime": "20240109 00:11:27.577"
+                        "start": "2024-01-16T00:10:55.857226",
+                        "elapsed": "0.090261"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the response status code should be 200",
-                      "library": "test_keywords_users",
-                      "sourcename": "Then the response status code should be ${status_code}"
+                      "owner": "test_keywords_users",
+                      "source_name": "Then the response status code should be ${status_code}"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Should Be Equal As Numbers",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:55.948535",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
                         },
                         "arg": [
                           {
@@ -1376,25 +1383,18 @@
                         "doc": {
                           "_text": "Fails if objects are unequal after converting them to real numbers."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.578",
-                            "level": "INFO"
-                          },
-                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.577",
-                            "endtime": "20240109 00:11:27.578"
+                            "start": "2024-01-16T00:10:55.948010",
+                            "elapsed": "0.000596"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Should Be True",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
                         },
                         "arg": {
                           "_text": "${response.json()}"
@@ -1405,8 +1405,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.578",
-                            "endtime": "20240109 00:11:27.578"
+                            "start": "2024-01-16T00:10:55.948754",
+                            "elapsed": "0.000480"
                           }
                         }
                       }
@@ -1414,20 +1414,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.577",
-                        "endtime": "20240109 00:11:27.578"
+                        "start": "2024-01-16T00:10:55.947687",
+                        "elapsed": "0.001626"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And the response body should not be empty",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Should Not Be Empty",
-                        "library": "BuiltIn"
+                        "owner": "BuiltIn"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.950238",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 1."
                       },
                       "arg": {
                         "_text": "${response.json()}"
@@ -1435,26 +1442,19 @@
                       "doc": {
                         "_text": "Verifies that the given item is not empty."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.579",
-                          "level": "INFO"
-                        },
-                        "_text": "Length is 1"
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.579",
-                          "endtime": "20240109 00:11:27.579"
+                          "start": "2024-01-16T00:10:55.949750",
+                          "elapsed": "0.000541"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.578",
-                        "endtime": "20240109 00:11:27.579"
+                        "start": "2024-01-16T00:10:55.949476",
+                        "elapsed": "0.000891"
                       }
                     }
                   }
@@ -1465,8 +1465,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.488",
-                    "endtime": "20240109 00:11:27.579"
+                    "start": "2024-01-16T00:10:55.855590",
+                    "elapsed": "0.094901"
                   }
                 }
               },
@@ -1480,13 +1480,20 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Create Session",
-                        "library": "RequestsLibrary"
+                        "owner": "RequestsLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:55.951885",
+                          "level": "INFO"
+                        },
+                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
                       },
                       "arg": [
                         {
@@ -1502,40 +1509,56 @@
                       "doc": {
                         "_text": "Create Session: create a HTTP session to a server"
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.580",
-                          "level": "INFO"
-                        },
-                        "_text": "Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 "
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.580",
-                          "endtime": "20240109 00:11:27.581"
+                          "start": "2024-01-16T00:10:55.951627",
+                          "elapsed": "0.000465"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.580",
-                        "endtime": "20240109 00:11:27.581"
+                        "start": "2024-01-16T00:10:55.951362",
+                        "elapsed": "0.000816"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I delete the created user",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "DELETE On Session",
-                          "library": "RequestsLibrary"
+                          "owner": "RequestsLibrary"
                         },
+                        "msg": [
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:56.048108",
+                              "level": "INFO"
+                            },
+                            "_text": "DELETE Request : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n path_url=/usuarios/0oGJvS3FaZkPCp9B \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} \n body=None \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:56.048200",
+                              "level": "INFO"
+                            },
+                            "_text": "DELETE Response : url=https://serverest.dev/usuarios/0oGJvS3FaZkPCp9B \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ca9a556123969de8565b3cd7a61a2e59', 'Date': 'Tue, 16 Jan 2024 00:10:56 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} \n body={\n    \"message\": \"Registro excluído com sucesso\"\n} \n "
+                          },
+                          {
+                            "_attributes": {
+                              "time": "2024-01-16T00:10:56.048337",
+                              "level": "INFO"
+                            },
+                            "_text": "${response} = <Response [200]>"
+                          }
+                        ],
                         "var": {
                           "_text": "${response}"
                         },
@@ -1550,41 +1573,25 @@
                         "doc": {
                           "_text": "Sends a DELETE request on a previously created HTTP Session."
                         },
-                        "msg": [
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.667",
-                              "level": "INFO"
-                            },
-                            "_text": "DELETE Request : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n path_url=/usuarios/nTT6MsUM2f9B6Leo \n headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} \n body=None \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.667",
-                              "level": "INFO"
-                            },
-                            "_text": "DELETE Response : url=https://serverest.dev/usuarios/nTT6MsUM2f9B6Leo \n status=200, reason=OK \n headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '6acb597b5bad8a08fae0ed77a716e169', 'Date': 'Tue, 09 Jan 2024 00:11:27 GMT', 'Server': 'Google Frontend', 'Content-Length': '51'} \n body={\n    \"message\": \"Registro excluído com sucesso\"\n} \n "
-                          },
-                          {
-                            "_attributes": {
-                              "timestamp": "20240109 00:11:27.667",
-                              "level": "INFO"
-                            },
-                            "_text": "${response} = <Response [200]>"
-                          }
-                        ],
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.581",
-                            "endtime": "20240109 00:11:27.667"
+                            "start": "2024-01-16T00:10:55.952622",
+                            "elapsed": "0.095753"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Test Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:56.048806",
+                            "level": "INFO"
+                          },
+                          "_text": "${response} = <Response [200]>"
                         },
                         "arg": {
                           "_text": "${response}"
@@ -1592,18 +1599,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current test."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.668",
-                            "level": "INFO"
-                          },
-                          "_text": "${response} = <Response [200]>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.668",
-                            "endtime": "20240109 00:11:27.668"
+                            "start": "2024-01-16T00:10:56.048599",
+                            "elapsed": "0.000254"
                           }
                         }
                       }
@@ -1611,22 +1611,29 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.581",
-                        "endtime": "20240109 00:11:27.668"
+                        "start": "2024-01-16T00:10:55.952354",
+                        "elapsed": "0.096573"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the response status code should be 200",
-                      "library": "test_keywords_users",
-                      "sourcename": "Then the response status code should be ${status_code}"
+                      "owner": "test_keywords_users",
+                      "source_name": "Then the response status code should be ${status_code}"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Should Be Equal As Numbers",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:56.049935",
+                            "level": "INFO"
+                          },
+                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
                         },
                         "arg": [
                           {
@@ -1639,25 +1646,18 @@
                         "doc": {
                           "_text": "Fails if objects are unequal after converting them to real numbers."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.669",
-                            "level": "INFO"
-                          },
-                          "_text": "Argument types are:\n<class 'int'>\n<class 'str'>"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.668",
-                            "endtime": "20240109 00:11:27.669"
+                            "start": "2024-01-16T00:10:56.049441",
+                            "elapsed": "0.000588"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Should Be True",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
                         },
                         "arg": {
                           "_text": "${response.json()}"
@@ -1668,8 +1668,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.669",
-                            "endtime": "20240109 00:11:27.670"
+                            "start": "2024-01-16T00:10:56.050181",
+                            "elapsed": "0.000470"
                           }
                         }
                       }
@@ -1677,20 +1677,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.668",
-                        "endtime": "20240109 00:11:27.670"
+                        "start": "2024-01-16T00:10:56.049099",
+                        "elapsed": "0.001630"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And the response body should not be empty",
-                      "library": "test_keywords_users"
+                      "owner": "test_keywords_users"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Should Not Be Empty",
-                        "library": "BuiltIn"
+                        "owner": "BuiltIn"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:10:56.051602",
+                          "level": "INFO"
+                        },
+                        "_text": "Length is 1."
                       },
                       "arg": {
                         "_text": "${response.json()}"
@@ -1698,26 +1705,19 @@
                       "doc": {
                         "_text": "Verifies that the given item is not empty."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:27.671",
-                          "level": "INFO"
-                        },
-                        "_text": "Length is 1"
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:27.670",
-                          "endtime": "20240109 00:11:27.671"
+                          "start": "2024-01-16T00:10:56.051157",
+                          "elapsed": "0.000494"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.670",
-                        "endtime": "20240109 00:11:27.671"
+                        "start": "2024-01-16T00:10:56.050898",
+                        "elapsed": "0.000826"
                       }
                     }
                   }
@@ -1728,8 +1728,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.580",
-                    "endtime": "20240109 00:11:27.671"
+                    "start": "2024-01-16T00:10:55.950808",
+                    "elapsed": "0.101032"
                   }
                 }
               }
@@ -1737,16 +1737,16 @@
             "status": {
               "_attributes": {
                 "status": "PASS",
-                "starttime": "20240109 00:11:26.451",
-                "endtime": "20240109 00:11:27.671"
+                "start": "2024-01-16T00:10:54.944022",
+                "elapsed": "1.108419"
               }
             }
           },
           "status": {
             "_attributes": {
               "status": "PASS",
-              "starttime": "20240109 00:11:26.450",
-              "endtime": "20240109 00:11:27.672"
+              "start": "2024-01-16T00:10:54.942905",
+              "elapsed": "1.110312"
             }
           }
         },
@@ -1773,14 +1773,21 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Open Browser",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:10:56.062355",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
                         },
                         "arg": [
                           {
@@ -1793,25 +1800,18 @@
                         "doc": {
                           "_text": "Opens a new browser instance to the optional ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:27.682",
-                            "level": "INFO"
-                          },
-                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:27.681",
-                            "endtime": "20240109 00:11:37.942"
+                            "start": "2024-01-16T00:10:56.062089",
+                            "elapsed": "12.521419"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Maximize Browser Window",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "doc": {
                           "_text": "Maximizes current browser window."
@@ -1819,8 +1819,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:37.942",
-                            "endtime": "20240109 00:11:38.048"
+                            "start": "2024-01-16T00:11:08.584045",
+                            "elapsed": "0.134625"
                           }
                         }
                       }
@@ -1828,21 +1828,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:27.681",
-                        "endtime": "20240109 00:11:38.048"
+                        "start": "2024-01-16T00:10:56.061762",
+                        "elapsed": "12.657094"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Given Im on the signup page",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Location Should Be",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:08.746762",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
                         },
                         "arg": {
                           "_text": "https://front.serverest.dev/login"
@@ -1850,25 +1857,25 @@
                         "doc": {
                           "_text": "Verifies that the current URL is exactly ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.080",
-                            "level": "INFO"
-                          },
-                          "_text": "Current location is 'https://front.serverest.dev/login'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.049",
-                            "endtime": "20240109 00:11:38.080"
+                            "start": "2024-01-16T00:11:08.719666",
+                            "elapsed": "0.027182"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Click Element",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:08.747550",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
                         },
                         "arg": {
                           "_text": "css=a.btn.btn-link"
@@ -1876,18 +1883,11 @@
                         "doc": {
                           "_text": "Click the element identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.081",
-                            "level": "INFO"
-                          },
-                          "_text": "Clicking element 'css=a.btn.btn-link'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.080",
-                            "endtime": "20240109 00:11:38.338"
+                            "start": "2024-01-16T00:11:08.747041",
+                            "elapsed": "0.174371"
                           }
                         }
                       }
@@ -1895,20 +1895,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:38.048",
-                        "endtime": "20240109 00:11:38.338"
+                        "start": "2024-01-16T00:11:08.719236",
+                        "elapsed": "0.202418"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I click in signup",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Click Button",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:11:08.922780",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
                       },
                       "arg": {
                         "_text": "css=.btn.btn-primary"
@@ -1916,39 +1923,32 @@
                       "doc": {
                         "_text": "Clicks the button identified by ``locator``."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:38.339",
-                          "level": "INFO"
-                        },
-                        "_text": "Clicking button 'css=.btn.btn-primary'."
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:38.338",
-                          "endtime": "20240109 00:11:38.456"
+                          "start": "2024-01-16T00:11:08.922537",
+                          "elapsed": "0.269377"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:38.338",
-                        "endtime": "20240109 00:11:38.456"
+                        "start": "2024-01-16T00:11:08.922057",
+                        "elapsed": "0.270100"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then required field messages should be displayed",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Wait Until Element Is Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "arg": [
                           {
@@ -1964,15 +1964,22 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.457",
-                            "endtime": "20240109 00:11:38.755"
+                            "start": "2024-01-16T00:11:09.192998",
+                            "elapsed": "0.225528"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Element Should Be Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:09.432200",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
                         },
                         "arg": {
                           "_text": "css=.alert-dismissible"
@@ -1980,25 +1987,25 @@
                         "doc": {
                           "_text": "Verifies that the element identified by ``locator`` is visible."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.771",
-                            "level": "INFO"
-                          },
-                          "_text": "Element 'css=.alert-dismissible' is displayed."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.755",
-                            "endtime": "20240109 00:11:38.771"
+                            "start": "2024-01-16T00:11:09.418845",
+                            "elapsed": "0.013468"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Page Should Contain",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:09.455808",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Nome é obrigatório'."
                         },
                         "arg": {
                           "_text": "Nome é obrigatório"
@@ -2006,25 +2013,25 @@
                         "doc": {
                           "_text": "Verifies that current page contains ``text``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.805",
-                            "level": "INFO"
-                          },
-                          "_text": "Current page contains text 'Nome é obrigatório'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.771",
-                            "endtime": "20240109 00:11:38.806"
+                            "start": "2024-01-16T00:11:09.432574",
+                            "elapsed": "0.023344"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Page Should Contain",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:09.465547",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Email é obrigatório'."
                         },
                         "arg": {
                           "_text": "Email é obrigatório"
@@ -2032,25 +2039,25 @@
                         "doc": {
                           "_text": "Verifies that current page contains ``text``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.817",
-                            "level": "INFO"
-                          },
-                          "_text": "Current page contains text 'Email é obrigatório'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.806",
-                            "endtime": "20240109 00:11:38.818"
+                            "start": "2024-01-16T00:11:09.456164",
+                            "elapsed": "0.009456"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Page Should Contain",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:09.474937",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Password é obrigatório'."
                         },
                         "arg": {
                           "_text": "Password é obrigatório"
@@ -2058,18 +2065,11 @@
                         "doc": {
                           "_text": "Verifies that current page contains ``text``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.828",
-                            "level": "INFO"
-                          },
-                          "_text": "Current page contains text 'Password é obrigatório'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.818",
-                            "endtime": "20240109 00:11:38.828"
+                            "start": "2024-01-16T00:11:09.465806",
+                            "elapsed": "0.009209"
                           }
                         }
                       }
@@ -2077,21 +2077,21 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:38.456",
-                        "endtime": "20240109 00:11:38.828"
+                        "start": "2024-01-16T00:11:09.192586",
+                        "elapsed": "0.282527"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "After Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "TEARDOWN"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Close Browser",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
                       },
                       "doc": {
                         "_text": "Closes the current browser."
@@ -2099,16 +2099,16 @@
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:38.829",
-                          "endtime": "20240109 00:11:38.894"
+                          "start": "2024-01-16T00:11:09.475795",
+                          "elapsed": "0.062643"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:38.829",
-                        "endtime": "20240109 00:11:38.894"
+                        "start": "2024-01-16T00:11:09.475460",
+                        "elapsed": "0.063155"
                       }
                     }
                   }
@@ -2119,8 +2119,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:27.681",
-                    "endtime": "20240109 00:11:38.894"
+                    "start": "2024-01-16T00:10:56.061204",
+                    "elapsed": "13.477512"
                   }
                 }
               },
@@ -2134,14 +2134,21 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Open Browser",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:09.540642",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
                         },
                         "arg": [
                           {
@@ -2154,25 +2161,18 @@
                         "doc": {
                           "_text": "Opens a new browser instance to the optional ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:38.896",
-                            "level": "INFO"
-                          },
-                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:38.896",
-                            "endtime": "20240109 00:11:40.374"
+                            "start": "2024-01-16T00:11:09.540316",
+                            "elapsed": "1.254561"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Maximize Browser Window",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "doc": {
                           "_text": "Maximizes current browser window."
@@ -2180,8 +2180,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.374",
-                            "endtime": "20240109 00:11:40.485"
+                            "start": "2024-01-16T00:11:10.795443",
+                            "elapsed": "0.104308"
                           }
                         }
                       }
@@ -2189,21 +2189,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:38.895",
-                        "endtime": "20240109 00:11:40.486"
+                        "start": "2024-01-16T00:11:09.539947",
+                        "elapsed": "1.360049"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Given Im on the signup page",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Location Should Be",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:10.905973",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
                         },
                         "arg": {
                           "_text": "https://front.serverest.dev/login"
@@ -2211,25 +2218,25 @@
                         "doc": {
                           "_text": "Verifies that the current URL is exactly ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.491",
-                            "level": "INFO"
-                          },
-                          "_text": "Current location is 'https://front.serverest.dev/login'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.486",
-                            "endtime": "20240109 00:11:40.491"
+                            "start": "2024-01-16T00:11:10.901197",
+                            "elapsed": "0.004897"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Click Element",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:10.906754",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
                         },
                         "arg": {
                           "_text": "css=a.btn.btn-link"
@@ -2237,18 +2244,11 @@
                         "doc": {
                           "_text": "Click the element identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.492",
-                            "level": "INFO"
-                          },
-                          "_text": "Clicking element 'css=a.btn.btn-link'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.492",
-                            "endtime": "20240109 00:11:40.535"
+                            "start": "2024-01-16T00:11:10.906376",
+                            "elapsed": "0.107745"
                           }
                         }
                       }
@@ -2256,21 +2256,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:40.486",
-                        "endtime": "20240109 00:11:40.535"
+                        "start": "2024-01-16T00:11:10.900538",
+                        "elapsed": "0.113820"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And I fill in the signup fields with valid data",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Name",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.016099",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Alexa Nelson"
                         },
                         "var": {
                           "_text": "${name}"
@@ -2278,48 +2285,48 @@
                         "doc": {
                           "_text": ":example: 'John Doe'"
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.536",
-                            "level": "INFO"
-                          },
-                          "_text": "${name} = Tammy Reese"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.535",
-                            "endtime": "20240109 00:11:40.536"
+                            "start": "2024-01-16T00:11:11.015437",
+                            "elapsed": "0.000701"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Email",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.016799",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = anne29@example.org"
                         },
                         "var": {
                           "_text": "${email}"
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.536",
-                            "level": "INFO"
-                          },
-                          "_text": "${email} = melissaschroeder@example.org"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.536",
-                            "endtime": "20240109 00:11:40.536"
+                            "start": "2024-01-16T00:11:11.016348",
+                            "elapsed": "0.000505"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Password",
-                          "library": "FakerLibrary"
+                          "owner": "FakerLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.017483",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = eb34dc06d16K"
                         },
                         "var": {
                           "_text": "${password}"
@@ -2335,25 +2342,25 @@
                         "doc": {
                           "_text": "Generate a random password of the specified ``length``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.537",
-                            "level": "INFO"
-                          },
-                          "_text": "${password} = 2bVux4zwm9Bm"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.536",
-                            "endtime": "20240109 00:11:40.537"
+                            "start": "2024-01-16T00:11:11.017030",
+                            "elapsed": "0.000493"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.018160",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'Alexa Nelson' into text field 'id:nome'."
                         },
                         "arg": [
                           {
@@ -2366,25 +2373,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.537",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text 'Tammy Reese' into text field 'id:nome'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.537",
-                            "endtime": "20240109 00:11:40.832"
+                            "start": "2024-01-16T00:11:11.017775",
+                            "elapsed": "0.139113"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.157587",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'anne29@example.org' into text field 'id:email'."
                         },
                         "arg": [
                           {
@@ -2397,25 +2404,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:40.833",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text 'melissaschroeder@example.org' into text field 'id:email'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:40.832",
-                            "endtime": "20240109 00:11:41.005"
+                            "start": "2024-01-16T00:11:11.157226",
+                            "elapsed": "0.086417"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.244278",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'eb34dc06d16K' into text field 'id:password'."
                         },
                         "arg": [
                           {
@@ -2428,25 +2435,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.006",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text '2bVux4zwm9Bm' into text field 'id:password'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.005",
-                            "endtime": "20240109 00:11:41.076"
+                            "start": "2024-01-16T00:11:11.243949",
+                            "elapsed": "0.063860"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Select Checkbox",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.308372",
+                            "level": "INFO"
+                          },
+                          "_text": "Selecting checkbox 'id=administrador'."
                         },
                         "arg": {
                           "_text": "id=administrador"
@@ -2454,25 +2461,25 @@
                         "doc": {
                           "_text": "Selects the checkbox identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.077",
-                            "level": "INFO"
-                          },
-                          "_text": "Selecting checkbox 'id=administrador'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.076",
-                            "endtime": "20240109 00:11:41.137"
+                            "start": "2024-01-16T00:11:11.308101",
+                            "elapsed": "0.054496"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.363265",
+                            "level": "INFO"
+                          },
+                          "_text": "${name} = Alexa Nelson"
                         },
                         "arg": {
                           "_text": "${name}"
@@ -2480,25 +2487,25 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.138",
-                            "level": "INFO"
-                          },
-                          "_text": "${name} = Tammy Reese"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.137",
-                            "endtime": "20240109 00:11:41.138"
+                            "start": "2024-01-16T00:11:11.362909",
+                            "elapsed": "0.000410"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.363682",
+                            "level": "INFO"
+                          },
+                          "_text": "${email} = anne29@example.org"
                         },
                         "arg": {
                           "_text": "${email}"
@@ -2506,25 +2513,25 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.138",
-                            "level": "INFO"
-                          },
-                          "_text": "${email} = melissaschroeder@example.org"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.138",
-                            "endtime": "20240109 00:11:41.138"
+                            "start": "2024-01-16T00:11:11.363475",
+                            "elapsed": "0.000259"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Set Suite Variable",
-                          "library": "BuiltIn"
+                          "owner": "BuiltIn"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.364082",
+                            "level": "INFO"
+                          },
+                          "_text": "${password} = eb34dc06d16K"
                         },
                         "arg": {
                           "_text": "${password}"
@@ -2532,18 +2539,11 @@
                         "doc": {
                           "_text": "Makes a variable available everywhere within the scope of the current suite."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.138",
-                            "level": "INFO"
-                          },
-                          "_text": "${password} = 2bVux4zwm9Bm"
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.138",
-                            "endtime": "20240109 00:11:41.138"
+                            "start": "2024-01-16T00:11:11.363881",
+                            "elapsed": "0.000245"
                           }
                         }
                       }
@@ -2551,20 +2551,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:40.535",
-                        "endtime": "20240109 00:11:41.138"
+                        "start": "2024-01-16T00:11:11.014842",
+                        "elapsed": "0.349366"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I click in signup",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Click Button",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:11:11.364914",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
                       },
                       "arg": {
                         "_text": "css=.btn.btn-primary"
@@ -2572,40 +2579,33 @@
                       "doc": {
                         "_text": "Clicks the button identified by ``locator``."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:41.139",
-                          "level": "INFO"
-                        },
-                        "_text": "Clicking button 'css=.btn.btn-primary'."
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:41.139",
-                          "endtime": "20240109 00:11:41.289"
+                          "start": "2024-01-16T00:11:11.364709",
+                          "elapsed": "0.044534"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:41.138",
-                        "endtime": "20240109 00:11:41.289"
+                        "start": "2024-01-16T00:11:11.364407",
+                        "elapsed": "0.044974"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the page should contain the text \"Cadastro realizado com sucesso\"",
-                      "library": "test_keywords_signup",
-                      "sourcename": "Then the page should contain the text \"${expected_text}\""
+                      "owner": "test_keywords_signup",
+                      "source_name": "Then the page should contain the text \"${expected_text}\""
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Wait Until Element Is Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "arg": [
                           {
@@ -2621,15 +2621,22 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.289",
-                            "endtime": "20240109 00:11:41.517"
+                            "start": "2024-01-16T00:11:11.410064",
+                            "elapsed": "0.223900"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Element Should Be Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.647686",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
                         },
                         "arg": {
                           "_text": "css=.alert-dismissible"
@@ -2637,25 +2644,25 @@
                         "doc": {
                           "_text": "Verifies that the element identified by ``locator`` is visible."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.533",
-                            "level": "INFO"
-                          },
-                          "_text": "Element 'css=.alert-dismissible' is displayed."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.518",
-                            "endtime": "20240109 00:11:41.533"
+                            "start": "2024-01-16T00:11:11.634298",
+                            "elapsed": "0.013462"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Page Should Contain",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.657148",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Cadastro realizado com sucesso'."
                         },
                         "arg": {
                           "_text": "${expected_text}"
@@ -2663,18 +2670,11 @@
                         "doc": {
                           "_text": "Verifies that current page contains ``text``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.543",
-                            "level": "INFO"
-                          },
-                          "_text": "Current page contains text 'Cadastro realizado com sucesso'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.533",
-                            "endtime": "20240109 00:11:41.543"
+                            "start": "2024-01-16T00:11:11.647942",
+                            "elapsed": "0.009274"
                           }
                         }
                       }
@@ -2682,21 +2682,21 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:41.289",
-                        "endtime": "20240109 00:11:41.543"
+                        "start": "2024-01-16T00:11:11.409652",
+                        "elapsed": "0.247658"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "After Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "TEARDOWN"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Close Browser",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
                       },
                       "doc": {
                         "_text": "Closes the current browser."
@@ -2704,16 +2704,16 @@
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:41.544",
-                          "endtime": "20240109 00:11:41.609"
+                          "start": "2024-01-16T00:11:11.657991",
+                          "elapsed": "0.063629"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:41.544",
-                        "endtime": "20240109 00:11:41.609"
+                        "start": "2024-01-16T00:11:11.657632",
+                        "elapsed": "0.064131"
                       }
                     }
                   }
@@ -2724,8 +2724,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:38.895",
-                    "endtime": "20240109 00:11:41.609"
+                    "start": "2024-01-16T00:11:09.539245",
+                    "elapsed": "2.182602"
                   }
                 }
               },
@@ -2739,14 +2739,21 @@
                   {
                     "_attributes": {
                       "name": "Before Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "SETUP"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Open Browser",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:11.723561",
+                            "level": "INFO"
+                          },
+                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
                         },
                         "arg": [
                           {
@@ -2759,25 +2766,18 @@
                         "doc": {
                           "_text": "Opens a new browser instance to the optional ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:41.611",
-                            "level": "INFO"
-                          },
-                          "_text": "Opening browser 'headless Chrome' to base url 'https://front.serverest.dev/'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:41.610",
-                            "endtime": "20240109 00:11:43.142"
+                            "start": "2024-01-16T00:11:11.723254",
+                            "elapsed": "1.221841"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Maximize Browser Window",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "doc": {
                           "_text": "Maximizes current browser window."
@@ -2785,8 +2785,8 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.142",
-                            "endtime": "20240109 00:11:43.254"
+                            "start": "2024-01-16T00:11:12.945668",
+                            "elapsed": "0.104301"
                           }
                         }
                       }
@@ -2794,21 +2794,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:41.610",
-                        "endtime": "20240109 00:11:43.254"
+                        "start": "2024-01-16T00:11:11.722893",
+                        "elapsed": "1.327310"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Given Im on the signup page",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Location Should Be",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.055965",
+                            "level": "INFO"
+                          },
+                          "_text": "Current location is 'https://front.serverest.dev/login'."
                         },
                         "arg": {
                           "_text": "https://front.serverest.dev/login"
@@ -2816,25 +2823,25 @@
                         "doc": {
                           "_text": "Verifies that the current URL is exactly ``url``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.260",
-                            "level": "INFO"
-                          },
-                          "_text": "Current location is 'https://front.serverest.dev/login'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.255",
-                            "endtime": "20240109 00:11:43.260"
+                            "start": "2024-01-16T00:11:13.051286",
+                            "elapsed": "0.004790"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Click Element",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.056706",
+                            "level": "INFO"
+                          },
+                          "_text": "Clicking element 'css=a.btn.btn-link'."
                         },
                         "arg": {
                           "_text": "css=a.btn.btn-link"
@@ -2842,18 +2849,11 @@
                         "doc": {
                           "_text": "Click the element identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.261",
-                            "level": "INFO"
-                          },
-                          "_text": "Clicking element 'css=a.btn.btn-link'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.260",
-                            "endtime": "20240109 00:11:43.302"
+                            "start": "2024-01-16T00:11:13.056354",
+                            "elapsed": "0.108935"
                           }
                         }
                       }
@@ -2861,21 +2861,28 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:43.254",
-                        "endtime": "20240109 00:11:43.302"
+                        "start": "2024-01-16T00:11:13.050693",
+                        "elapsed": "0.114804"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "And I fill in the signup fields with an email already registered",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.167188",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'Alexa Nelson' into text field 'id:nome'."
                         },
                         "arg": [
                           {
@@ -2888,25 +2895,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.303",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text 'Tammy Reese' into text field 'id:nome'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.303",
-                            "endtime": "20240109 00:11:43.399"
+                            "start": "2024-01-16T00:11:13.166463",
+                            "elapsed": "0.083241"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.250544",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'anne29@example.org' into text field 'id:email'."
                         },
                         "arg": [
                           {
@@ -2919,25 +2926,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.401",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text 'melissaschroeder@example.org' into text field 'id:email'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.400",
-                            "endtime": "20240109 00:11:43.550"
+                            "start": "2024-01-16T00:11:13.250119",
+                            "elapsed": "0.071528"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Input Text",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.322292",
+                            "level": "INFO"
+                          },
+                          "_text": "Typing text 'eb34dc06d16K' into text field 'id:password'."
                         },
                         "arg": [
                           {
@@ -2950,25 +2957,25 @@
                         "doc": {
                           "_text": "Types the given ``text`` into the text field identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.551",
-                            "level": "INFO"
-                          },
-                          "_text": "Typing text '2bVux4zwm9Bm' into text field 'id:password'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.550",
-                            "endtime": "20240109 00:11:43.623"
+                            "start": "2024-01-16T00:11:13.321961",
+                            "elapsed": "0.063585"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Select Checkbox",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.386105",
+                            "level": "INFO"
+                          },
+                          "_text": "Selecting checkbox 'id=administrador'."
                         },
                         "arg": {
                           "_text": "id=administrador"
@@ -2976,18 +2983,11 @@
                         "doc": {
                           "_text": "Selects the checkbox identified by ``locator``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.623",
-                            "level": "INFO"
-                          },
-                          "_text": "Selecting checkbox 'id=administrador'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.623",
-                            "endtime": "20240109 00:11:43.687"
+                            "start": "2024-01-16T00:11:13.385812",
+                            "elapsed": "0.053368"
                           }
                         }
                       }
@@ -2995,20 +2995,27 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:43.303",
-                        "endtime": "20240109 00:11:43.687"
+                        "start": "2024-01-16T00:11:13.165881",
+                        "elapsed": "0.273432"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "When I click in signup",
-                      "library": "test_keywords_signup"
+                      "owner": "test_keywords_signup"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Click Button",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
+                      },
+                      "msg": {
+                        "_attributes": {
+                          "time": "2024-01-16T00:11:13.440129",
+                          "level": "INFO"
+                        },
+                        "_text": "Clicking button 'css=.btn.btn-primary'."
                       },
                       "arg": {
                         "_text": "css=.btn.btn-primary"
@@ -3016,40 +3023,33 @@
                       "doc": {
                         "_text": "Clicks the button identified by ``locator``."
                       },
-                      "msg": {
-                        "_attributes": {
-                          "timestamp": "20240109 00:11:43.688",
-                          "level": "INFO"
-                        },
-                        "_text": "Clicking button 'css=.btn.btn-primary'."
-                      },
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:43.688",
-                          "endtime": "20240109 00:11:43.739"
+                          "start": "2024-01-16T00:11:13.439920",
+                          "elapsed": "0.044818"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:43.687",
-                        "endtime": "20240109 00:11:43.739"
+                        "start": "2024-01-16T00:11:13.439564",
+                        "elapsed": "0.045318"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "Then the page should contain the text \"Este email já está sendo usado\"",
-                      "library": "test_keywords_signup",
-                      "sourcename": "Then the page should contain the text \"${expected_text}\""
+                      "owner": "test_keywords_signup",
+                      "source_name": "Then the page should contain the text \"${expected_text}\""
                     },
                     "kw": [
                       {
                         "_attributes": {
                           "name": "Wait Until Element Is Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
                         },
                         "arg": [
                           {
@@ -3065,15 +3065,22 @@
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.739",
-                            "endtime": "20240109 00:11:43.968"
+                            "start": "2024-01-16T00:11:13.485555",
+                            "elapsed": "0.223482"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Element Should Be Visible",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.722762",
+                            "level": "INFO"
+                          },
+                          "_text": "Element 'css=.alert-dismissible' is displayed."
                         },
                         "arg": {
                           "_text": "css=.alert-dismissible"
@@ -3081,25 +3088,25 @@
                         "doc": {
                           "_text": "Verifies that the element identified by ``locator`` is visible."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.985",
-                            "level": "INFO"
-                          },
-                          "_text": "Element 'css=.alert-dismissible' is displayed."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.968",
-                            "endtime": "20240109 00:11:43.985"
+                            "start": "2024-01-16T00:11:13.709347",
+                            "elapsed": "0.013488"
                           }
                         }
                       },
                       {
                         "_attributes": {
                           "name": "Page Should Contain",
-                          "library": "SeleniumLibrary"
+                          "owner": "SeleniumLibrary"
+                        },
+                        "msg": {
+                          "_attributes": {
+                            "time": "2024-01-16T00:11:13.732712",
+                            "level": "INFO"
+                          },
+                          "_text": "Current page contains text 'Este email já está sendo usado'."
                         },
                         "arg": {
                           "_text": "${expected_text}"
@@ -3107,18 +3114,11 @@
                         "doc": {
                           "_text": "Verifies that current page contains ``text``."
                         },
-                        "msg": {
-                          "_attributes": {
-                            "timestamp": "20240109 00:11:43.996",
-                            "level": "INFO"
-                          },
-                          "_text": "Current page contains text 'Este email já está sendo usado'."
-                        },
                         "status": {
                           "_attributes": {
                             "status": "PASS",
-                            "starttime": "20240109 00:11:43.985",
-                            "endtime": "20240109 00:11:43.996"
+                            "start": "2024-01-16T00:11:13.723011",
+                            "elapsed": "0.009770"
                           }
                         }
                       }
@@ -3126,21 +3126,21 @@
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:43.739",
-                        "endtime": "20240109 00:11:43.996"
+                        "start": "2024-01-16T00:11:13.485162",
+                        "elapsed": "0.247716"
                       }
                     }
                   },
                   {
                     "_attributes": {
                       "name": "After Tests",
-                      "library": "test_keywords_common",
+                      "owner": "test_keywords_common",
                       "type": "TEARDOWN"
                     },
                     "kw": {
                       "_attributes": {
                         "name": "Close Browser",
-                        "library": "SeleniumLibrary"
+                        "owner": "SeleniumLibrary"
                       },
                       "doc": {
                         "_text": "Closes the current browser."
@@ -3148,16 +3148,16 @@
                       "status": {
                         "_attributes": {
                           "status": "PASS",
-                          "starttime": "20240109 00:11:43.996",
-                          "endtime": "20240109 00:11:44.060"
+                          "start": "2024-01-16T00:11:13.733559",
+                          "elapsed": "0.062912"
                         }
                       }
                     },
                     "status": {
                       "_attributes": {
                         "status": "PASS",
-                        "starttime": "20240109 00:11:43.996",
-                        "endtime": "20240109 00:11:44.060"
+                        "start": "2024-01-16T00:11:13.733225",
+                        "elapsed": "0.063388"
                       }
                     }
                   }
@@ -3168,8 +3168,8 @@
                 "status": {
                   "_attributes": {
                     "status": "PASS",
-                    "starttime": "20240109 00:11:41.610",
-                    "endtime": "20240109 00:11:44.060"
+                    "start": "2024-01-16T00:11:11.722320",
+                    "elapsed": "2.074373"
                   }
                 }
               }
@@ -3177,16 +3177,16 @@
             "status": {
               "_attributes": {
                 "status": "PASS",
-                "starttime": "20240109 00:11:27.674",
-                "endtime": "20240109 00:11:44.060"
+                "start": "2024-01-16T00:10:56.055073",
+                "elapsed": "17.742200"
               }
             }
           },
           "status": {
             "_attributes": {
               "status": "PASS",
-              "starttime": "20240109 00:11:27.673",
-              "endtime": "20240109 00:11:44.062"
+              "start": "2024-01-16T00:10:56.053755",
+              "elapsed": "17.744343"
             }
           }
         }
@@ -3194,8 +3194,8 @@
       "status": {
         "_attributes": {
           "status": "PASS",
-          "starttime": "20240109 00:11:26.433",
-          "endtime": "20240109 00:11:44.063"
+          "start": "2024-01-16T00:10:54.923440",
+          "elapsed": "18.875221"
         }
       }
     },
